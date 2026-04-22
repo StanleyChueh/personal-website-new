@@ -156,23 +156,23 @@ export const portfolioGroups: PortfolioGroup[] = [
         video: '/videos/franka_open_drawer.mp4',
       },
       {
-        title: 'VLAs on Koch',
-        description: 'Training ACT model with collected data.',
+        title: 'Visual Language Action Models (VLAs) on Koch',
+        description: 'Training VLA models with collected data.',
         url: '/projects/koch-vla',
         video: '/videos/three_task_cut_4x_speed.mp4',
       },
       {
-        title: 'Real Robot Deployment',
-        description: 'Deploying trained model on real robot.',
+        title: 'Model Interpretability on VLA Models',
+        description: 'Open up the black box of VLA models.',
         url: '/projects/attention-heat-map',
-        video: '/videos/attention_vis_with_state.mp4',
+        video: '/videos/svla_attention_weight_correct_prompt_unfrozen_vision_encoder_crop.mp4',
       },
     ],
     timeline: [
       {date: 'Jan ~ May 2025', label: 'Koch with ACT', completed: true},
       {date: 'Jun ~ Dec 2025', label: 'Franka Emika with ACT', completed: true},
       {date: 'Jan ~ Feb 2026', label: 'Koch with VLAs', completed: true},
-      {date: 'Feb 2026~', label: 'Attention heat map(on going...)', completed: false},
+      {date: 'Feb 2026~', label: 'Model Interpretability (on going...)', completed: false},
     ],
   },
   {
@@ -321,7 +321,7 @@ export const experience: TimelineItem[] = [
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  description: 'Feel free to reach out to me via email or connect with me on social media. I am always open to discussing new projects, collaborations, or opportunities in the field of robotics and AI.',
   items: [
     {
       type: ContactType.Email,
