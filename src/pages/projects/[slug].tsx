@@ -773,9 +773,9 @@ const projects: Record<string, {
 
   // Project 5(Autonomous Navigation System Development for turtlebot)
   'turtlebot-nav': {
-    title: 'Multi-map Switching System for Robot Navigation',
+    title: 'Hybrid A* algorithm for robot navigation',
     description: `
-      Developing a multi-map switching system for autonomous navigation of a TurtleBot in dynamic environments.
+      Developing a hybrid A* algorithm for autonomous navigation of a TurtleBot in dynamic environments.
     `.trim(),
     videos: [
       {src: '/videos/turtlebot_multi_map.mp4', caption: 'Multi-map switching demo'},
@@ -792,44 +792,61 @@ const projects: Record<string, {
         title: 'Overview',
         content: (
           <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models like <strong>SmolVLA & GR00T N1.5 </strong>and{' '}
-            <strong>imitation learning like Action Chunking Transformer(ACT) </strong>.
+            This project demonstrates how to use Turtlebot3 for autonomous navigation in dynamic environments using a hybrid A* algorithm from simulation to real-world deployment.
           </p>
         ),
       },
       {
-        title: 'Project Details',
-        content: (
-          <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models and{' '}
-            <strong>imitation learning</strong>.
-          </p>
-        ),
-      },
-      {
-        title: 'Technical Details',
+        title: 'Robot Setup',
         content: (
           <div className="space-y-4">
             <p>
-              The system uses <span className="font-bold">ROS2</span> for robot control
-              and <span className="font-bold">PyTorch</span> for model inference.
+              We use the TurtleBot3 Burger platform equipped with a LiDAR sensor for navigation.
             </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Framework:</strong> ROS2 Humble</li>
-              <li><strong>Model:</strong> Action Chunking Transformer</li>
-              <li><strong>Inference Speed:</strong> 10Hz real-time</li>
-            </ul>
+            <div className="flex justify-center">
+              <img
+              src={`/images/portfolio/turtlebot3.png`}
+              alt="TurtleBot3 Burger platform equipped with a LiDAR sensor for navigation"
+              className="w-3/4 rounded-lg shadow-lg"
+              />
+            </div>
+            <p className="text-sm text-gray-400 text-center mt-2">TurtleBot3 Burger platform setup</p>
           </div>
         ),
       },
-    ],
-    links: [
-      {label: 'GitHub', url: 'https://github.com/yourusername/turtlebot-multi-map'},
-      {label: 'Paper', url: 'https://arxiv.org/abs/xxxx.xxxxx'},
-    ],
-  },
+      {
+        title: 'Hybrid A* Algorithm(Sim2Real)',
+        content: (
+          <div className="space-y-4">
+            <p>
+              We implement a hybrid A* algorithm that combines grid-based A* and sampling-based RRT for efficient path planning in dynamic environments. The algorithm is tested in simulation and real-world scenarios.
+            </p>
+            <div className="my-4 flex justify-center">
+              <div className="max-w-2xl w-full">
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/WlBBGpIwAvg?si=1b6nyTCwvE3p-iRs&autoplay=1&loop=1&playlist=WlBBGpIwAvg"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                />
+              </div>
+            <p className="text-sm text-gray-400 text-center mt-2">Hybrid A* Algorithm visualization(Gazebo to Real-world)</p>
+            </div>
+          </div>
+          </div>
+        ),
+      }
+          ],
+          links: [
+            {label: 'GitHub', url: 'https://github.com/yourusername/turtlebot-multi-map'},
+            {label: 'Paper', url: 'https://arxiv.org/abs/xxxx.xxxxx'},
+          ],
+        },
   
   // Project 6(Autonomous Navigation System Development for spot)
   'spot-nav': {
