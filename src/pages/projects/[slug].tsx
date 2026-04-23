@@ -272,6 +272,11 @@ const projects: Record<string, {
               Human demonstrations are collected via <strong>teleoperation</strong> using a leader-follower 
               setup, where the operator controls a leader arm and the follower arm mimics the movements.
             </p>
+
+            <p>
+              Detail: We utilize <a href="https://arxiv.org/abs/2309.13037" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">GELLO project</a> to mimic the similar method we use on koch robot in data collection.
+              We are using joint impedance control for Franka Emika Panda by <a href="https://github.com/frankaemika/franka_ros" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Franka ROS</a> and using leading arm's joint states to control the follower arm in a leader-follower teleoperation setup.
+            </p>
                 <video
                 autoPlay
                 loop
@@ -333,13 +338,6 @@ const projects: Record<string, {
                 </div>
               </div>
             </div>
-            <h3 className="text-lg font-semibold text-white mt-6">Training Configuration</h3>
-            <ul className="list-disc pl-6 space-y-1">
-              <li><strong>Batch size:</strong> 32 (ACT) / 8 (VLAs)</li>
-              <li><strong>Learning rate:</strong> 1e-4 (ACT) / 2e-5 (VLAs)</li>
-              <li><strong>Training epochs:</strong> 100 (ACT) / 50 (VLAs)</li>
-              <li><strong>GPU:</strong> NVIDIA RTX 4090</li>
-            </ul>
           </div>
         ),
       },
@@ -354,7 +352,7 @@ const projects: Record<string, {
             {/* Task Setup Video */}            
             <h3 className="text-lg font-semibold text-white mt-6">Real-time Inference</h3>
             <p>
-              The model runs at <strong>~30Hz</strong>, predicting action chunks that are 
+              The model runs at <strong>~10Hz</strong>, predicting action chunks that are 
               executed by the robot controller in real-time.
             </p>
             
@@ -368,9 +366,9 @@ const projects: Record<string, {
                   playsInline
                   className="w-full rounded-lg shadow-lg"
                 >
-                  <source src={`/videos/koch_open_drawer.mp4`} type="video/mp4" />
+                  <source src={`/videos/franka_open_drawer.mp4`} type="video/mp4" />
                 </video>
-                <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 50 episodes training</p>
+                <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 100 episodes training <a href="https://huggingface.co/datasets/ethanCSL/open_drawer" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a></p>
               </div>
               
               <div>
@@ -381,9 +379,9 @@ const projects: Record<string, {
                   playsInline
                   className="w-full rounded-lg shadow-lg"
                 >
-                  <source src={`/videos/lerobot_classification.mp4`} type="video/mp4" />
+                  <source src={`/videos/ACT_pick_n_place_robust.mp4`} type="video/mp4" />
                 </video>
-                <p className="text-sm text-gray-400 text-center mt-2">Real-time action classification using the trained ACT model</p>
+                <p className="text-sm text-gray-400 text-center mt-2">Autonomous pick-and-place task execution after 100 episodes training (robustness testing) <a href="https://huggingface.co/datasets/ethanCSL/pick_n_place_100" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a></p> 
               </div>
             </div>
           </div>
@@ -393,6 +391,8 @@ const projects: Record<string, {
     links: [
       {label: 'GitHub', url: 'https://github.com/huggingface/lerobot.git'},
       {label: 'Paper', url: 'https://arxiv.org/abs/2304.13705'},
+      {label: 'Franka ROS', url: 'https://github.com/frankaemika/franka_ros'},
+      {label: 'GELLO', url: 'https://arxiv.org/abs/2309.13037'},
     ],
   },
 
