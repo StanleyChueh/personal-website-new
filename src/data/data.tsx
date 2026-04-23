@@ -164,7 +164,7 @@ export const portfolioGroups: PortfolioGroup[] = [
       {
         title: 'Model Interpretability on VLA Models',
         description: 'Open up the black box of VLA models.',
-        url: '/projects/attention-heat-map',
+        url: '/projects/model-interpretability-vla',
         video: '/videos/svla_attention_weight_correct_prompt_unfrozen_vision_encoder_crop.mp4',
       },
     ],

@@ -577,64 +577,197 @@ const projects: Record<string, {
         },
 
   // Project 4(Imitation Learning & VLA Development)
-  'attention-heat-map': {
-    title: 'Attention Heat Map Visualization for VLA Models',
-    description: `
-      Visualizing attention maps for VLA models to understand how the model focuses on different parts of the input.
-    `.trim(),
-    videos: [
-      {src: '/videos/franka_open_draw.mp4', caption: 'Robot opening drawer demo'},
-    ],
-    images: [
-      {src: '/images/portfolio/franka-1.png', caption: 'System setup'},
-      {src: '/images/portfolio/franka-2.png', caption: 'Training process'},
-    ],
-    youtubeIds: [
-      {id: '8RHWoJiWaVc', caption: 'Full demonstration video'},
-    ],
-    sections: [
-      {
-        title: 'Overview',
-        content: (
-          <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models like <strong>SmolVLA & GR00T N1.5 </strong>and{' '}
-            <strong>imitation learning like Action Chunking Transformer(ACT) </strong>.
-          </p>
-        ),
+  'model-interpretability-vla': {
+      title: 'Model Interpretability on VLA Models',
+      description: `
+        Open up the black box of VLA models and understand how they make decisions in robotic tasks.
+      `.trim(),
+      videos: [
+        {src: '/videos/franka_open_draw.mp4', caption: 'Robot opening drawer demo'},
+      ],
+      images: [
+        {src: '/images/portfolio/franka-1.png', caption: 'System setup'},
+        {src: '/images/portfolio/franka-2.png', caption: 'Training process'},
+      ],
+      youtubeIds: [
+        {id: '8RHWoJiWaVc', caption: 'Full demonstration video'},
+      ],
+      sections: [
+        {
+          title: 'Overview',
+          content: (
+            <p>
+              In previous work, we demonstrated how robotic arms can learn from human demonstrations through{' '} demonstrations, but how do these VLA models actually make decisions? 
+            </p>
+          ),
+        },
+        {
+          title: 'Interpretability Methods',
+          content: (
+            <div className="space-y-4">
+              <p>
+                We apply various interpretability techniques to analyze the inner workings of VLA models, including:
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Attention Visualization:</strong> Visualize attention weights to see which parts of the input the model focuses on.</li>
+                <li><strong>FFN Analysis:</strong> Analyze the feed-forward networks to understand their contribution to the model's decisions.</li>
+              </ul>
+            </div>
+          ),
       },
       {
-        title: 'Project Details',
-        content: (
-          <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models and{' '}
-            <strong>imitation learning</strong>.
-          </p>
-        ),
-      },
-      {
-        title: 'Technical Details',
+        title: 'Attention Visualization',
         content: (
           <div className="space-y-4">
             <p>
-              The system uses <span className="font-bold">ROS2</span> for robot control
-              and <span className="font-bold">PyTorch</span> for model inference.
+              By visualizing the attention weights, we can see which parts of the visual input and language instructions the model is focusing on when making decisions.
             </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Framework:</strong> ROS2 Humble</li>
-              <li><strong>Model:</strong> Action Chunking Transformer</li>
-              <li><strong>Inference Speed:</strong> 10Hz real-time</li>
-            </ul>
+            <p>
+              In the example below, we will demonstrate the experimental results of attention visualization on VLM part "self attention block" of SmolVLA and also "cross attention" block in action expert module.
+            </p>
+            <img
+              src={`/images/portfolio/smolvla_paper_architecture.png`}
+              alt="Attention Visualization - Visualizing which parts of the input the VLA model focuses on"
+              className="w-full rounded-lg shadow-lg"
+            />
+            <p className="text-sm text-gray-400 text-center mt-2">SmolVLA architecture <a href="https://arxiv.org/abs/2506.01844" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Paper</a></p>
+            
+            <h4 className="text-lg font-semibold text-white mt-6">VLM Attention Heatmap Results</h4>
+            <p>
+              Attention heatmaps from the vision-language model showing how the model attends to different regions of the image and language tokens during processing.
+            </p>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+              <source src="/videos/self_attention.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">We can clearly see the attention is noisy in environment, because the VLM does not take joint observations, and VLM is unfrzoen in default training(Rely on its pre-trained understanding)</p>
+            
+            <h4 className="text-lg font-semibold text-white mt-6">Action Expert Attention Heatmap Results</h4>
+            <p>
+              Attention heatmaps from the last cross attention block in the action expert module showing how the model attends to different features when making decisions.
+            </p>
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+              <source src="/videos/cross_attention.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">Attention is more focused in the action expert module, cause it is closer to the decision-making process, but it is still noisy</p>
+
+            <h4 className="text-lg font-semibold text-white mt-6">Unfrozen VLM Attention Heatmap Results</h4>
+            <p>
+              Unfrozen VLM can adapt its attention based on the robot's joint observations and task-specific data, which can lead to more focused attention on relevant features in the environment.
+            </p>
+            <p>
+              The Denser and more focused attention heatmap indicates that the robot is learning to attend to the most relevant parts of the input for decision-making, which can lead to improved performance and better generalization in robotic tasks.
+            </p>
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+              <source src="/videos/svla_attention_weight_correct_prompt_unfrozen_vision_encoder.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">Real-time attention visualization for the unfrozen VLM</p>
+          </div>
+        ),  
+            },
+            {
+        title: 'FFN Analysis',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Inspired by the work of <a href="https://arxiv.org/abs/2509.00328" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Mechanistic interpretability for steering vision-language-action models</a>, we analyze the feed-forward networks (FFNs) in the VLA model and identify specific semantic neurons that curry meaning as "High","Low","Fast","Slow"
+            </p>
+            <p>
+              By activating these neurons, we can control the robot to execute different trajectories, such as high or low trajectories, fast or slow trajectories.
+            </p>
+            <img
+              src={`/images/portfolio/merchanistic_interpretability_paper.png`}
+              alt="FFN Analysis - Analyzing the feed-forward networks in the VLA model"
+              className="w-full rounded-lg shadow-lg"
+            />
+            <p className="text-sm text-gray-400 text-center mt-2">Mechanistic Interpretability Analysis <a href="https://arxiv.org/abs/2509.00328" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Paper</a></p>
+            
+            <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Setup</h4>
+
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+              <source src="/videos/high_dataset.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">High trajectory demonstration </p>
+
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+              <source src="/videos/low_dataset.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">Low trajectory demonstration </p>
+            <p>
+              We collect high and low trajectory demonstrations in dataset, and with the same prompt description.</p>
+            <p>
+              We will find semantic neurons in the FFN that can distinguish high and low trajectories, and by activating these neurons, we can control the robot to execute high or low trajectories.
+            </p>
+
+            <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Result</h4>
+
+            <p> 
+              By extracting the value vector from VLM's FFN, and then project to VLA token space, we can find neurons that have semantic meaning as "High" and "Low". By activating these neurons, we can control the robot to execute high or low trajectories.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+                <source src="/videos/high_eval.mp4" type="video/mp4" />
+              </video>
+              <p className="text-sm text-gray-400 text-center mt-2">High trajectory evaluation</p>
+              </div>
+              <div>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+                <source src="/videos/low_eval.mp4" type="video/mp4" />
+              </video>
+              <p className="text-sm text-gray-400 text-center mt-2">Low trajectory evaluation</p>
+              </div>
+            </div>
           </div>
         ),
-      },
-    ],
-    links: [
-      {label: 'GitHub', url: 'https://github.com/yourusername/franka-vla'},
-      {label: 'Paper', url: 'https://arxiv.org/abs/xxxx.xxxxx'},
-    ],
-  },
+            }
+          ],
+          links: [
+            {label: 'GitHub', url: 'https://github.com/huggingface/lerobot.git'},
+            {label: 'Paper', url: 'https://arxiv.org/abs/2509.00328'},
+          ],
+        },
 
   // Autonomous Navigation System Development
 
