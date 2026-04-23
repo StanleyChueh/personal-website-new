@@ -179,16 +179,16 @@ export const portfolioGroups: PortfolioGroup[] = [
     title: 'Autonomous Navigation System Development',
     items: [
       {
-        title: 'Multi-map switching system for robot navigation',
-        description: 'Collecting training data with teleoperation.',
+        title: 'Hybrid A* algorithm for robot navigation',
+        description: 'Control system final project for path planning.',
         url: '/projects/turtlebot-nav',
-        youtubeId: 'cTmAIjYQQr8',
+        youtubeId: 'WlBBGpIwAvg',
       },
       {
-        title: 'Spot navigation in outdoor environments',
-        description: 'Deploying trained model on real robot.',
-        url: '/projects/spot-nav',
-        youtubeId: 'LI97OdDDBUY',
+        title: 'Multi-map switching system for robot navigation',
+        description: 'Multi-map switching system for TurtleBot navigation.',
+        url: '/projects/turtlebot-multi-map-nav',
+        youtubeId: 'cTmAIjYQQr8',
       },
       {
         title: 'Visual navigation system for indoor environments',
@@ -204,7 +204,7 @@ export const portfolioGroups: PortfolioGroup[] = [
       },
     ],
     timeline: [
-      {date: 'Jan ~ Jun 2024', label: 'Multi-map switching system(Turtlebot)', completed: true},
+      {date: 'Jan ~ Jun 2024', label: 'Hybrid A* algorithm for robot navigation', completed: true},
       {date: 'Jul ~ Oct 2024', label: 'Multi-map switching system(Spot)', completed: true},
       {date: 'Nov ~ Dec 2024', label: 'Visual navigation system(Triceratops)', completed: true},
       {date: 'Nov ~ Dec 2024', label: 'Local planner development(Triceratops)', completed: true},

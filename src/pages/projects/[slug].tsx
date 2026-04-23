@@ -18,7 +18,7 @@ const projects: Record<string, {
     title: 'Imitation Learning with low-cost robotic arm',
     description: `
       Imagine a robotic arm that can learn to perform tasks 
-      just by watching human demonstrations!
+      just by watching human demonstrations! 
     `.trim(),
     videos: [
       {src: '/videos/koch_open_draw.mp4', caption: 'Robot opening drawer demo'},
@@ -169,7 +169,7 @@ const projects: Record<string, {
             </p>
             
             {/* Videos Grid */}
-            <div className="grid grid-cols-1 gap-6 mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
               <div>
                 <video
                   autoPlay
@@ -281,27 +281,7 @@ const projects: Record<string, {
                 >
                 <source src="/videos/franka_data_collection.mp4" type="video/mp4" />
                 </video>
-            <p className="text-sm text-gray-400 text-center">Leader-follower teleoperation for data collection, Reference: <a href="https://arxiv.org/abs/2309.13037" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">GELLO Paper</a></p>
-
-            <h2 className="text-lg font-semibold text-white mt-6">Detail control method</h2>
-            <p>
-              The leader-follower teleoperation is implemented using a Joint impedance controller by <a href="https://github.com/frankaemika/franka_ros" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Franka-ROS project</a>
-            </p>
-            <p>
-              Previous control method relyed on Apple Vision Pro hand tracking, which is not intuitive for this robot arm. {''} Reference: <a href="https://github.com/unitreerobotics/xr_teleoperate" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Avp_teleoperate Project</a>
-            </p>
-            <video
-              autoPlay
-              loop
-              muted
-              controls
-              preload="metadata"
-              playsInline
-              className="w-full rounded-lg shadow-lg mt-2"
-            >
-              <source src="/videos/franka_record_pick_n_place_vision_pro.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <p className="text-sm text-gray-400 text-center">Leader-follower teleoperation for data collection</p>
           </div>
         ),
       },
@@ -353,6 +333,13 @@ const projects: Record<string, {
                 </div>
               </div>
             </div>
+            <h3 className="text-lg font-semibold text-white mt-6">Training Configuration</h3>
+            <ul className="list-disc pl-6 space-y-1">
+              <li><strong>Batch size:</strong> 32 (ACT) / 8 (VLAs)</li>
+              <li><strong>Learning rate:</strong> 1e-4 (ACT) / 2e-5 (VLAs)</li>
+              <li><strong>Training epochs:</strong> 100 (ACT) / 50 (VLAs)</li>
+              <li><strong>GPU:</strong> NVIDIA RTX 4090</li>
+            </ul>
           </div>
         ),
       },
@@ -367,12 +354,12 @@ const projects: Record<string, {
             {/* Task Setup Video */}            
             <h3 className="text-lg font-semibold text-white mt-6">Real-time Inference</h3>
             <p>
-              The model runs at <strong>~10Hz</strong>, predicting action chunks that are 
+              The model runs at <strong>~30Hz</strong>, predicting action chunks that are 
               executed by the robot controller in real-time.
             </p>
             
             {/* Videos Grid */}
-            <div className="grid grid-cols-1 gap-6 mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
               <div>
                 <video
                   autoPlay
@@ -381,9 +368,9 @@ const projects: Record<string, {
                   playsInline
                   className="w-full rounded-lg shadow-lg"
                 >
-                  <source src={`/videos/ACT_pick_n_place_robust.mp4`} type="video/mp4" />
+                  <source src={`/videos/koch_open_drawer.mp4`} type="video/mp4" />
                 </video>
-                <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 100 episodes training, Dataset: <a href="https://huggingface.co/datasets/ethanCSL/pick_n_place_100" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Franka pick n place</a></p>
+                <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 50 episodes training</p>
               </div>
               
               <div>
@@ -394,9 +381,9 @@ const projects: Record<string, {
                   playsInline
                   className="w-full rounded-lg shadow-lg"
                 >
-                  <source src={`/videos/franka_open_drawer.mp4`} type="video/mp4" />
+                  <source src={`/videos/lerobot_classification.mp4`} type="video/mp4" />
                 </video>
-                <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 100 episodes training, Dataset: <a href="https://huggingface.co/datasets/ethanCSL/open_drawer" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Franka open drawer</a></p>
+                <p className="text-sm text-gray-400 text-center mt-2">Real-time action classification using the trained ACT model</p>
               </div>
             </div>
           </div>
@@ -405,15 +392,13 @@ const projects: Record<string, {
     ],
     links: [
       {label: 'GitHub', url: 'https://github.com/huggingface/lerobot.git'},
-      {label: 'Paper_ACT', url: 'https://arxiv.org/abs/2304.13705'},
-      {label: 'Paper_GELLO', url: 'https://arxiv.org/abs/2309.13037'},
-      {label: 'Project_AVP_TELEOPERATE', url: 'https://github.com/unitreerobotics/xr_teleoperate'},
+      {label: 'Paper', url: 'https://arxiv.org/abs/2304.13705'},
     ],
   },
 
   // Project 3(Imitation Learning & VLA Development)
   'koch-vla': {
-    title: 'Visual Language Action Models on Koch',
+    title: 'Imitation Learning & VLAs with low-cost robotic arm',
     description: `
       Imagine a robotic arm that can learn to perform tasks 
       just by watching videos and reading instruction!
@@ -433,152 +418,50 @@ const projects: Record<string, {
         title: 'Overview',
         content: (
           <p>
-            Previous work has shown that robotic arms can learn to perform tasks using{' '}
-            <strong> Action Chunking Transformer </strong>, but it can not take language as input, so in this section, we introduce <strong>Visual Language Action (VLA)</strong> models like <strong>SmolVLA & GR00T N1.5 </strong>.
+            This project demonstrates how robotic arms can learn using{' '}
+            <strong>Visual Language Action (VLA)</strong> models like <strong>SmolVLA & GR00T N1.5 </strong>and{' '}
+            <strong>imitation learning like Action Chunking Transformer(ACT) </strong>.
           </p>
         ),
       },
       {
-        title: '1. Data Collection',
+        title: 'Project Details',
         content: (
-          <div className="space-y-4">
-            <p>
-              Data collection method is similar to previous works, but we have to use different prompt descriptions for different tasks to train the VLA model.
-            </p>
-            
-            <h3 className="text-lg font-semibold text-white mt-6">Dataset Format</h3>
-            <p>
-              We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files 
-              containing <strong> observation(following robot joint states) </strong>, and <strong> action(leading arm's joint states) </strong> and mp4 for top and front camera observation.
-            </p>
-            
-            <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
-              <p className="text-green-400 mb-2"># Robot Joint States (6-DOF)</p>
-              <ul className="text-gray-300 space-y-1 ml-4">
-                <li>{'"shoulder_pan.pos"'}</li>
-                <li>{'"shoulder_lift.pos"'}</li>
-                <li>{'"elbow_flex.pos"'}</li>
-                <li>{'"wrist_flex.pos"'}</li>
-                <li>{'"wrist_roll.pos"'}</li>
-                <li>{'"gripper.pos"'}</li>
-              </ul>
-              <p className="text-green-400 mb-2 mt-4"># Camera Observations</p>
-              <ul className="text-gray-300 space-y-1 ml-4">
-                <li>{'"observation.images.front"'}</li>
-                <li>{'"observation.images.top"'}</li>
-              </ul>
-            </div>
-            <p className="text-sm text-gray-400 text-center mt-2">LeRobot dataset structure with joint positions and camera observations</p>
-            
-            <h3 className="text-lg font-semibold text-white mt-6">Control Method</h3>
-            <p>
-              Human demonstrations are collected via <strong>teleoperation</strong> using a leader-follower 
-              setup, where the operator controls a leader arm and the follower arm mimics the movements.
-            </p>
-              <img 
-                src={`/images/portfolio/koch-teleop.gif`}
-                alt="Leader-follower teleoperation for data collection"
-                className="w-full rounded-lg shadow-lg mt-2"
-              />
-            <p className="text-sm text-gray-400 text-center">Leader-follower teleoperation for data collection</p>
-          </div>
+          <p>
+            This project demonstrates how robotic arms can learn using{' '}
+            <strong>Visual Language Action (VLA)</strong> models and{' '}
+            <strong>imitation learning</strong>.
+          </p>
         ),
       },
       {
-        title: '2. Model Training',
-        content: (
-          <div className="space-y-6">
-            <p>
-              After collecting demonstration data, we train VLA models to 
-              predict robot actions from visual observations and prompt descriptions.
-            </p>
-
-            {/* SmolVLA Section */}
-            <div className="bg-gray-800/50 rounded-lg p-5 border border-gray-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-3">
-                SmolVLA
-              </h3>
-              <p className="mb-3">
-                Common <strong>VLAs</strong> are usually built on top of large vision-language models (VLMs) and have billions of parameters, which makes them difficult to train and deploy.
-                SmolVLA is a lightweight VLA model with only ~400M parameters that can be trained on a single GPU. 
-              </p>
-              <div className="my-4">
-                <img 
-                  src={`/images/portfolio/smolvla-paper.png `}
-                  alt="SmolVLA Architecture - Visual Language Action Model from the original paper"
-                  className="w-full rounded-lg shadow-lg"
-                />
-                <p className="text-sm text-gray-400 text-center mt-2">
-                  SmolVLA Architecture (Source: <a href="https://arxiv.org/abs/2506.01844" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">SmolVLA Paper</a>)
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-4 mt-4">
-                <div>
-                  <h4 className="text-sm font-semibold text-green-400 mb-2">✅ Strengths</h4>
-                  <ul className="text-sm space-y-1 text-gray-300">
-                    <li>• Lightweight (~400M parameters)</li>
-                    <li>• Smooth trajectory generation</li>
-                    <li>• Good for resource-constrained environments</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-red-400 mb-2">⚠️ Limitations</h4>
-                  <ul className="text-sm space-y-1 text-gray-300">
-                    <li>• Constraint on pretrained model(smolvla_base)</li>
-                    <li>• Lack of model interpretability(polysemantics neurons)</li>
-                    <li>• Lack of zero-shot generalization</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        ),
-      },
-      {
-        title: '3. Deployment',
+        title: 'Technical Details',
         content: (
           <div className="space-y-4">
             <p>
-              The trained model is deployed on the robot for real-time inference 
-              and autonomous task execution.
+              The system uses <span className="font-bold">ROS2</span> for robot control
+              and <span className="font-bold">PyTorch</span> for model inference.
             </p>
-            {/* Task Setup Video */}            
-            <h3 className="text-lg font-semibold text-white mt-6">Real-time Inference</h3>
-            <p>
-              The model runs at <strong>~20Hz</strong>, predicting action chunks that are 
-              executed by the robot controller in real-time, and it can also allow real-time prompt input to switch different tasks seemlessly.
-            </p>
-            
-            {/* Videos Grid */}
-            <div className="grid grid-cols-1 gap-6 mt-4">
-              <div className="w-full max-w-4xl mx-auto">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full rounded-lg shadow-lg"
-                >
-                  <source src={`/videos/three_task_cut_4x_speed.mp4`} type="video/mp4" />
-                </video>
-                <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 100 episodes for each task, 300 in total after training, <a href="ethanCSL/svla_koch_sorting_n_stacking_screw_nut" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a></p>
-              </div>
-            </div>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Framework:</strong> ROS2 Humble</li>
+              <li><strong>Model:</strong> Action Chunking Transformer</li>
+              <li><strong>Inference Speed:</strong> 10Hz real-time</li>
+            </ul>
           </div>
         ),
       },
     ],
     links: [
-      {label: 'GitHub', url: 'https://github.com/huggingface/lerobot.git'},
-      {label: 'Paper', url: 'https://arxiv.org/abs/2506.01844'},
+      {label: 'GitHub', url: 'https://github.com/yourusername/franka-vla'},
+      {label: 'Paper', url: 'https://arxiv.org/abs/xxxx.xxxxx'},
     ],
   },
 
   // Project 4(Imitation Learning & VLA Development)
   'attention-heat-map': {
-    title: 'Model Interpretability for VLA Models',
+    title: 'Attention Heat Map Visualization for VLA Models',
     description: `
-      Utilize attention heat maps and VLM's FFN activation to interpret how VLA models understand visual and language inputs and generate actions.
+      Visualizing attention maps for VLA models to understand how the model focuses on different parts of the input.
     `.trim(),
     videos: [
       {src: '/videos/franka_open_draw.mp4', caption: 'Robot opening drawer demo'},
@@ -595,114 +478,38 @@ const projects: Record<string, {
         title: 'Overview',
         content: (
           <p>
-            This project demonstrates how can we interpret VLA models using{' '}
-            attention heat maps and VLM's FFN activation.
+            This project demonstrates how robotic arms can learn using{' '}
+            <strong>Visual Language Action (VLA)</strong> models like <strong>SmolVLA & GR00T N1.5 </strong>and{' '}
+            <strong>imitation learning like Action Chunking Transformer(ACT) </strong>.
           </p>
         ),
       },
       {
-        title: 'Attention Heat Maps',
+        title: 'Project Details',
         content: (
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white mt-2">Where the attention comes from</h3>
-            <p>
-              Before we head into the details of attention heat maps, let's first talk about where the attention comes from. We have conducted several experiments to anaylze the attention heat maps of the VLM backbone,and attention heat maps of action expert module in SmolVLA.
-            </p>
-            <p>
-              <strong> Note: Although attention heat maps can provide some insights into which input tokens the model attend to, it does not necessarily reflect the causal relationship between the attended tokens and the model's output.</strong>
-            </p>
-            <img 
-              src={`/images/portfolio/smolvla_paper_architecture.png`}
-              alt="SmolVLA Architecture - Visual Language Action Model from the original paper"
-              className="w-full rounded-lg shadow-lg mt-4"
-            />
-            <p className="text-sm text-gray-400 text-center">SmolVLA Architecture - Visual Language Action Model from the original paper</p>
-
-            <h3 className="text-lg font-semibold text-white mt-8">Attention heat map analysis</h3>
-            <h3 className="text-base font-semibold text-white mt-4">Attention heat maps of the last self attention block in VLM backbone</h3>
-            <p>
-              We first go through the result of attention heat maps of the VLM backbone, and in SmolVLA default training setting, SmolVLM-2 is frozen, so the result has no relationship with the training process.
-            </p>
-            <video
-              autoPlay
-              loop
-              muted
-              controls
-              preload="metadata"
-              playsInline
-              className="w-full rounded-lg shadow-lg mt-4"
-            >
-              <source src={`/videos/self_attention.mp4`} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p className="text-sm text-gray-400 text-center">We can clearly see the attention heat is noisy, because VLM is frozen(not-trainable) during training.
-              <br />
-              Prompt: Put the red cube in the right box, and green cube in the left box.</p>
-
-            <h3 className="text-base font-semibold text-white mt-4">Attention heat maps of the last cross attention block in Action backbone</h3>
-            <p>
-              Next, we analyze the attention heat maps of the cross attention block in action expert module, and in SmolVLA default training setting, action expert module is trainable, so the result is related to the training process.
-            </p>
-            <video
-              autoPlay
-              loop
-              muted
-              controls
-              preload="metadata"
-              playsInline
-              className="w-full rounded-lg shadow-lg mt-4"
-            >
-              <source src={`/videos/cross_attention.mp4`} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p className="text-sm text-gray-400 text-center">The attention heat map of the cross attention block in action expert module is more focused, but it still has some noise, because the VLM is frozen during training.
-                <br/>
-                Prompt: Put the red cube in the right box, and green cube in the left box.</p>
-                
-            <h3 className="text-base font-semibold text-white mt-4">Attention heat maps of the last cross attention block in Action backbone with Unfrozen VLM</h3>
-            <p>
-              We also analyze the attention heat maps of the cross attention block in action expert module with unfrozen VLM, and the result is much better than frozen VLM setting, which shows that the model can learn to attend to the relevant input tokens during training.
-            </p>
-
-            <p>
-              The success rate of the model with unfrozen VLM is also much higher than frozen VLM setting, which shows that the attention heat map can reflect the model's performance to some extent.
-            </p>
-            <video
-              autoPlay
-              loop
-              muted
-              controls
-              preload="metadata"
-              playsInline
-              className="w-full rounded-lg shadow-lg mt-4"
-            >
-              <source src={`/videos/svla_attention_weight_correct_prompt_unfrozen_vision_encoder.mp4`} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p className="text-sm text-gray-400 text-center">Attention heat map of with unfrozen VLM showing improved focus on relevant input tokens
-              <br />  
-              Prompt: Put the red cube in the right box, and green cube in the left box.
-            </p>
-            
-          </div>
-        ), 
+          <p>
+            This project demonstrates how robotic arms can learn using{' '}
+            <strong>Visual Language Action (VLA)</strong> models and{' '}
+            <strong>imitation learning</strong>.
+          </p>
+        ),
       },
       {
-        title: 'FFN Activation Analysis',
+        title: 'Technical Details',
         content: (
           <div className="space-y-4">
             <p>
-              By analyzing the activation patterns of the feedforward networks (FFNs) in the VLM backbone, we can identify neurons that are responsible for specific concepts or actions, providing insights into how the model processes information.
+              The system uses <span className="font-bold">ROS2</span> for robot control
+              and <span className="font-bold">PyTorch</span> for model inference.
             </p>
-            <img 
-              src={`/images/portfolio/ffn_activation.png`}
-              alt="FFN Activation - Identifying concept-specific neurons in the VLM backbone"
-              className="w-full rounded-lg shadow-lg mt-4"
-            />
-            <p className="text-sm text-gray-400 text-center">FFN activation analysis revealing concept-specific neurons in the VLM backbone</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Framework:</strong> ROS2 Humble</li>
+              <li><strong>Model:</strong> Action Chunking Transformer</li>
+              <li><strong>Inference Speed:</strong> 10Hz real-time</li>
+            </ul>
           </div>
         ),
-      }
+      },
     ],
     links: [
       {label: 'GitHub', url: 'https://github.com/yourusername/franka-vla'},
