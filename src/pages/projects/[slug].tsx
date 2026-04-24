@@ -849,17 +849,17 @@ const projects: Record<string, {
         },
   
   // Project 6(Autonomous Navigation System Development for spot)
-  'spot-nav': {
-    title: 'Multi-map Switching System for Spot Robot Navigation',
+  'turtlebot-multi-map-nav': {
+    title: 'Multi-map Switching System for TurtleBot Navigation',
     description: `
-      Developing a multi-map switching system for autonomous navigation of a Spot robot in dynamic environments.
+      Developing a multi-map switching system for autonomous navigation of a TurtleBot in dynamic environments.
     `.trim(),
     videos: [
-      {src: '/videos/spot_multi_map.mp4', caption: 'Multi-map switching demo'},
+      {src: '/videos/turtlebot_multi_map.mp4', caption: 'Multi-map switching demo'},
     ],
     images: [
-      {src: '/images/portfolio/spot-1.png', caption: 'System setup'},
-      {src: '/images/portfolio/spot-2.png', caption: 'Training process'},
+      {src: '/images/portfolio/turtlebot-1.png', caption: 'System setup'},
+      {src: '/images/portfolio/turtlebot-2.png', caption: 'Training process'},
     ],
     youtubeIds: [
       {id: '8RHWoJiWaVc', caption: 'Full demonstration video'},
@@ -869,9 +869,7 @@ const projects: Record<string, {
         title: 'Overview',
         content: (
           <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models like <strong>SmolVLA & GR00T N1.5 </strong>and{' '}
-            <strong>imitation learning like Action Chunking Transformer(ACT) </strong>.
+            This project demonstrates how Turtlebot3 can switch between multiple maps for autonomous navigation.
           </p>
         ),
       },
@@ -879,9 +877,7 @@ const projects: Record<string, {
         title: 'Project Details',
         content: (
           <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models and{' '}
-            <strong>imitation learning</strong>.
+            This project demonstrates how TurtleBot3 can switch between multiple maps for autonomous navigation and being able to navigate in different environments seamlessly.
           </p>
         ),
       },
