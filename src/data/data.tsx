@@ -192,7 +192,7 @@ export const portfolioGroups: PortfolioGroup[] = [
       },
       {
         title: 'Visual navigation system for indoor environments',
-        description: 'Training ACT model with collected data.',
+        description: 'Developing a visual navigation system for indoor environments.',
         url: '/projects/triceratops-nav',
         youtubeId: 'X7kAB2d0PGs',
       },
@@ -205,9 +205,9 @@ export const portfolioGroups: PortfolioGroup[] = [
     ],
     timeline: [
       {date: 'Jan ~ Jun 2024', label: 'Hybrid A* algorithm for robot navigation', completed: true},
-      {date: 'Jul ~ Oct 2024', label: 'Multi-map switching system(Spot)', completed: true},
-      {date: 'Nov ~ Dec 2024', label: 'Visual navigation system(Triceratops)', completed: true},
-      {date: 'Nov ~ Dec 2024', label: 'Local planner development(Triceratops)', completed: true},
+      {date: 'Jul ~ Oct 2024', label: 'Multi-map switching system', completed: true},
+      {date: 'Nov ~ Dec 2024', label: 'Visual navigation system', completed: true},
+      {date: 'Nov ~ Dec 2024', label: 'Local planner development', completed: true},
     ],
   },
 ];

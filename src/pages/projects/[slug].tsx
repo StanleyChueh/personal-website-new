@@ -1072,44 +1072,99 @@ const projects: Record<string, {
         title: 'Overview',
         content: (
           <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models like <strong>SmolVLA & GR00T N1.5 </strong>and{' '}
-            <strong>imitation learning like Action Chunking Transformer(ACT) </strong>.
+            This project demonstates how triceratops robot can use visual navigation system to navigate in indoor environments,
+            with Visual SLAM and AprilTag localization for accurate pose estimation and map building.
           </p>
         ),
       },
       {
-        title: 'Project Details',
-        content: (
-          <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models and{' '}
-            <strong>imitation learning</strong>.
-          </p>
-        ),
-      },
-      {
-        title: 'Technical Details',
+        title:'Robot Setup',
         content: (
           <div className="space-y-4">
             <p>
-              The system uses <span className="font-bold">ROS2</span> for robot control
-              and <span className="font-bold">PyTorch</span> for model inference.
+              We use the Triceratops robot platform equipped with a RGB-D camera for visual navigation.
             </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Framework:</strong> ROS2 Humble</li>
-              <li><strong>Model:</strong> Action Chunking Transformer</li>
-              <li><strong>Inference Speed:</strong> 10Hz real-time</li>
-            </ul>
+            <div className="flex justify-center">
+              <img
+              src={`/images/portfolio/triceratops.png`}
+              alt="Triceratops robot platform equipped with a RGB-D camera for visual navigation"
+              className="w-3/4 rounded-lg shadow-lg"
+              />
+            </div>
+            <p className="text-sm text-gray-400 text-center mt-2">Triceratops robot platform setup</p>
           </div>
         ),
       },
-    ],
-    links: [
-      {label: 'GitHub', url: 'https://github.com/yourusername/turtlebot-multi-map'},
-      {label: 'Paper', url: 'https://arxiv.org/abs/xxxx.xxxxx'},
-    ],
-  },
+      {
+        title: 'System Architecture',
+        content: (
+          <div className="space-y-4">
+            <p>
+              The visual navigation system consists of several key components, including Visual SLAM for map building and localization, and AprilTag markers for accurate pose estimation and map switching.
+            </p>
+            <img
+              src="/images/portfolio/visual-nav.png"
+              alt="Visual navigation system architecture diagram"
+              className="w-full rounded-lg shadow-lg"
+            />
+            <p className="text-sm text-gray-400 text-center mt-2">Visual navigation system architecture diagram</p>
+          </div>
+        ),
+      },
+      {
+        title: 'Visual SLAM',
+        content: (
+          <div className="space-y-4">
+            <p>
+              The visual navigation system integrates Visual SLAM for map building and localization, and AprilTag markers for accurate pose estimation and map switching.
+            </p>
+            <div className="my-4 flex justify-center">
+              <div className="max-w-2xl w-full">
+          <div className="aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/p4SCeYuSRyI?si=96NhJyfjlEAXaZ7R&autoplay=1&loop=1&playlist=p4SCeYuSRyI&mute=1"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+              style={{border: 'none'}}
+            />
+          </div>
+          <p className="text-sm text-gray-400 text-center mt-2">Visual SLAM demonstration for map building and localization</p>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'AprilTag Localization',
+        content: (
+          <div className="space-y-4">
+            <p>
+              AprilTag markers are used for accurate pose estimation and map switching during navigation. The robot detects the AprilTag markers in the environment and uses them to localize itself and switch between different maps as needed.
+            </p>
+            <div className="my-4 flex justify-center">
+              <div className="max-w-2xl w-full">
+              <img
+                src="/images/portfolio/apriltag.png"
+                alt="AprilTag marker detection for localization and map switching"
+                className="w-full rounded-lg shadow-lg"
+              />
+              <p className="text-sm text-gray-400 text-center mt-2">AprilTag marker detection for localization and map switching</p>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+
+          ],
+          links: [
+            {label: 'GitHub', url: 'https://github.com/yourusername/turtlebot-multi-map'},
+            {label: 'Paper', url: 'https://arxiv.org/abs/xxxx.xxxxx'},
+          ],
+        },
 
   // Project 8(Autonomous Visual Navigation (local planner) for triceratops)
   'triceratops-local-planner': {
