@@ -1084,6 +1084,9 @@ const projects: Record<string, {
             <p>
               We use the Triceratops robot platform equipped with a RGB-D camera for visual navigation.
             </p>
+            <p>
+              The robot is built by <a href="https://www.csltaipeitech.com/en/project/intellisaurus-the-bionic-triceratops-robot" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">City Science Lab@Taipei Tech Robotic team</a>, and the low-level control(gait control) is not developed by me, but I developed the visual navigation system and integrated it with the robot for autonomous navigation.
+            </p>
             <div className="flex justify-center">
               <img
               src={`/images/portfolio/triceratops.png`}
@@ -1116,7 +1119,8 @@ const projects: Record<string, {
         content: (
           <div className="space-y-4">
             <p>
-              The visual navigation system integrates Visual SLAM for map building and localization, and AprilTag markers for accurate pose estimation and map switching.
+              The visual slam we are using is from <a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam/tree/release-4.3/isaac_ros_visual_slam" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">NVIDIA Isaac ROS VSLAM</a>, 
+              and I take visual odometry into account when integrating the visual navigation system with the triceratops robot for autonomous navigation in indoor environments.
             </p>
             <div className="my-4 flex justify-center">
               <div className="max-w-2xl w-full">
@@ -1139,30 +1143,42 @@ const projects: Record<string, {
         ),
       },
       {
-        title: 'AprilTag Localization',
+        title: 'AprilTag-assisted Localization',
         content: (
           <div className="space-y-4">
             <p>
-              AprilTag markers are used for accurate pose estimation and map switching during navigation. The robot detects the AprilTag markers in the environment and uses them to localize itself and switch between different maps as needed.
+              As the pure visual navigation system can be noisy and not robust in complex environments, 
+              we utilize AprilTag markers for accurate localization during indoor navigation.
             </p>
-            <div className="my-4 flex justify-center">
-              <div className="max-w-2xl w-full">
-              <img
-                src="/images/portfolio/apriltag.png"
-                alt="AprilTag marker detection for localization and map switching"
-                className="w-full rounded-lg shadow-lg"
-              />
-              <p className="text-sm text-gray-400 text-center mt-2">AprilTag marker detection for localization and map switching</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              <div>
+          <img
+            src="/images/portfolio/apriltag.png"
+            alt="AprilTag marker detection for localization and map switching"
+            className="w-full h-64 object-cover rounded-lg shadow-lg"
+          />
+          <p className="text-sm text-gray-400 text-center mt-2">AprilTag marker detection</p>
+              </div>
+              <div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-64 object-cover rounded-lg shadow-lg"
+          >
+            <source src="/videos/apriltag_visual_nav.mp4" type="video/mp4" />
+          </video>
+          <p className="text-sm text-gray-400 text-center mt-2">AprilTag-assisted localization demo</p>
               </div>
             </div>
           </div>
         ),
       },
-
           ],
           links: [
-            {label: 'GitHub', url: 'https://github.com/yourusername/turtlebot-multi-map'},
-            {label: 'Paper', url: 'https://arxiv.org/abs/xxxx.xxxxx'},
+            {label: 'GitHub', url: 'https://github.com/csl-taipeitech/quadruped_robot_4_DOF.git'},
+            {label: 'VSLAM', url: 'https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam/tree/release-4.3/isaac_ros_visual_slam'},
           ],
         },
 
