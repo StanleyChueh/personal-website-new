@@ -1203,42 +1203,58 @@ const projects: Record<string, {
         title: 'Overview',
         content: (
           <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models like <strong>SmolVLA & GR00T N1.5 </strong>and{' '}
-            <strong>imitation learning like Action Chunking Transformer(ACT) </strong>.
+            In previous work, we developed a visual navigation system for the Triceratops robot, 
+            but how can we improve the local planning performance for more robust navigation in complex indoor environments?
           </p>
         ),
       },
       {
-        title: 'Project Details',
-        content: (
-          <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models and{' '}
-            <strong>imitation learning</strong>.
-          </p>
-        ),
-      },
-      {
-        title: 'Technical Details',
+        title: 'Local Planner Development',
         content: (
           <div className="space-y-4">
             <p>
-              The system uses <span className="font-bold">ROS2</span> for robot control
-              and <span className="font-bold">PyTorch</span> for model inference.
+              As the visual navigation system can not act like LiDAR-based naviagtion to use costmap for local planning, 
+              we develop a local planner that can take the laserscan data from depth information by using <a href="https://wiki.ros.org/depthimage_to_laserscan" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">depth_to_laserscan</a> package.
             </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Framework:</strong> ROS2 Humble</li>
-              <li><strong>Model:</strong> Action Chunking Transformer</li>
-              <li><strong>Inference Speed:</strong> 10Hz real-time</li>
-            </ul>
+            <p>
+              The local planner is integrated with the existing visual navigation system, allowing for seamless navigation in dynamic obstacle.
+            </p>
+            <div className="my-4 flex justify-center">
+              <div className="max-w-2xl w-full">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+                <source src="/videos/laserscan_to_depth.mp4" type="video/mp4" />
+              </video>
+              <p className="text-sm text-gray-400 text-center mt-2">Depth to Laserscan Conversion</p>
+              </div>
+            </div>
+            <div className="my-4 flex justify-center">
+              <div className="max-w-2xl w-full">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg shadow-lg"
+              >
+                <source src="/videos/depthimage_to_laserscan_avoidance.mp4" type="video/mp4" />
+              </video>
+              <p className="text-sm text-gray-400 text-center mt-2">Obstacle Avoidance with Depth to Laserscan</p>
+              </div>
+            </div>
           </div>
         ),
-      },
+      }
+
     ],
     links: [
-      {label: 'GitHub', url: 'https://github.com/yourusername/turtlebot-multi-map'},
-      {label: 'Paper', url: 'https://arxiv.org/abs/xxxx.xxxxx'},
+      {label: 'Depth to Laserscan', url: 'https://wiki.ros.org/depthimage_to_laserscan'},
+      {label: 'Github', url: 'https://github.com/csl-taipeitech/quadruped_robot_4_DOF.git'},
     ],
   },
 };
