@@ -111,10 +111,6 @@ export const skills: SkillGroup[] = [
         name: 'English',
         level: 9,
       },
-      {
-        name: 'French',
-        level: 2,
-      },
     ],
   },
   {
@@ -151,7 +147,7 @@ export const portfolioGroups: PortfolioGroup[] = [
       },
       {
         title: 'Action Chunking Transformer (ACT) on Franka Emika Study',
-        description: 'Deploying trained model on real robot.',
+        description: 'Transfer the ACT model to Franka Emika.',
         url: '/projects/franka-imitation-learning',
         video: '/videos/franka_open_drawer.mp4',
       },
@@ -198,7 +194,7 @@ export const portfolioGroups: PortfolioGroup[] = [
       },
       {
         title: 'Local planner development for visual navigation system',
-        description: 'Deploying trained model on real robot.',
+        description: 'Developing a local planner for the visual navigation system.',
         url: '/projects/triceratops-local-planner',
         youtubeId: 'knTCpoTfLF4',
       },

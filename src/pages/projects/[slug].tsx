@@ -273,20 +273,42 @@ const projects: Record<string, {
               setup, where the operator controls a leader arm and the follower arm mimics the movements.
             </p>
 
-            <p>
+            <p className="text-sm text-gray-400">
               Detail: We utilize <a href="https://arxiv.org/abs/2309.13037" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">GELLO project</a> to mimic the similar method we use on koch robot in data collection.
               We are using joint impedance control for Franka Emika Panda by <a href="https://github.com/frankaemika/franka_ros" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Franka ROS</a> and using leading arm's joint states to control the follower arm in a leader-follower teleoperation setup.
             </p>
-                <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-lg shadow-lg mt-2"
-                >
-                <source src="/videos/franka_data_collection.mp4" type="video/mp4" />
-                </video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg mt-2"
+            >
+              <source src="/videos/franka_data_collection.mp4" type="video/mp4" />
+            </video>
             <p className="text-sm text-gray-400 text-center">Leader-follower teleoperation for data collection</p>
+
+            <h4 className="text-lg font-semibold text-white mt-6">Previous Control Method</h4>
+            <p>
+              Previously, we employed <strong>Vision Pro</strong> to control the Franka Emika Panda. 
+              Vision pro detects the operator's hand to utilize relative movement to control robot relative end effector movement.
+            </p>
+            <p>
+              However, we realized that vision pro control is not intuitve for this Franka Emika panda setup, it might be useful in bimanual robots.
+            </p>
+            <p className="text-sm text-gray-400">
+              Detail: we are inspired by Unitree Robotic <a href="https://github.com/unitreerobotics/xr_teleoperate.git" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Avp_teleoperate</a> which also uses vision pro for data collection. We are using the same method in our early stage of data collection before we switch to leader-follower teleoperation method.
+            </p>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg mt-4"
+            >
+              <source src="/videos/franka_record_pick_n_place_vision_pro.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">Vision Pro controlled pick-and-place demonstration</p>
           </div>
         ),
       },
@@ -393,6 +415,7 @@ const projects: Record<string, {
       {label: 'Paper', url: 'https://arxiv.org/abs/2304.13705'},
       {label: 'Franka ROS', url: 'https://github.com/frankaemika/franka_ros'},
       {label: 'GELLO', url: 'https://arxiv.org/abs/2309.13037'},
+      {label: 'XR Teleoperate', url: 'https://github.com/unitreerobotics/xr_teleoperate.git'},
     ],
   },
 
@@ -417,11 +440,17 @@ const projects: Record<string, {
       {
         title: 'Overview',
         content: (
-            <p>
-            This project demonstrates how robotic arms can learn using{' '}
-            <strong>Visual Language Action (VLA)</strong> models like{' '}
-            <a href="https://arxiv.org/abs/2506.01844" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">SmolVLA</a>.
-            </p>
+            <div>
+                <p>
+                  In previous work, we demonstrate how we use Action Chunking Transformer(ACT) to enable robotic arms to learn from human demonstrations,but language can not be directly used. 
+                </p>
+                <p>
+                  This project demonstrates how robotic arms can learn using{' '}
+                  <strong>Visual Language Action (VLA)</strong> models like{' '}
+                  <a href="https://arxiv.org/abs/2506.01844" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">SmolVLA</a>, 
+                  that we can use language instructions with.
+                </p>
+            </div>
         ),
       },
       {
@@ -429,7 +458,7 @@ const projects: Record<string, {
         content: (
           <div className="space-y-4">
             <p>
-              In data collection, we use the same as the previous project, but we also collect language instructions along with the demonstrations.
+              In data collection, we use the same setup as the previous projects, but we also collect language instructions along with the demonstrations.
             </p>
             
             <h3 className="text-lg font-semibold text-white mt-6">Dataset Format</h3>
@@ -551,18 +580,18 @@ const projects: Record<string, {
                 {/* YouTube Video */}
                 <div className="mt-6 flex justify-center">
                   <div className="max-w-2xl w-full">
-                  <div className="aspect-video">
+                    <div className="aspect-video">
                     <iframe
                     width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/zdFU9ku4Wcg?si=bJjzFVhdc2FZIbdA&autoplay=1&loop=1&playlist=zdFU9ku4Wcg"
+                    src="https://www.youtube.com/embed/zdFU9ku4Wcg?si=bJjzFVhdc2FZIbdA&autoplay=1&loop=1&playlist=zdFU9ku4Wcg&mute=1"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     style={{border: 'none'}}
                     />
-                  </div>
+                    </div>
                   <p className="text-sm text-gray-400 text-center mt-2">Autonomous real-time task switching execution after 60 episodes for each task after training <a href="https://huggingface.co/datasets/ethanCSL/color_test_green" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a></p>
                   </div>
                 </div>
