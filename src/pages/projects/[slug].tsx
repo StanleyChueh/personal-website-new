@@ -865,44 +865,191 @@ const projects: Record<string, {
       {id: '8RHWoJiWaVc', caption: 'Full demonstration video'},
     ],
     sections: [
-      {
+    {
         title: 'Overview',
         content: (
           <p>
-            This project demonstrates how Turtlebot3 can switch between multiple maps for autonomous navigation.
+            This project demonstrates how to implement a multi-map switching system for autonomous navigation of a TurtleBot3 in dynamic environments.
           </p>
         ),
-      },
-      {
-        title: 'Project Details',
-        content: (
-          <p>
-            This project demonstrates how TurtleBot3 can switch between multiple maps for autonomous navigation and being able to navigate in different environments seamlessly.
-          </p>
-        ),
-      },
-      {
-        title: 'Technical Details',
+    },
+    {
+        title: 'Multi-map Switching System',
         content: (
           <div className="space-y-4">
             <p>
-              The system uses <span className="font-bold">ROS2</span> for robot control
-              and <span className="font-bold">PyTorch</span> for model inference.
+              We implement a multi-map switching system that allows the TurtleBot3 to switch between different maps based on the current environment and task requirements.
             </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Framework:</strong> ROS2 Humble</li>
-              <li><strong>Model:</strong> Action Chunking Transformer</li>
-              <li><strong>Inference Speed:</strong> 10Hz real-time</li>
-            </ul>
+            <p>
+              The system is integrated with <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">ROS2 Action Server</a> and <a href="https://docs.nav2.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Nav2 framework</a> for seamless navigation.
+            </p>
+            <div className="my-4 flex justify-center">
+              <div className="max-w-2xl w-full">
+              <img
+                src="/images/portfolio/multi-map-nav-system.png"
+                alt="Multi-map switching system demonstration"
+                className="w-full rounded-lg shadow-lg"
+              />
+              <p className="text-sm text-gray-400 text-center mt-2">Multi-map switching system demonstration</p>
+              </div>
+            </div>
           </div>
         ),
-      },
-    ],
-    links: [
-      {label: 'GitHub', url: 'https://github.com/huggingface/lerobot.git'},
-      {label: 'Paper', url: 'https://arxiv.org/abs/2304.13705'},
-    ],
-  },
+    },
+    {
+          title: 'Nav2 Service Integration',
+          content: (
+            <div className="space-y-4">
+              <p>
+                The Nav2 framework provides robust navigation services. Below demonstrates how the system loads different maps and performs navigation tasks.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+          <div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg"
+            >
+              <source src="/videos/Load_map1.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">Loading map 1 & initial pose</p>
+          </div>
+          <div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg"
+            >
+              <source src="/videos/1st_nav.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">First navigation task</p>
+          </div>
+          <div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg"
+            >
+              <source src="/videos/load_map2.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">Loading map 2</p>
+          </div>
+          <div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg"
+            >
+              <source src="/videos/2nd_nav.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">Second navigation task</p>
+          </div>
+              </div>
+            </div>
+          ),
+    },
+    {
+          title: 'ROS2 Action',
+          content: (
+            <div className="space-y-4">
+                <p>
+                  The multi-map switching system is implemented using <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">ROS2 Action Server</a>
+                  , allowing for asynchronous map loading and navigation execution.
+                </p>
+              <div className="my-4 flex justify-center">
+                <img
+                  src="/images/portfolio/Action-SingleActionClient.gif"
+                  alt="ROS2 Action Server implementation for multi-map switching"
+                  className="w-full rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
+             ),
+    },
+    {
+            title: 'Real-world Deployment',
+            content: (
+            <div className="space-y-4">
+              <p>
+                The multi-map switching system is deployed on a real TurtleBot3, demonstrating seamless navigation across different maps in a dynamic environment.
+              </p>
+              <div className="flex justify-center">
+              <div className="max-w-2xl w-full">
+              <div className="aspect-video">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/cTmAIjYQQr8?si=h4pOivM19Kn8645d&autoplay=1&loop=1&playlist=cTmAIjYQQr8&mute=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-lg shadow-lg"
+                style={{border: 'none'}}
+              />
+              </div>
+              <p className="text-sm text-gray-400 text-center mt-2">Real-world deployment of the multi-map switching system</p>
+              </div>
+              </div>
+            </div>
+             ),
+            },
+            {
+            title: 'AprilTag Localization and map switching',
+            content: (
+            <div className="space-y-4">
+            <p>
+              The system utilizes <strong>AprilTag</strong> markers for calibration between several waypoints, and help to switch between different maps. 
+            </p>
+            <p>
+              The AprilTag markers are placed at key locations in the environment, and the robot uses them for accurate localization and map switching during navigation.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              <div>
+              <img
+              src="/images/portfolio/apriltag_calibration.png"
+              alt="AprilTag calibration process"
+              className="w-full h-64 object-cover rounded-lg shadow-lg"
+              />
+              <p className="text-sm text-gray-400 text-center mt-2">AprilTag calibration setup</p>
+              </div>
+              <div>
+              <img
+              src="/images/portfolio/apriltag.png"
+              alt="AprilTag marker detection"
+              className="w-full h-64 object-cover rounded-lg shadow-lg"
+              />
+              <p className="text-sm text-gray-400 text-center mt-2">AprilTag marker detection</p>
+              </div>
+            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg mt-4"
+            >
+              <source src="/videos/apriltag_calibration.mp4" type="video/mp4" />
+            </video>
+            <p className="text-sm text-gray-400 text-center mt-2">AprilTag calibration demonstration</p>
+            </div>
+            ),
+            
+            }
+            ],
+            links: [
+            {label: 'GitHub', url: 'https://github.com/StanleyChueh/Multi_map_navigation.git'},
+            {label: 'ROS2', url: 'https://docs.ros.org/en/humble/index.html'},
+            {label: 'Nav2', url: 'https://docs.nav2.org/'},
+            ],    
+            },
 
   // Project 7(Autonomous Visual Navigation System Development for triceratops)
   'triceratops-nav': {
