@@ -47,8 +47,8 @@ const nextConfig = {
   output: "export",
 
   // Only apply basePath in production for GitHub Pages
-  basePath: isProduction ? `/${repo}` : '',
-  assetPrefix: isProduction ? `/${repo}/` : '',
+  // basePath: isProduction ? `/${repo}` : '',
+  // assetPrefix: isProduction ? `/${repo}/` : '',
 
   eslint: {
     ignoreDuringBuilds: true,
