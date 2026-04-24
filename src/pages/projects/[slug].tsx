@@ -1000,8 +1000,8 @@ const projects: Record<string, {
               </div>
             </div>
              ),
-            },
-            {
+      },
+      {
             title: 'AprilTag Localization and map switching',
             content: (
             <div className="space-y-4">
@@ -1042,14 +1042,14 @@ const projects: Record<string, {
             </div>
             ),
             
-            }
-            ],
-            links: [
-            {label: 'GitHub', url: 'https://github.com/StanleyChueh/Multi_map_navigation.git'},
-            {label: 'ROS2', url: 'https://docs.ros.org/en/humble/index.html'},
-            {label: 'Nav2', url: 'https://docs.nav2.org/'},
-            ],    
-            },
+      }
+      ],
+      links: [
+        {label: 'GitHub', url: 'https://github.com/StanleyChueh/Multi_map_navigation.git'},
+        {label: 'ROS2', url: 'https://docs.ros.org/en/humble/index.html'},
+        {label: 'Nav2', url: 'https://docs.nav2.org/'},
+      ],    
+    },
 
   // Project 7(Autonomous Visual Navigation System Development for triceratops)
   'triceratops-nav': {
