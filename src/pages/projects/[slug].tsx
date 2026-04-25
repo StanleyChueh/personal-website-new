@@ -305,15 +305,18 @@ const projects: Record<string, {
             <p className="text-sm text-gray-400">
               Detail: we are inspired by Unitree Robotic <a href="https://github.com/unitreerobotics/xr_teleoperate.git" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Avp_teleoperate</a> which also uses vision pro for data collection. We are using the same method in our early stage of data collection before we switch to leader-follower teleoperation method.
             </p>
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full rounded-lg shadow-lg mt-4"
-            >
-              <source src="/videos/franka_record_pick_n_place_vision_pro.mp4" type="video/mp4" />
-            </video>
+            <div className="aspect-video mt-4">
+              <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/KvCzDGHlaKs?si=&autoplay=1&loop=1&playlist=KvCzDGHlaKs&mute=1"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+              style={{border: 'none'}}
+              />
+            </div>
             <p className="text-sm text-gray-400 text-center mt-2">Vision Pro controlled pick-and-place demonstration</p>
           </div>
         ),
