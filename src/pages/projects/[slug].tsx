@@ -93,11 +93,18 @@ const projects: Record<string, {
               Human demonstrations are collected via <strong>teleoperation</strong> using a leader-follower 
               setup, where the operator controls a leader arm and the follower arm mimics the movements.
             </p>
-              <img 
-                src={`/images/portfolio/koch-teleop.gif`}
-                alt="Leader-follower teleoperation for data collection"
-                className="w-full rounded-lg shadow-lg mt-2"
-              />
+                <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/vhVHY2LlWpg?si=&autoplay=1&loop=1&playlist=vhVHY2LlWpg&mute=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                />
+                </div>
             <p className="text-sm text-gray-400 text-center">Leader-follower teleoperation for data collection</p>
           </div>
         ),
@@ -508,11 +515,18 @@ const projects: Record<string, {
               Human demonstrations are collected via <strong>teleoperation</strong> using a leader-follower 
               setup, where the operator controls a leader arm and the follower arm mimics the movements.
             </p>
-              <img 
-                src={`/images/portfolio/koch-teleop.gif`}
-                alt="Leader-follower teleoperation for data collection"
-                className="w-full rounded-lg shadow-lg mt-2"
-              />
+              <div className="aspect-video mt-4">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/vhVHY2LlWpg?si=&autoplay=1&loop=1&playlist=vhVHY2LlWpg&mute=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                />
+              </div>
             <p className="text-sm text-gray-400 text-center">Leader-follower teleoperation for data collection</p>
           </div>
         ),
@@ -823,6 +837,9 @@ const projects: Record<string, {
             </div>
 
             <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Result(EEF height)</h4>
+            <p>
+              We pick the trajectory segment where the robot is lifting up the object, and we can see that by activating "High" neuron, the end-effector height is higher than activating "Low" neuron.
+            </p>
             <img
               src={`/images/portfolio/high_low_eef_plot.png`}
               alt="High and Low EEF Plot"
