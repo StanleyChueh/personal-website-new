@@ -1317,29 +1317,35 @@ const projects: Record<string, {
             </p>
             <div className="my-4 flex justify-center">
               <div className="max-w-2xl w-full">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-lg shadow-lg"
-              >
-                <source src="/videos/laserscan_to_depth.mp4" type="video/mp4" />
-              </video>
+                <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/Ryz1dCmaGSo?si=&autoplay=1&loop=1&playlist=Ryz1dCmaGSo&mute=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                />
+                </div>
               <p className="text-sm text-gray-400 text-center mt-2">Depth to Laserscan Conversion</p>
               </div>
             </div>
             <div className="my-4 flex justify-center">
               <div className="max-w-2xl w-full">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-lg shadow-lg"
-              >
-                <source src="/videos/depthimage_to_laserscan_avoidance.mp4" type="video/mp4" />
-              </video>
+                <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/g0pCNqtRL8U?si=&autoplay=1&loop=1&playlist=g0pCNqtRL8U&mute=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                />
+                </div>
               <p className="text-sm text-gray-400 text-center mt-2">Obstacle Avoidance with Depth to Laserscan</p>
               </div>
             </div>
