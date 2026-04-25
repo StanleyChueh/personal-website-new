@@ -1001,63 +1001,51 @@ const projects: Record<string, {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
           <div>
-            <div className="aspect-video">
-              <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/YZnfuKUHu_w?si=&autoplay=1&loop=1&playlist=YZnfuKUHu_w&mute=1"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="rounded-lg shadow-lg"
-              style={{border: 'none'}}
-              />
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg"
+            >
+              <source src="/videos/Load_map1.mp4" type="video/mp4" />
+            </video>
             <p className="text-sm text-gray-400 text-center mt-2">Loading map 1 & initial pose</p>
           </div>
           <div>
-            <div className="aspect-video">
-              <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/wzCAMWCo6bs?si=&autoplay=1&loop=1&playlist=wzCAMWCo6bs&mute=1"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="rounded-lg shadow-lg"
-              style={{border: 'none'}}
-              />
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg"
+            >
+              <source src="/videos/1st_nav.mp4" type="video/mp4" />
+            </video>
             <p className="text-sm text-gray-400 text-center mt-2">First navigation task</p>
           </div>
           <div>
-            <div className="aspect-video">
-              <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/TuJqgq7fM2M?si=&autoplay=1&loop=1&playlist=TuJqgq7fM2M&mute=1"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="rounded-lg shadow-lg"
-              style={{border: 'none'}}
-              />
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg"
+            >
+              <source src="/videos/load_map2.mp4" type="video/mp4" />
+            </video>
             <p className="text-sm text-gray-400 text-center mt-2">Loading map 2</p>
           </div>
           <div>
-            <div className="aspect-video">
-              <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/mOBCYnsh0fk?si=&autoplay=1&loop=1&playlist=mOBCYnsh0fk&mute=1"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="rounded-lg shadow-lg"
-              style={{border: 'none'}}
-              />
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-lg shadow-lg"
+            >
+              <source src="/videos/2nd_nav.mp4" type="video/mp4" />
+            </video>
             <p className="text-sm text-gray-400 text-center mt-2">Second navigation task</p>
           </div>
               </div>
