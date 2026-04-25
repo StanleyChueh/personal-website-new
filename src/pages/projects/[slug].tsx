@@ -739,15 +739,18 @@ const projects: Record<string, {
             <p>
               The Denser and more focused attention heatmap indicates that the robot is learning to attend to the most relevant parts of the input for decision-making, which can lead to improved performance and better generalization in robotic tasks.
             </p>
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-lg shadow-lg"
-              >
-              <source src="/videos/svla_attention_weight_correct_prompt_unfrozen_vision_encoder.mp4" type="video/mp4" />
-            </video>
+            <div className="aspect-video">
+              <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/wwfaNhqh6m0?si=g8cjXop9GWSxZOBx&autoplay=1&loop=1&playlist=wwfaNhqh6m0&mute=1"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+              style={{border: 'none'}}
+              />
+            </div>
             <p className="text-sm text-gray-400 text-center mt-2">Real-time attention visualization for the unfrozen VLM</p>
           </div>
         ),  
@@ -771,26 +774,32 @@ const projects: Record<string, {
             
             <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Setup</h4>
 
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-lg shadow-lg"
-              >
-              <source src="/videos/high_dataset.mp4" type="video/mp4" />
-            </video>
+            <div className="aspect-video">
+              <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/ut3WQQcTu3c?si=D2qSmCWLQCUwiUVs&autoplay=1&loop=1&playlist=ut3WQQcTu3c&mute=1"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+              style={{border: 'none'}}
+              />
+            </div>
             <p className="text-sm text-gray-400 text-center mt-2">High trajectory demonstration </p>
 
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-lg shadow-lg"
-              >
-              <source src="/videos/low_dataset.mp4" type="video/mp4" />
-            </video>
+            <div className="aspect-video">
+              <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/vrd_qMlzqhQ?autoplay=1&loop=1&playlist=vrd_qMlzqhQ&mute=1"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+              style={{border: 'none'}}
+              />
+            </div>
             <p className="text-sm text-gray-400 text-center mt-2">Low trajectory demonstration </p>
             <p>
               We collect high and low trajectory demonstrations in dataset, and with the same prompt description.</p>
@@ -804,36 +813,36 @@ const projects: Record<string, {
               By extracting the value vector from VLM's FFN, and then project to VLA token space, we can find neurons that have semantic meaning as "High" and "Low". By activating these neurons, we can control the robot to execute high or low trajectories.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <div>
-                <div className="aspect-video">
-                  <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/8zdCjnHZVuo?autoplay=1&loop=1&playlist=8zdCjnHZVuo&mute=1"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="rounded-lg shadow-lg"
-                  style={{border: 'none'}}
-                  />
-                </div>
-                <p className="text-sm text-gray-400 text-center mt-2">High trajectory evaluation <a href="https://huggingface.co/datasets/ethanCSL/eval_koch_high" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Eval Dataset</a></p>
-                </div>
-                <div>
-                <div className="aspect-video">
-                  <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/Ec9PzJxMJtw?si=&autoplay=1&loop=1&playlist=Ec9PzJxMJtw&mute=1"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="rounded-lg shadow-lg"
-                  style={{border: 'none'}}
-                  />
-                </div>
-                <p className="text-sm text-gray-400 text-center mt-2">Low trajectory evaluation <a href="https://huggingface.co/datasets/ethanCSL/eval_koch_low" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Eval Dataset</a></p>
-                </div>
+              <div>
+              <div className="aspect-video">
+                <iframe
+                width="120%"
+                height="120%"
+                src="https://www.youtube.com/embed/8zdCjnHZVuo?autoplay=1&loop=1&playlist=8zdCjnHZVuo&mute=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-lg shadow-lg"
+                style={{border: 'none', aspectRatio: '16/9', objectFit: 'cover'}}
+                />
+              </div>
+              <p className="text-sm text-gray-400 text-center mt-2">High trajectory evaluation <a href="https://huggingface.co/datasets/ethanCSL/eval_koch_high" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Eval Dataset</a></p>
+              </div>
+              <div>
+              <div className="aspect-video">
+                <iframe
+                width="120%"
+                height="120%"
+                src="https://www.youtube.com/embed/Ec9PzJxMJtw?si=&autoplay=1&loop=1&playlist=Ec9PzJxMJtw&mute=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-lg shadow-lg"
+                style={{border: 'none', aspectRatio: '16/9', objectFit: 'cover'}}
+                />
+              </div>
+              <p className="text-sm text-gray-400 text-center mt-2">Low trajectory evaluation <a href="https://huggingface.co/datasets/ethanCSL/eval_koch_low" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Eval Dataset</a></p>
+              </div>
             </div>
 
             <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Result(EEF height)</h4>
