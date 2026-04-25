@@ -171,16 +171,19 @@ const projects: Record<string, {
             {/* Videos Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
               <div>
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full rounded-lg shadow-lg"
-                >
-                  <source src={`/videos/koch_open_drawer.mp4`} type="video/mp4" />
-                </video>
-                <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 50 episodes training</p>
+              <div className="aspect-video">
+                <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/Szx_Pt8DylI?si=&autoplay=1&loop=1&playlist=Szx_Pt8DylI&mute=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-lg shadow-lg"
+                style={{border: 'none'}}
+                />
+              </div>
+              <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 50 episodes training</p>
               </div>
               
               <div>
