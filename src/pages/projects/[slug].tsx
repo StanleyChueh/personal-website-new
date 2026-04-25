@@ -790,26 +790,48 @@ const projects: Record<string, {
               By extracting the value vector from VLM's FFN, and then project to VLA token space, we can find neurons that have semantic meaning as "High" and "Low". By activating these neurons, we can control the robot to execute high or low trajectories.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              <div>
-                <img
-                src="/videos/high_eval.gif"
-                alt="High trajectory evaluation"
-                className="w-full rounded-lg shadow-lg"
-                />
-              <p className="text-sm text-gray-400 text-center mt-2">High trajectory evaluation</p>
-              </div>
-              <div>
-                <img
-                src="/videos/low_eval.gif"
-                alt="Low trajectory evaluation"
-                className="w-full rounded-lg shadow-lg"
-                />
-              <p className="text-sm text-gray-400 text-center mt-2">Low trajectory evaluation</p>
-              </div>
+                <div>
+                <div className="aspect-video">
+                  <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/8zdCjnHZVuo?autoplay=1&loop=1&playlist=8zdCjnHZVuo&mute=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                  />
+                </div>
+                <p className="text-sm text-gray-400 text-center mt-2">High trajectory evaluation <a href="https://huggingface.co/datasets/ethanCSL/eval_koch_high" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Eval Dataset</a></p>
+                </div>
+                <div>
+                <div className="aspect-video">
+                  <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/Ec9PzJxMJtw?si=&autoplay=1&loop=1&playlist=Ec9PzJxMJtw&mute=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                  />
+                </div>
+                <p className="text-sm text-gray-400 text-center mt-2">Low trajectory evaluation <a href="https://huggingface.co/datasets/ethanCSL/eval_koch_low" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Eval Dataset</a></p>
+                </div>
             </div>
+
+            <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Result(EEF height)</h4>
+            <img
+              src={`/images/portfolio/high_low_eef_plot.png`}
+              alt="High and Low EEF Plot"
+              className="w-full rounded-lg shadow-lg mt-4"
+            />
+            <p className="text-sm text-gray-400 text-center mt-2">High vs. Low eef height comparison in 10 rollouts</p>
           </div>
         ),
-            }
+      }
           ],
           links: [
             {label: 'GitHub', url: 'https://github.com/huggingface/lerobot.git'},
