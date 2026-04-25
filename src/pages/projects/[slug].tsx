@@ -186,18 +186,21 @@ const projects: Record<string, {
               <p className="text-sm text-gray-400 text-center mt-2">Autonomous task execution after 50 episodes training</p>
               </div>
               
-              <div>
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full rounded-lg shadow-lg"
-                >
-                  <source src={`/videos/lerobot_classification.mp4`} type="video/mp4" />
-                </video>
+                <div>
+                <div className="aspect-video">
+                  <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/vlrDY3Pzqec?si=&autoplay=1&loop=1&playlist=vlrDY3Pzqec&mute=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                  />
+                </div>
                 <p className="text-sm text-gray-400 text-center mt-2">Real-time action classification using the trained ACT model</p>
-              </div>
+                </div>
             </div>
           </div>
         ),
