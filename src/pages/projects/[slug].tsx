@@ -21,7 +21,7 @@ const projects: Record<string, {
       just by watching human demonstrations! 
     `.trim(),
     videos: [
-      {src: '/videos/koch_open_draw.mp4', caption: 'Robot opening drawer demo'},
+      {src: '/videos/koch_open_drawer.mp4', caption: 'Robot opening drawer demo'},
     ],
     images: [
       {src: '/images/portfolio/Franka_open_drawer.png', caption: 'Training process'},
@@ -213,7 +213,7 @@ const projects: Record<string, {
       How to transfer the imitation learning techniques to a more complex robotic arm like Franka Emika Panda.
     `.trim(),
     videos: [
-      {src: '/videos/franka_open_draw.mp4', caption: 'Robot opening drawer demo'},
+      {src: '/videos/franka_open_drawer.mp4', caption: 'Robot opening drawer demo'},
     ],
     images: [
       {src: '/images/portfolio/franka-1.png', caption: 'System setup'},
@@ -612,7 +612,7 @@ const projects: Record<string, {
         Open up the black box of VLA models and understand how they make decisions in robotic tasks.
       `.trim(),
       videos: [
-        {src: '/videos/franka_open_draw.mp4', caption: 'Robot opening drawer demo'},
+        {src: '/videos/franka_open_drawer.mp4', caption: 'Robot opening drawer demo'},
       ],
       images: [
         {src: '/images/portfolio/franka-1.png', caption: 'System setup'},
