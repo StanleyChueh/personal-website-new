@@ -737,8 +737,8 @@ const projects: Record<string, {
             <p className="text-sm text-gray-400 text-center mt-2">Real-time attention visualization for the unfrozen VLM</p>
           </div>
         ),  
-            },
-            {
+      },
+      {
         title: 'FFN Analysis',
         content: (
           <div className="space-y-4">
