@@ -791,27 +791,19 @@ const projects: Record<string, {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
               <div>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
+                <img
+                src="/videos/high_eval.gif"
+                alt="High trajectory evaluation"
                 className="w-full rounded-lg shadow-lg"
-              >
-                <source src="/videos/high_eval.mp4" type="video/mp4" />
-              </video>
+                />
               <p className="text-sm text-gray-400 text-center mt-2">High trajectory evaluation</p>
               </div>
               <div>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
+                <img
+                src="/videos/low_eval.gif"
+                alt="Low trajectory evaluation"
                 className="w-full rounded-lg shadow-lg"
-              >
-                <source src="/videos/low_eval.mp4" type="video/mp4" />
-              </video>
+                />
               <p className="text-sm text-gray-400 text-center mt-2">Low trajectory evaluation</p>
               </div>
             </div>
