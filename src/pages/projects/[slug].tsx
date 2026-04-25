@@ -580,18 +580,21 @@ const projects: Record<string, {
                   The model runs at <strong>~30Hz</strong>, predicting actions that are
                   executed by the robot controller in real-time.
                 </p>
-                {/* Video */}
+                {/* YouTube Video */}
                 <div className="mt-4 flex justify-center">
-                  <div className="max-w-2xl">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full rounded-lg shadow-lg"
-                  >
-                  <source src={`/videos/three_task_cut_4x_speed.mp4`} type="video/mp4" />
-                  </video>
+                  <div className="max-w-2xl w-full">
+                  <div className="aspect-video">
+                    <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/cOOaiJX_r3U?si=&autoplay=1&loop=1&playlist=cOOaiJX_r3U&mute=1"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="rounded-lg shadow-lg"
+                    style={{border: 'none'}}
+                    />
+                  </div>
                   <p className="text-sm text-gray-400 text-center mt-2">Autonomous real-time task switching execution after 100 episodes for each task after training <a href="https://huggingface.co/datasets/ethanCSL/svla_koch_sorting_n_stacking_screw_nut" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a></p>
                 </div>
                 </div>
@@ -683,30 +686,36 @@ const projects: Record<string, {
             <p>
               Attention heatmaps from the vision-language model showing how the model attends to different regions of the image and language tokens during processing.
             </p>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-lg shadow-lg"
-              >
-              <source src="/videos/self_attention.mp4" type="video/mp4" />
-            </video>
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/Q-FJEfSLhjs?si=&autoplay=1&loop=1&playlist=Q-FJEfSLhjs&mute=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="rounded-lg shadow-lg"
+                  style={{border: 'none'}}
+                />
+              </div>
             <p className="text-sm text-gray-400 text-center mt-2">We can clearly see the attention is noisy in environment, because the VLM does not take joint observations, and VLM is unfrzoen in default training(Rely on its pre-trained understanding)</p>
             
             <h4 className="text-lg font-semibold text-white mt-6">Action Expert Attention Heatmap Results</h4>
             <p>
               Attention heatmaps from the last cross attention block in the action expert module showing how the model attends to different features when making decisions.
             </p>
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-lg shadow-lg"
-              >
-              <source src="/videos/cross_attention.mp4" type="video/mp4" />
-            </video>
+            <div className="aspect-video">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/IrOXCioblCs?si=&autoplay=1&loop=1&playlist=IrOXCioblCs&mute=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-lg shadow-lg"
+                style={{border: 'none'}}
+              />
+            </div>
             <p className="text-sm text-gray-400 text-center mt-2">Attention is more focused in the action expert module, cause it is closer to the decision-making process, but it is still noisy</p>
 
             <h4 className="text-lg font-semibold text-white mt-6">Unfrozen VLM Attention Heatmap Results</h4>
