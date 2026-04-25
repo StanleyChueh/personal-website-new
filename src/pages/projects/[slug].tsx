@@ -283,15 +283,18 @@ const projects: Record<string, {
               Detail: We utilize <a href="https://arxiv.org/abs/2309.13037" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">GELLO project</a> to mimic the similar method we use on koch robot in data collection.
               We are using joint impedance control for Franka Emika Panda by <a href="https://github.com/frankaemika/franka_ros" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Franka ROS</a> and using leading arm's joint states to control the follower arm in a leader-follower teleoperation setup.
             </p>
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full rounded-lg shadow-lg mt-2"
-            >
-              <source src="/videos/franka_data_collection.mp4" type="video/mp4" />
-            </video>
+            <div className="aspect-video mt-4">
+              <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/OhipjlzHnjo?autoplay=1&loop=1&playlist=OhipjlzHnjo&mute=1"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+              style={{border: 'none'}}
+              />
+            </div>
             <p className="text-sm text-gray-400 text-center">Leader-follower teleoperation for data collection</p>
 
             <h4 className="text-lg font-semibold text-white mt-6">Previous Control Method</h4>
