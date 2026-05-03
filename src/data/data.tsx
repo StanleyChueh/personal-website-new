@@ -88,7 +88,7 @@ export const aboutData: About = {
   description: `My study interests include Visual Language Action Models (VLA) for robotic arms,vision-based and LiDAR-based robot navigation.`,
   aboutItems: [
     {label: 'Location', text: 'Taipei, Taiwan', Icon: MapIcon},
-    {label: 'Age', text: '22', Icon: CalendarIcon},
+    {label: 'Age', text: '23', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Taiwan(R.O.C)', Icon: FlagIcon},
     {label: 'Interests', text: 'Music, Bodybuilding', Icon: SparklesIcon},
     {label: 'Study', text: 'Taipei Tech', Icon: AcademicCapIcon},
