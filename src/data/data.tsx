@@ -353,6 +353,6 @@ export const contact: ContactSection = {
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/StanleyChueh'},
   {label: 'Youtube', Icon: YoutubeIcon, href: 'https://www.youtube.com/@Stanley_Chueh'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/stanley-chueh-239421303'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/stanley-chueh'},
   {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/stanley_chueh/'},
 ];
