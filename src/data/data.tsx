@@ -30,8 +30,9 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Stanley Chueh',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'Stanley Chueh (闕楷宸)',
+  description:
+    'Stanley Chueh (闕楷宸) — robotics researcher in Taipei working on Visual Language Action (VLA) models and robot navigation. Resume, projects, and contact.',
 };
 
 /**
@@ -54,7 +55,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Stanley Chueh.`,
+  name: `I'm Stanley Chueh (闕楷宸).`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
