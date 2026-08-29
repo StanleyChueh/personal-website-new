@@ -162,18 +162,18 @@ export const portfolioGroups: PortfolioGroup[] = [
         youtubeId: 'cOOaiJX_r3U',
       },
       {
-        title: 'Model Interpretability on VLA Models',
-        description: 'Open up the black box of VLA models.',
-        url: '/projects/model-interpretability-vla',
+        title: 'Visual Language Action Models (VLAs) on OpenArm',
+        description: 'Train VLA models on fully simulated datasets and transfer to real-world OpenArm.',
+        url: '/projects/OpenArm-vla',
         // video: '/videos/svla_attention_weight_correct_prompt_unfrozen_vision_encoder_crop.mp4',
-        youtubeId: 'wwfaNhqh6m0',
+        youtubeId: '4DKriauQ05g',
       },
     ],
     timeline: [
       {date: 'Jan ~ May 2025', label: 'Koch with ACT', completed: true},
       {date: 'Jun ~ Dec 2025', label: 'Franka Emika with ACT', completed: true},
       {date: 'Jan ~ Feb 2026', label: 'Koch with VLAs', completed: true},
-      {date: 'Feb 2026~', label: 'Model Interpretability (on going...)', completed: false},
+      {date: 'Feb 2026~', label: 'OpenArm with VLAs(on going...)', completed: false},
     ],
   },
   {

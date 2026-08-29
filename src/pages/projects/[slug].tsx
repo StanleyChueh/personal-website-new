@@ -71,14 +71,24 @@ const projects: Record<string, {
             </p>
             
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
-              <p className="text-green-400 mb-2"># Robot Joint States (6-DOF)</p>
+              <p className="text-green-400 mb-2"># Robot Joint States (16-DOF)</p>
               <ul className="text-gray-300 space-y-1 ml-4">
-                <li>{'"shoulder_pan.pos"'}</li>
-                <li>{'"shoulder_lift.pos"'}</li>
-                <li>{'"elbow_flex.pos"'}</li>
-                <li>{'"wrist_flex.pos"'}</li>
-                <li>{'"wrist_roll.pos"'}</li>
-                <li>{'"gripper.pos"'}</li>
+                <li>{'"LJ1.pos"'}</li>
+                <li>{'"LJ2.pos"'}</li>
+                <li>{'"LJ3.pos"'}</li>
+                <li>{'"LJ4.pos"'}</li>
+                <li>{'"LJ5.pos"'}</li>
+                <li>{'"LJ6.pos"'}</li>
+                <li>{'"LJ7.pos"'}</li>
+                <li>{'"LJ8.pos"'}</li>
+                <li>{'"RJ1.pos"'}</li>
+                <li>{'"RJ2.pos"'}</li>
+                <li>{'"RJ3.pos"'}</li>
+                <li>{'"RJ4.pos"'}</li>
+                <li>{'"RJ5.pos"'}</li>
+                <li>{'"RJ6.pos"'}</li>
+                <li>{'"RJ7.pos"'}</li>
+                <li>{'"RJ8.pos"'}</li>
               </ul>
               <p className="text-green-400 mb-2 mt-4"># Camera Observations</p>
               <ul className="text-gray-300 space-y-1 ml-4">
@@ -97,7 +107,7 @@ const projects: Record<string, {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/vhVHY2LlWpg?si=&autoplay=1&loop=1&playlist=vhVHY2LlWpg&mute=1"
+                  src="https://www.youtube.com/embed/PNdkYEWuSUE?si=&autoplay=1&loop=1&playlist=PNdkYEWuSUE&mute=1"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -493,14 +503,24 @@ const projects: Record<string, {
             </p>
             
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
-              <p className="text-green-400 mb-2"># Robot Joint States (6-DOF)</p>
+              <p className="text-green-400 mb-2"># Robot Joint States (16-DOF)</p>
               <ul className="text-gray-300 space-y-1 ml-4">
-                <li>{'"shoulder_pan.pos"'}</li>
-                <li>{'"shoulder_lift.pos"'}</li>
-                <li>{'"elbow_flex.pos"'}</li>
-                <li>{'"wrist_flex.pos"'}</li>
-                <li>{'"wrist_roll.pos"'}</li>
-                <li>{'"gripper.pos"'}</li>
+                <li>{'"LJ1.pos"'}</li>
+                <li>{'"LJ2.pos"'}</li>
+                <li>{'"LJ3.pos"'}</li>
+                <li>{'"LJ4.pos"'}</li>
+                <li>{'"LJ5.pos"'}</li>
+                <li>{'"LJ6.pos"'}</li>
+                <li>{'"LJ7.pos"'}</li>
+                <li>{'"LJ8.pos"'}</li>
+                <li>{'"RJ1.pos"'}</li>
+                <li>{'"RJ2.pos"'}</li>
+                <li>{'"RJ3.pos"'}</li>
+                <li>{'"RJ4.pos"'}</li>
+                <li>{'"RJ5.pos"'}</li>
+                <li>{'"RJ6.pos"'}</li>
+                <li>{'"RJ7.pos"'}</li>
+                <li>{'"RJ8.pos"'}</li>
               </ul>
               <p className="text-green-400 mb-2 mt-4"># Camera Observations</p>
               <ul className="text-gray-300 space-y-1 ml-4">
@@ -519,7 +539,7 @@ const projects: Record<string, {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/vhVHY2LlWpg?si=&autoplay=1&loop=1&playlist=vhVHY2LlWpg&mute=1"
+                  src="https://www.youtube.com/embed/PNdkYEWuSUE?si=&autoplay=1&loop=1&playlist=PNdkYEWuSUE&mute=1"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -601,7 +621,7 @@ const projects: Record<string, {
                     <iframe
                     width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/cOOaiJX_r3U?si=&autoplay=1&loop=1&playlist=cOOaiJX_r3U&mute=1"
+                    src="https://www.youtube.com/embed/Xi3LRSgJ_ro?si=&autoplay=1&loop=1&playlist=Xi3LRSgJ_ro&mute=1"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -641,70 +661,93 @@ const projects: Record<string, {
         },
 
   // Project 4(Imitation Learning & VLA Development)
-  'model-interpretability-vla': {
-      title: 'Model Interpretability on VLA Models',
-      description: `
-        Open up the black box of VLA models and understand how they make decisions in robotic tasks.
-      `.trim(),
-      videos: [
-        {src: '/videos/franka_open_drawer.mp4', caption: 'Robot opening drawer demo'},
-      ],
-      images: [
-        {src: '/images/portfolio/franka-1.png', caption: 'System setup'},
-        {src: '/images/portfolio/franka-2.png', caption: 'Training process'},
-      ],
-      youtubeIds: [
-        {id: '8RHWoJiWaVc', caption: 'Full demonstration video'},
-      ],
-      sections: [
-        {
-          title: 'Overview',
-          content: (
-            <p>
-              In previous work, we demonstrated how robotic arms can learn from human demonstrations through{' '} demonstrations, but how do these VLA models actually make decisions? 
-            </p>
-          ),
-        },
-        {
-          title: 'Interpretability Methods',
-          content: (
+  'OpenArm-vla': {
+    title: 'VLAs with bimanual robotic arm(OpenArm)',
+    description: `
+      Can we train VLAs on fully simulated bimanual robotic arms and transfer to real-world tasks?
+    `.trim(),
+    videos: [
+      {src: '/videos/koch_open_drawer.mp4', caption: 'Robot opening drawer demo'},
+    ],
+    images: [
+      {src: '/images/portfolio/koch-1.png', caption: 'System setup'},
+      {src: '/images/portfolio/koch-2.png', caption: 'Training process'},
+    ],
+    youtubeIds: [
+      {id: '8RHWoJiWaVc', caption: 'Full demonstration video'},
+    ],
+    sections: [
+      {
+        title: 'Overview',
+        content: (
             <div className="space-y-4">
-              <p>
-                We apply various interpretability techniques to analyze the inner workings of VLA models, including:
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Attention Visualization:</strong> Visualize attention weights to see which parts of the input the model focuses on.</li>
-                <li><strong>FFN Analysis:</strong> Analyze the feed-forward networks to understand their contribution to the model's decisions.</li>
-              </ul>
+                <p>
+                  In previous work, we demonstrate how we use Action Chunking Transformer(ACT) and SmolVLA to enable robotic arms to learn from human demonstrations and language instructions, but we only use low-cost single-arm robots,
+                  and all models are trained on real-world data. In this project, we explore how to train VLAs on fully simulated bimanual robotic arms and transfer to real-world tasks.
+                </p>
+                <img
+                  src="/images/portfolio/Real2Sim2Real_pipeline.png"
+                  alt="Real2Sim2Real pipeline"
+                  className="w-full rounded-lg shadow-lg"
+                />
+                <p className="text-sm text-gray-400 text-center">
+                  Real2Sim2Real pipeline for training bimanual robot policies
+                </p>
             </div>
-          ),
+        ),
       },
       {
-        title: 'Attention Visualization',
+        title: '1. Teleoperation - Isaac Sim',
         content: (
           <div className="space-y-4">
             <p>
-              By visualizing the attention weights, we can see which parts of the visual input and language instructions the model is focusing on when making decisions.
+              In data collection, we use the same setup as the previous projects, but we also collect language instructions along with the demonstrations.
             </p>
-            <p>
-              In the example below, we will demonstrate the experimental results of attention visualization on VLM part "self attention block" of SmolVLA and also "cross attention" block in action expert module.
-            </p>
-            <img
-              src={`/images/portfolio/smolvla_paper_architecture.png`}
-              alt="Attention Visualization - Visualizing which parts of the input the VLA model focuses on"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <p className="text-sm text-gray-400 text-center mt-2">SmolVLA architecture <a href="https://arxiv.org/abs/2506.01844" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Paper</a></p>
             
-            <h4 className="text-lg font-semibold text-white mt-6">VLM Attention Heatmap Results</h4>
+            <h3 className="text-lg font-semibold text-white mt-6">Dataset Format</h3>
             <p>
-              Attention heatmaps from the vision-language model showing how the model attends to different regions of the image and language tokens during processing.
+              We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files 
+              containing <strong> observation(Robot joint states) </strong>, and <strong> action(Joint states commands) </strong> and mp4 for body camera and two wrist cameras observation.
             </p>
-              <div className="aspect-video">
+            
+            <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
+              <p className="text-green-400 mb-2"># Robot Joint States (16-DOF)</p>
+              <ul className="text-gray-300 space-y-1 ml-4">
+                <li>{'"LJ1.pos"'}</li>
+                <li>{'"LJ2.pos"'}</li>
+                <li>{'"LJ3.pos"'}</li>
+                <li>{'"LJ4.pos"'}</li>
+                <li>{'"LJ5.pos"'}</li>
+                <li>{'"LJ6.pos"'}</li>
+                <li>{'"LJ7.pos"'}</li>
+                <li>{'"LJ8.pos"'}</li>
+                <li>{'"RJ1.pos"'}</li>
+                <li>{'"RJ2.pos"'}</li>
+                <li>{'"RJ3.pos"'}</li>
+                <li>{'"RJ4.pos"'}</li>
+                <li>{'"RJ5.pos"'}</li>
+                <li>{'"RJ6.pos"'}</li>
+                <li>{'"RJ7.pos"'}</li>
+                <li>{'"RJ8.pos"'}</li>
+              </ul>
+              <p className="text-green-400 mb-2 mt-4"># Camera Observations</p>
+              <ul className="text-gray-300 space-y-1 ml-4">
+                <li>{'"observation.images.body_cam"'}</li>
+                <li>{'"observation.images.wrist_cam"'}</li>
+                <li>{'"observation.images.right_wrist_cam"'}</li>
+              </ul>
+            </div>
+            <p className="text-sm text-gray-400 text-center mt-2">LeRobot dataset structure with joint positions and camera observations</p>
+            
+            <h3 className="text-lg font-semibold text-white mt-6">Control Method</h3>
+            <p>
+              Demonstrations are collected via <strong>teleoperation</strong> using Meta Quest3 Pro in Isaac Sim.
+            </p>
+              <div className="aspect-video mt-4">
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/Q-FJEfSLhjs?si=&autoplay=1&loop=1&playlist=Q-FJEfSLhjs&mute=1"
+                  src="https://www.youtube.com/embed/PNdkYEWuSUE?si=&autoplay=1&loop=1&playlist=PNdkYEWuSUE&mute=1"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -712,156 +755,264 @@ const projects: Record<string, {
                   style={{border: 'none'}}
                 />
               </div>
-            <p className="text-sm text-gray-400 text-center mt-2">We can clearly see the attention is noisy in environment, because the VLM does not take joint observations, and VLM is unfrzoen in default training(Rely on its pre-trained understanding)</p>
-            
-            <h4 className="text-lg font-semibold text-white mt-6">Action Expert Attention Heatmap Results</h4>
-            <p>
-              Attention heatmaps from the last cross attention block in the action expert module showing how the model attends to different features when making decisions.
-            </p>
-            <div className="aspect-video">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/IrOXCioblCs?si=&autoplay=1&loop=1&playlist=IrOXCioblCs&mute=1"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="rounded-lg shadow-lg"
-                style={{border: 'none'}}
-              />
-            </div>
-            <p className="text-sm text-gray-400 text-center mt-2">Attention is more focused in the action expert module, cause it is closer to the decision-making process, but it is still noisy</p>
+            <p className="text-sm text-gray-400 text-center">Leader-follower teleoperation for data collection, reference: <a href="https://github.com/enactic/dora-openarm-data-collection.git" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">[Github]</a></p>
 
-            <h4 className="text-lg font-semibold text-white mt-6">Unfrozen VLM Attention Heatmap Results</h4>
+            <h3 className="text-lg font-semibold text-white mt-6">Source dataset</h3>
             <p>
-              Unfrozen VLM can adapt its attention based on the robot's joint observations and task-specific data, which can lead to more focused attention on relevant features in the environment.
+              The collected dataset is available on <a href="https://huggingface.co/datasets/ethanCSL/openarm_visuomotor_VR_pringles_V9" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Hugging Face</a>.
             </p>
-            <p>
-              The Denser and more focused attention heatmap indicates that the robot is learning to attend to the most relevant parts of the input for decision-making, which can lead to improved performance and better generalization in robotic tasks.
-            </p>
-            <div className="aspect-video">
-              <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/wwfaNhqh6m0?si=g8cjXop9GWSxZOBx&autoplay=1&loop=1&playlist=wwfaNhqh6m0&mute=1"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="rounded-lg shadow-lg"
-              style={{border: 'none'}}
-              />
-            </div>
-            <p className="text-sm text-gray-400 text-center mt-2">Real-time attention visualization for the unfrozen VLM</p>
+            <img
+              src="/images/portfolio/pringles_handover_visualizer.png"
+              alt="Pringles handover visualizer"
+              className="w-full rounded-lg shadow-lg mt-4"
+            />
+            <p className="text-sm text-gray-400 text-center">10 source demos by human demos</p>
           </div>
-        ),  
+        ),
       },
       {
-        title: 'FFN Analysis',
+        title: '2. Dataset generation - Isaac Sim',
         content: (
           <div className="space-y-4">
             <p>
-              Inspired by the work of <a href="https://arxiv.org/abs/2509.00328" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Mechanistic interpretability for steering vision-language-action models</a>, we analyze the feed-forward networks (FFNs) in the VLA model and identify specific semantic neurons that curry meaning as "High","Low","Fast","Slow"
+              After collecting small amount of demonstration data(ex: 10 demos), we generate a large-scale dataset(~400 demos) in Isaac Sim by randomizing pringles positions, size, textures, lighting and background.
             </p>
-            <p>
-              By activating these neurons, we can control the robot to execute different trajectories, such as high or low trajectories, fast or slow trajectories.
-            </p>
-            <img
-              src={`/images/portfolio/merchanistic_interpretability_paper.png`}
-              alt="FFN Analysis - Analyzing the feed-forward networks in the VLA model"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <p className="text-sm text-gray-400 text-center mt-2">Mechanistic Interpretability Analysis <a href="https://arxiv.org/abs/2509.00328" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Paper</a></p>
             
-            <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Setup</h4>
+            <h3 className="text-lg font-semibold text-white mt-6">Dataset Annotation</h3>
+            <p>
+              For dataset generation(Isaac Lab Mimic), we have to annotate each episode into several subtasks.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+              <div className="space-y-4 md:col-span-2">
+                <h4 className="text-base font-semibold text-white">right arm</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex flex-col items-center">
+                    <video
+                      src="/videos/openarm_right_1.mp4"
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full aspect-video object-cover rounded-lg shadow-lg"
+                    />
+                    <p className="text-sm text-gray-400 text-center mt-2">Segment1: Reach → grasp</p>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <video
+                      src="/videos/openarm_right_2.mp4"
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full aspect-video object-cover rounded-lg shadow-lg"
+                    />
+                    <p className="text-sm text-gray-400 text-center mt-2">Srgment2:Handover → Release → Return</p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-4 md:col-span-1">
+                <h4 className="text-base font-semibold text-white">left arm</h4>
+                <div className="flex flex-col items-center">
+                  <video
+                    src="/videos/openarm_left.mp4"
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full aspect-video object-cover rounded-lg shadow-lg"
+                  />
+                  <p className="text-sm text-gray-400 text-center mt-2">Segment3:Wait → Handover → Return</p>
+                </div>
+              </div>
+            </div>
 
-            <div className="aspect-video">
-              <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/ut3WQQcTu3c?si=D2qSmCWLQCUwiUVs&autoplay=1&loop=1&playlist=ut3WQQcTu3c&mute=1"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="rounded-lg shadow-lg"
-              style={{border: 'none'}}
+            <h3 className="text-lg font-semibold text-white mt-6">Dataset Generation</h3>
+
+            <p>
+              After annotating the source dataset, we can use Isaac Lab Mimic to generate a large-scale dataset by randomizing pringles positions, size, textures, lighting and background.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-4">
+              <video
+                src="/videos/isaaclab_mimic_1.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full aspect-video object-cover rounded-lg shadow-lg"
+              />
+              <video
+                src="/videos/isaaclab_mimic_2.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full aspect-video object-cover rounded-lg shadow-lg"
+              />
+              <video
+                src="/videos/isaaclab_mimic_3.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full aspect-video object-cover rounded-lg shadow-lg"
+              />
+              <video
+                src="/videos/isaaclab_mimic_4.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full aspect-video object-cover rounded-lg shadow-lg"
+              />
+              <video
+                src="/videos/isaaclab_mimic_5.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full aspect-video object-cover rounded-lg shadow-lg"
               />
             </div>
-            <p className="text-sm text-gray-400 text-center mt-2">High trajectory demonstration </p>
-
-            <div className="aspect-video">
-              <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/vrd_qMlzqhQ?autoplay=1&loop=1&playlist=vrd_qMlzqhQ&mute=1"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="rounded-lg shadow-lg"
-              style={{border: 'none'}}
-              />
-            </div>
-            <p className="text-sm text-gray-400 text-center mt-2">Low trajectory demonstration </p>
-            <p>
-              We collect high and low trajectory demonstrations in dataset, and with the same prompt description.</p>
-            <p>
-              We will find semantic neurons in the FFN that can distinguish high and low trajectories, and by activating these neurons, we can control the robot to execute high or low trajectories.
+            <p className="text-sm text-gray-400 text-center mt-2">
+              Domain randomization in Isaac Lab Mimic introduces varied lighting and backgrounds to improve dataset diversity. <a href="https://huggingface.co/ethanCSL/openarm_visuomotor_VR_pringles_V14_background_30hz" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a>
             </p>
-
-            <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Result</h4>
-
-            <p> 
-              By extracting the value vector from VLM's FFN, and then project to VLA token space, we can find neurons that have semantic meaning as "High" and "Low". By activating these neurons, we can control the robot to execute high or low trajectories.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              <div>
-              <div className="aspect-video">
-                <iframe
-                width="120%"
-                height="120%"
-                src="https://www.youtube.com/embed/8zdCjnHZVuo?autoplay=1&loop=1&playlist=8zdCjnHZVuo&mute=1"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="rounded-lg shadow-lg"
-                style={{border: 'none', aspectRatio: '16/9', objectFit: 'cover'}}
-                />
-              </div>
-              <p className="text-sm text-gray-400 text-center mt-2">High trajectory evaluation <a href="https://huggingface.co/datasets/ethanCSL/eval_koch_high" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Eval Dataset</a></p>
-              </div>
-              <div>
-              <div className="aspect-video">
-                <iframe
-                width="120%"
-                height="120%"
-                src="https://www.youtube.com/embed/Ec9PzJxMJtw?si=&autoplay=1&loop=1&playlist=Ec9PzJxMJtw&mute=1"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="rounded-lg shadow-lg"
-                style={{border: 'none', aspectRatio: '16/9', objectFit: 'cover'}}
-                />
-              </div>
-              <p className="text-sm text-gray-400 text-center mt-2">Low trajectory evaluation <a href="https://huggingface.co/datasets/ethanCSL/eval_koch_low" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Eval Dataset</a></p>
-              </div>
-            </div>
-
-            <h4 className="text-lg font-semibold text-white mt-6">FFN Experiment Result(EEF height)</h4>
-            <p>
-              We pick the trajectory segment where the robot is lifting up the object, and we can see that by activating "High" neuron, the end-effector height is higher than activating "Low" neuron.
-            </p>
-            <img
-              src={`/images/portfolio/high_low_eef_plot.png`}
-              alt="High and Low EEF Plot"
-              className="w-full rounded-lg shadow-lg mt-4"
-            />
-            <p className="text-sm text-gray-400 text-center mt-2">High vs. Low eef height comparison in 10 rollouts</p>
           </div>
         ),
-      }
+      },
+      {
+        title: '2. Model Training',
+        content: (
+          <div className="space-y-6">
+            <p>
+              After generating enough diverse data, we train VLA model(SmolVLA) to 
+              predict robot actions from visual observations and language instructions.
+            </p>
+
+            {/* SmolVLA Section */}
+            <div className="bg-gray-800/50 rounded-lg p-5 border border-gray-700">
+              <h3 className="text-xl font-bold text-blue-400 mb-3">
+                SmolVLA (Small Vision-Language Action Model)
+              </h3>
+              <p className="mb-3">
+                Unlike common VLA models that use large vision-language backbones, SmolVLA is a lightweight model designed for fast training and inference on robotic arms.
+              </p>
+              <div className="my-4">
+                <img 
+                  src={`/images/portfolio/smolvla-paper.png`}
+                  alt="SmolVLA Architecture - Small Vision-Language Action Model from the original paper"
+                  className="w-full rounded-lg shadow-lg"
+                />
+                <p className="text-sm text-gray-400 text-center mt-2">
+                  SmolVLA Architecture (Source: <a href="https://arxiv.org/abs/2506.01844" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">SmolVLA Paper</a>)
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4 mt-4">
+                <div>
+                  <h4 className="text-sm font-semibold text-green-400 mb-2">✅ Strengths</h4>
+                  <ul className="text-sm space-y-1 text-gray-300">
+                    <li>• Fast training (Lightweight architecture)</li>
+                    <li>• Resource constraint (efficient inference)</li>
+                    <li>• Smooth trajectory generation(SA interleaves CA)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-red-400 mb-2">⚠️ Limitations</h4>
+                  <ul className="text-sm space-y-1 text-gray-300">
+                    <li>• Poor zero-shot generalization</li>
+                    <li>• Not optimized for cross-embodiment transfer</li>
+                    <li>• Limited generalization</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        ),
+        },
+        {
+          title: '3. Deployment',
+            content: (
+              <div className="space-y-4">
+                <p>
+                  We deploy model on simulated OpenArm and real-world OpenArm for real-time inference and autonomous task execution.
+                </p>
+                {/* Task Setup Video */}
+                <h3 className="text-lg font-semibold text-white mt-6">Deployment in Isaac Sim</h3>
+                <p>
+                  The success rate in Isaac Sim is 80% for 100 rollouts, and the model runs at <strong>~30Hz</strong>, predicting actions that are executed by the robot controller in real-time.
+                </p>
+                {/* YouTube Video */}
+                <div className="mt-4 flex justify-center">
+                  <div className="max-w-2xl w-full">
+                  <div className="aspect-video">
+                    <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/Xi3LRSgJ_ro?si=5ilrH2fEY7J_S4fR&autoplay=1&loop=1&playlist=Xi3LRSgJ_ro&mute=1"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="rounded-lg shadow-lg"
+                    style={{border: 'none'}}
+                    />
+                  </div>
+                  <p className="text-sm text-gray-400 text-center mt-2">Autonomous real-time task switching execution after 100 episodes for each task after training <a href="https://huggingface.co/datasets/ethanCSL/svla_koch_sorting_n_stacking_screw_nut" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a></p>
+                </div>
+                </div>
+
+                <h3 className="text-lg font-semibold text-white mt-6">Deployment in Real-world</h3>
+                <p>
+                  The success rate in real-world is around 40% for 10 rollouts, and the model runs at <strong>~30Hz</strong>, predicting actions that are executed by the robot controller in real-time.
+                </p>
+                {/* YouTube Video */}
+                <div className="mt-4 flex justify-center">
+                  <div className="max-w-2xl w-full">
+                  <div className="aspect-video">
+                    <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/4DKriauQ05g?si=caoTgI-4_Zse6fU6&autoplay=1&loop=1&playlist=4DKriauQ05g&mute=1"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="rounded-lg shadow-lg"
+                    style={{border: 'none'}}
+                    />
+                  </div>
+                  <p className="text-sm text-gray-400 text-center mt-2">Autonomous execution in real-world scenarios <a href="https://huggingface.co/ethanCSL/openarm_visuomotor_VR_pringles_V14_background_30hz" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">model</a></p>
+                </div>
+                </div>
+              </div>
+            ),
+        },
+        {
+          title: '4. Limitations and Future Work',
+          content: (
+            <div className="space-y-4">
+              <p>
+                While the model performs well in simulation, there are still challenges in transferring to real-world scenarios. Future work will focus on improving the model's robustness and generalization capabilities.
+              </p>
+              <ul className="list-disc list-inside text-gray-300 space-y-1">
+                <li> Fixing simulation-to-real-world domain gaps</li>
+                <li> Switch to another VLAs as GR00T N1.7, PI0.7...</li>
+                <li> Fixing jerky trajectories in real-world deployment</li>
+              </ul>
+            </div>
+          ),
+        }
           ],
           links: [
-            {label: 'GitHub', url: 'https://github.com/huggingface/lerobot.git'},
-            {label: 'Paper', url: 'https://arxiv.org/abs/2509.00328'},
+            {label: 'lerobot', url: 'https://github.com/huggingface/lerobot.git'},
+            {label: 'OpenArm IsaacLab', url: 'https://github.com/StanleyChueh/IsaacLab.git'},
+            {label: 'OpenArm VR', url: 'https://github.com/StanleyChueh/dora-openarm-data-collection.git'},
+            {label: 'OpenArm Real world deployment', url: 'https://github.com/StanleyChueh/lerobot_openarm.git'},
           ],
         },
 

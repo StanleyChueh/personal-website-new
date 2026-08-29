@@ -30,13 +30,7 @@ const Portfolio: FC = memo(() => {
                 <div key={`${item.title}-${index}`}>
                   <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg shadow-black/30">
                     {item.youtubeId ? (
-                      <iframe
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="h-full w-full"
-                        src={`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${item.youtubeId}`}
-                        title={item.title}
-                      />
+                      <YouTubePreview id={item.youtubeId} title={item.title} />
                     ) : item.video ? (
                       <video
                         autoPlay
@@ -100,6 +94,66 @@ const Portfolio: FC = memo(() => {
 
 Portfolio.displayName = 'Portfolio';
 export default Portfolio;
+
+const YouTubePreview: FC<{id: string; title: string}> = memo(({id, title}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let player: any;
+
+    const createPlayer = () => {
+      const YT = (window as any).YT;
+      if (!YT?.Player || !containerRef.current) {
+        return;
+      }
+
+      player = new YT.Player(containerRef.current, {
+        videoId: id,
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          loop: 1,
+          mute: 1,
+          playlist: id,
+          rel: 0,
+        },
+        events: {
+          onReady: (event: any) => {
+            event.target.mute();
+            event.target.setPlaybackRate(2);
+            event.target.playVideo();
+          },
+        },
+      });
+    };
+
+    if ((window as any).YT?.Player) {
+      createPlayer();
+      return () => player?.destroy?.();
+    }
+
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[src="https://www.youtube.com/iframe_api"]',
+    );
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(script);
+    }
+
+    const previousReady = (window as any).onYouTubeIframeAPIReady;
+    (window as any).onYouTubeIframeAPIReady = () => {
+      previousReady?.();
+      createPlayer();
+    };
+
+    return () => player?.destroy?.();
+  }, [id]);
+
+  return <div ref={containerRef} className="h-full w-full" aria-label={title} />;
+});
+
+YouTubePreview.displayName = 'YouTubePreview';
 
 const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, description}}) => {
   const [mobile, setMobile] = useState(false);
