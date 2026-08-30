@@ -963,7 +963,7 @@ const projects: Record<string, {
                     style={{border: 'none'}}
                     />
                   </div>
-                  <p className="text-sm text-gray-400 text-center mt-2">Autonomous real-time task switching execution after 100 episodes for each task after training <a href="https://huggingface.co/datasets/ethanCSL/svla_koch_sorting_n_stacking_screw_nut" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a></p>
+                  <p className="text-sm text-gray-400 text-center mt-2">Autonomous execution after training <a href="https://huggingface.co/datasets/ethanCSL/svla_koch_sorting_n_stacking_screw_nut" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Dataset</a></p>
                 </div>
                 </div>
 
