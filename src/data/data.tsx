@@ -1,27 +1,17 @@
-import {
-  AcademicCapIcon,
-  ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  CalendarIcon,
-  FlagIcon,
-  MapIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
+import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import YoutubeIcon from '../components/Icon/YoutubeIcon';
-import heroImage from '../images/header-background.webp';
-import {PortfolioItem, PortfolioGroup} from './dataDef';
-import profilepic from '../images/test.png';
+import heroImage from '../images/hero-openarm.png';
 import {
-  About,
   ContactSection,
   ContactType,
+  FeaturedProject,
   Hero,
   HomepageMeta,
-  SkillGroup,
+  PortfolioGroup,
   Social,
   TimelineItem,
 } from './dataDef';
@@ -30,22 +20,21 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Stanley Chueh (闕楷宸)',
+  title: 'Stanley Chueh | Robotics & Embodied AI',
   description:
-    'Stanley Chueh (闕楷宸) — robotics researcher in Taipei working on Visual Language Action (VLA) models and robot navigation. Resume, projects, and contact.',
+    'Stanley Chueh (闕楷宸) is a robotics researcher working on Vision-Language-Action models, imitation learning, sim-to-real robotic manipulation, and autonomous robot navigation.',
 };
 
 /**
  * Section definition
  */
 export const SectionId = {
-  Hero: 'hero',
-  About: 'about',
   Contact: 'contact',
+  Education: 'education',
+  Experience: 'experience',
+  Featured: 'featured',
+  Hero: 'hero',
   Portfolio: 'portfolio',
-  Resume: 'resume',
-  Skills: 'skills',
-  Stats: 'stats',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -55,86 +44,119 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Stanley Chueh (闕楷宸).`,
+  videoSrcs: [
+    '/videos/hero-franka-drawer.mp4',
+    '/videos/hero-openarm.mp4',
+    '/videos/hero-franka-teleop.mp4',
+    '/videos/hero-triceratops.mp4',
+  ],
+  name: 'Stanley Chueh 闕楷宸',
   description: (
-    <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm currently a first-year master's student studying Electrical Engineering at <strong className="text-stone-100"><a href="https://www-en.ntut.edu.tw/" target="_blank" rel="noopener noreferrer">Taipei Tech</a></strong>,
-        working as a research assistant in <strong className="text-stone-100"><a href="https://www.csltaipeitech.com/" target="_blank" rel="noopener noreferrer">City Science Lab@Taipei Tech</a></strong>, advised by
-        <strong className="text-stone-100"><a href="https://sites.google.com/mail.ntut.edu.tw/vpilab/advisor?authuser=0" target="_blank" rel="noopener noreferrer"> Cheng-Ming Huang</a></strong> and 
-        <strong className="text-stone-100"><a href="https://www.media.mit.edu/people/mcllin/overview/" target="_blank" rel="noopener noreferrer"> Michael Lin</a></strong> .
-      </p> 
-    </>
+    <div className="flex flex-col items-center gap-y-3 text-center">
+      <p className="text-lg font-semibold uppercase tracking-wide text-orange-400 sm:text-xl">
+        Robotics &amp; Embodied AI
+      </p>
+      <p className="prose-sm max-w-2xl text-stone-200 sm:prose-base lg:prose-lg">
+        I build and study learning-based robotic systems — from demonstrations and simulation to real-world deployment.
+      </p>
+      <p className="text-xs font-medium uppercase tracking-widest text-stone-300 sm:text-sm">
+        VLA · Robot Learning · Sim-to-Real · Robotic Manipulation
+      </p>
+      <p className="text-sm text-stone-300">
+        Research Assistant,{' '}
+        <a
+          className="text-stone-100 underline-offset-2 hover:underline"
+          href="https://www.csltaipeitech.com/"
+          rel="noopener noreferrer"
+          target="_blank">
+          City Science Lab @ Taipei Tech
+        </a>
+      </p>
+    </div>
   ),
   actions: [
     {
-      href: '/resume/Stanley_resume.pdf',
-      text: 'Resume',
+      href: `#${SectionId.Featured}`,
+      text: 'Featured Research',
       primary: true,
-      Icon: ArrowDownTrayIcon,
     },
     {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
+      href: '/resume/Stanley_resume.pdf',
+      text: 'Resume',
       primary: false,
+      Icon: ArrowDownTrayIcon,
     },
   ],
 };
 
 /**
- * About section
+ * Featured projects section - the strongest, most complete work
  */
-export const aboutData: About = {
-  profileImageSrc: profilepic,
-  description: `My study interests include Visual Language Action Models (VLA) for robotic arms,vision-based and LiDAR-based robot navigation.`,
-  aboutItems: [
-    {label: 'Location', text: 'Taipei, Taiwan', Icon: MapIcon},
-    {label: 'Age', text: '23', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Taiwan(R.O.C)', Icon: FlagIcon},
-    {label: 'Interests', text: 'Music, Bodybuilding', Icon: SparklesIcon},
-    {label: 'Study', text: 'Taipei Tech', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Research Assistant @ City Science Lab', Icon: BuildingOffice2Icon},
-  ],
-};
-
-/**
- * Skills section
- */
-export const skills: SkillGroup[] = [
+export const featuredProjects: FeaturedProject[] = [
   {
-    name: 'Spoken languages',
-    skills: [
-      {
-        name: 'Mandarin Chinese',
-        level: 10,
-      },
-      {
-        name: 'English',
-        level: 9,
-      },
+    slug: 'OpenArm-vla',
+    url: '/projects/OpenArm-vla',
+    title: 'Vision-Language-Action Models on a Bimanual Robot (OpenArm)',
+    tagline:
+      'Training a VLA policy entirely in simulation and transferring it to a real bimanual OpenArm arm for a pick-and-handover task.',
+    pipeline: [
+      'VR teleoperation (Isaac Sim)',
+      '10 source demos',
+      'Isaac Lab Mimic generation',
+      '~400 generated demos',
+      'SmolVLA training',
+      'Sim + real deployment',
     ],
+    metrics: [
+      {label: 'Generated demos', value: '10 → ~400'},
+      {label: 'Sim success', value: '80% / 100 rollouts'},
+      {label: 'Real success', value: '40% / 10 rollouts'},
+      {label: 'Control rate', value: '~30 Hz'},
+    ],
+    tags: ['VLA', 'SmolVLA', 'Isaac Sim', 'Isaac Lab Mimic', 'Bimanual', 'Sim-to-Real', 'OpenArm'],
+    youtubeId: '4DKriauQ05g',
   },
   {
-    name: 'Robotic development',
-    skills: [
-      {
-        name: 'ROS/ROS2',
-        level: 9,
-      },
-      {
-        name: 'Robotic Arms(VLAs)',
-        level: 7,
-      },
-      {
-        name: 'Navigation Algorithms',
-        level: 6,
-      },
+    slug: 'franka-imitation-learning',
+    url: '/projects/franka-imitation-learning',
+    title: 'Imitation Learning on Franka Emika Panda',
+    tagline:
+      'Built a leader-follower teleoperation, dataset-collection, and ACT training pipeline to teach a Franka Panda arm manipulation tasks from human demonstrations.',
+    pipeline: [
+      'Leader-follower teleoperation (GELLO, Franka ROS)',
+      '~100 demos / task',
+      'ACT training',
+      'Real-robot deployment',
     ],
+    metrics: [
+      {label: 'Demos', value: '~100 / task'},
+      {label: 'Control rate', value: '~10 Hz'},
+      {label: 'Tasks', value: 'Drawer-opening, pick-and-place'},
+      {label: 'Deployed on', value: 'Real Franka Emika Panda'},
+    ],
+    tags: ['Franka Panda', 'ACT', 'Teleoperation', 'GELLO', 'ROS', 'LeRobot'],
+    youtubeId: 'zfraKg9_tjE',
+  },
+  {
+    slug: 'triceratops-nav',
+    url: '/projects/triceratops-nav',
+    title: 'Visual Navigation for the Triceratops Quadruped',
+    tagline:
+      'Designed and integrated a visual-SLAM and AprilTag localization stack for indoor autonomous navigation on a quadruped robot.',
+    pipeline: ['RGB-D visual SLAM', 'AprilTag-assisted localization', 'Real-robot deployment'],
+    metrics: [
+      {label: 'Localization', value: 'Visual SLAM + AprilTag'},
+      {label: 'Sensing', value: 'RGB-D camera'},
+      {label: 'Platform', value: 'Triceratops quadruped'},
+      {label: 'Deployed on', value: 'Real robot, indoor nav'},
+    ],
+    tags: ['Visual SLAM', 'AprilTag', 'RGB-D', 'ROS2', 'Autonomous Navigation'],
+    youtubeId: 'X7kAB2d0PGs',
   },
 ];
 
 /**
- * Portfolio section - Grouped projects with timeline
+ * Portfolio section - Earlier robotics projects, grouped by theme
  */
 export const portfolioGroups: PortfolioGroup[] = [
   {
@@ -148,32 +170,12 @@ export const portfolioGroups: PortfolioGroup[] = [
         youtubeId: 'Szx_Pt8DylI',
       },
       {
-        title: 'Action Chunking Transformer (ACT) on Franka Emika Study',
-        description: 'Transfer the ACT model to Franka Emika.',
-        url: '/projects/franka-imitation-learning',
-        // video: '/videos/franka_open_drawer.mp4',
-        youtubeId: 'zfraKg9_tjE',
-      },
-      {
         title: 'Visual Language Action Models (VLAs) on Koch',
         description: 'Training VLA models with collected data.',
         url: '/projects/koch-vla',
         // video: '/videos/three_task_cut_4x_speed.mp4',
         youtubeId: 'cOOaiJX_r3U',
       },
-      {
-        title: 'Visual Language Action Models (VLAs) on OpenArm',
-        description: 'Train VLA models on fully simulated datasets and transfer to real-world OpenArm.',
-        url: '/projects/OpenArm-vla',
-        // video: '/videos/svla_attention_weight_correct_prompt_unfrozen_vision_encoder_crop.mp4',
-        youtubeId: '4DKriauQ05g',
-      },
-    ],
-    timeline: [
-      {date: 'Jan ~ May 2025', label: 'Koch with ACT', completed: true},
-      {date: 'Jun ~ Dec 2025', label: 'Franka Emika with ACT', completed: true},
-      {date: 'Jan ~ Feb 2026', label: 'Koch with VLAs', completed: true},
-      {date: 'Feb 2026~', label: 'OpenArm with VLAs(on going...)', completed: false},
     ],
   },
   {
@@ -192,84 +194,12 @@ export const portfolioGroups: PortfolioGroup[] = [
         youtubeId: 'cTmAIjYQQr8',
       },
       {
-        title: 'Visual navigation system for indoor environments',
-        description: 'Developing a visual navigation system for indoor environments.',
-        url: '/projects/triceratops-nav',
-        youtubeId: 'X7kAB2d0PGs',
-      },
-      {
         title: 'Local planner development for visual navigation system',
         description: 'Developing a local planner for the visual navigation system.',
         url: '/projects/triceratops-local-planner',
         youtubeId: 'knTCpoTfLF4',
       },
     ],
-    timeline: [
-      {date: 'Jan ~ Jun 2024', label: 'Hybrid A* algorithm for robot navigation', completed: true},
-      {date: 'Jul ~ Oct 2024', label: 'Multi-map switching system', completed: true},
-      {date: 'Nov ~ Dec 2024', label: 'Visual navigation system', completed: true},
-      {date: 'Nov ~ Dec 2024', label: 'Local planner development', completed: true},
-    ],
-  },
-];
-
-/**
- * Portfolio section(not used) - Standalone projects without timeline
- */
-export const portfolioItems: PortfolioItem[] = [
-  {
-    title: 'Project title 1',
-    description: 'Robotic arm performing a pick-and-place task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=8RHWoJiWaVc',
-    youtubeId: '8RHWoJiWaVc',
-  },
-  {
-    title: 'Project title 2',
-    description: 'Robotic arm performing a pick-and-place task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=mgxuhl4MoaA',
-    youtubeId: 'mgxuhl4MoaA',
-  },
-  {
-    title: 'Project title 3',
-    description: 'Robotic arm performing a manipulation task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=alRzf46FstQ',
-    youtubeId: 'alRzf46FstQ',
-  },
-  {
-    title: 'Project title 4',
-    description: 'Robotic arm performing a manipulation task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=qki0DOI2jGQ',
-    youtubeId: 'qki0DOI2jGQ',
-  },
-  {
-    title: 'Project title 5',
-    description: 'Robotic arm performing a manipulation task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=zfraKg9_tjE',
-    youtubeId: 'zfraKg9_tjE',
-  },
-  {
-    title: 'Project title 6',
-    description: 'Robotic arm performing a manipulation task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=knTCpoTfLF4',
-    youtubeId: 'knTCpoTfLF4',
-  },
-  {
-    title: 'Project title 7',
-    description: 'Robotic arm performing a manipulation task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=cTmAIjYQQr8',
-    youtubeId: 'cTmAIjYQQr8',
-  },
-  {
-    title: 'Project title 8',
-    description: 'Robotic arm performing a manipulation task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=m7VSAH6LK6I',
-    youtubeId: 'm7VSAH6LK6I',
-  },
-  {
-    title: 'Project title 9',
-    description: 'Robotic arm performing a manipulation task using a VLA system.',
-    url: 'https://www.youtube.com/watch?v=X7kAB2d0PGs',
-    youtubeId: 'X7kAB2d0PGs',
   },
 ];
 
@@ -281,13 +211,23 @@ export const education: TimelineItem[] = [
     date: 'Sep 2025 - Present',
     location: 'Taipei Tech',
     title: 'Masters in Electrical Engineering',
-    content: <p>Study interests include Robotic Arms, Image Processing, and Vision-based and LiDAR-based Robot Navigation(Overall GPA: 4.0)</p>,
+    content: (
+      <p>
+        Study interests include Robotic Arms, Image Processing, and Vision-based and LiDAR-based Robot
+        Navigation(Overall GPA: 4.0)
+      </p>
+    ),
   },
   {
     date: 'Sep 2021 - June 2025',
     location: 'Taipei Tech',
     title: 'Bachelor in Electrical Engineering',
-    content: <p>Study interests include Image Processing, data augmentation in computer vision, and robot navigation(Overall GPA: 3.72)</p>,
+    content: (
+      <p>
+        Study interests include Image Processing, data augmentation in computer vision, and robot navigation(Overall
+        GPA: 3.72)
+      </p>
+    ),
   },
 ];
 
@@ -298,8 +238,8 @@ export const experience: TimelineItem[] = [
     title: 'Research assistant',
     content: (
       <p>
-        Assisting in developing an autonomous map-switching system for robot navigation,
-        vision-based robot navigation systems for indoor environments, and co-leading the VLA project for robotic arms.
+        Assisting in developing an autonomous map-switching system for robot navigation, vision-based robot navigation
+        systems for indoor environments, and co-leading the VLA project for robotic arms.
       </p>
     ),
   },
@@ -309,8 +249,9 @@ export const experience: TimelineItem[] = [
     title: 'Research assistant',
     content: (
       <p>
-        Assisted in developing an autonomous image recognition system for edge devices, which is an end-to-end system allowing users to capture a small amount
-        of data and, through data augmentation and model training, deploy a custom image recognition model on edge devices.
+        Assisted in developing an autonomous image recognition system for edge devices, which is an end-to-end system
+        allowing users to capture a small amount of data and, through data augmentation and model training, deploy a
+        custom image recognition model on edge devices.
       </p>
     ),
   },
@@ -322,7 +263,8 @@ export const experience: TimelineItem[] = [
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'Feel free to reach out to me via email or connect with me on social media. I am always open to discussing new projects, collaborations, or opportunities in the field of robotics and AI.',
+  description:
+    'Feel free to reach out to me via email or connect with me on social media. I am always open to discussing new projects, collaborations, or opportunities in the field of robotics and AI.',
   items: [
     {
       type: ContactType.Email,

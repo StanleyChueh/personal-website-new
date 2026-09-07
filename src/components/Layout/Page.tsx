@@ -6,7 +6,7 @@ import {memo, PropsWithChildren} from 'react';
 import {socialLinks} from '../../data/data';
 import {HomepageMeta} from '../../data/dataDef';
 
-const SITE_URL = 'https://stanleychueh.github.io/personal-website';
+const SITE_URL = 'https://stanleychueh.com';
 
 const personJsonLd = {
   '@context': 'https://schema.org',
@@ -44,10 +44,7 @@ const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, 
         <meta content={description} name="twitter:description" />
 
         {/* Structured data: ties the English and Chinese names + all profiles to one entity */}
-        <script
-          dangerouslySetInnerHTML={{__html: JSON.stringify(personJsonLd)}}
-          type="application/ld+json"
-        />
+        <script dangerouslySetInnerHTML={{__html: JSON.stringify(personJsonLd)}} type="application/ld+json" />
       </Head>
       {children}
     </>

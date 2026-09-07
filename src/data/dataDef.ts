@@ -22,6 +22,7 @@ export interface HomepageMeta {
  */
 export interface Hero {
   imageSrc: string;
+  videoSrcs?: string[];
   name: string;
   description: JSX.Element;
   actions: HeroActionItem[];
@@ -35,42 +36,12 @@ interface HeroActionItem {
 }
 
 /**
- * About section
- */
-export interface About {
-  profileImageSrc?: string;
-  description: string;
-  aboutItems: AboutItem[];
-}
-
-export interface AboutItem {
-  label: string;
-  text: string;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
-}
-
-/**
  * Stat section
  */
 export interface Stat {
   title: string;
   value: number;
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
-}
-
-/**
- * Skills section
- */
-
-export interface Skill {
-  name: string;
-  level: number;
-  max?: number;
-}
-
-export interface SkillGroup {
-  name: string;
-  skills: Skill[];
 }
 
 /**
@@ -85,16 +56,28 @@ export interface PortfolioItem {
   youtubeId?: string;
 }
 
-export interface TimelinePoint {
-  date: string;
-  label: string;
-  completed: boolean;
-}
-
 export interface PortfolioGroup {
   title: string;
   items: PortfolioItem[];
-  timeline: TimelinePoint[];
+}
+
+/**
+ * Featured projects section
+ */
+export interface ProjectMetricItem {
+  label: string;
+  value: string;
+}
+
+export interface FeaturedProject {
+  slug: string;
+  url: string;
+  title: string;
+  tagline: string;
+  pipeline?: string[];
+  metrics: ProjectMetricItem[];
+  tags: string[];
+  youtubeId: string;
 }
 
 /**

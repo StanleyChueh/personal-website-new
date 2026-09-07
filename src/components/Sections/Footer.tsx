@@ -21,8 +21,7 @@ const Footer: FC = memo(() => (
       </div>
       <a
         className="-m-2 flex items-center gap-x-1 rounded-md p-2 ring-yellow focus:outline-none focus:ring-2"
-        href="https://reactresume.com">
-      </a>
+        href="https://reactresume.com"></a>
       <span className="text-sm text-neutral-700">© Copyright {currentYear} Stanley Chueh</span>
     </div>
   </div>
