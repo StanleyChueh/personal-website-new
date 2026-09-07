@@ -4,7 +4,7 @@ import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import YoutubeIcon from '../components/Icon/YoutubeIcon';
-import heroImage from '../images/hero-openarm.png';
+import heroImage from '../images/hero-poster.png';
 import {
   ContactSection,
   ContactType,
