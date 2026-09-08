@@ -239,7 +239,7 @@ export const experience: TimelineItem[] = [
     title: 'Research assistant',
     content: (
       <p>
-        Assisted in developing an autonomous image recognition system through data augmentation and model training,
+        Assisting in developing an autonomous image recognition system through data augmentation and model training,
         deploy a custom image recognition model on edge devices.
       </p>
     ),
