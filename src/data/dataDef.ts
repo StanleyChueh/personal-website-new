@@ -6,15 +6,12 @@ import {IconProps} from '../components/Icon/Icon';
 export interface HomepageMeta {
   title: string;
   description: string;
-  ogImageUrl?: string;
-  twitterCardType?: 'summary' | 'summary_large';
-  twitterTitle?: string;
-  twitterSite?: string;
-  twitterCreator?: string;
-  twitterDomain?: string;
-  twitterUrl?: string;
-  twitterDescription?: string;
-  twitterImageUrl?: string;
+  /** Absolute URL to the page's social-preview image. Falls back to the site default when omitted. */
+  image?: string;
+  /** Open Graph object type. Defaults to 'website'. */
+  ogType?: 'website' | 'article';
+  /** Additional JSON-LD blocks to render alongside the shared Person entity (homepage only, normally). */
+  jsonLd?: Record<string, unknown>[];
 }
 
 /**
@@ -73,6 +70,8 @@ export interface FeaturedProject {
   slug: string;
   url: string;
   title: string;
+  subtitle?: string;
+  flagship?: boolean;
   tagline: string;
   pipeline?: string[];
   metrics: ProjectMetricItem[];
@@ -95,7 +94,7 @@ export interface TimelineItem {
  */
 export interface ContactSection {
   headerText?: string;
-  description: string;
+  description: JSX.Element;
   items: ContactItem[];
 }
 

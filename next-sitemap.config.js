@@ -1,6 +1,11 @@
 /* eslint-env node */
 module.exports = {
-  siteUrl: 'https://stanleychueh.github.io/personal-website',
+  siteUrl: 'https://stanleychueh.com',
+  // Both must match next.config.js exactly. `output` — without this, next-sitemap skips
+  // scanning the static `out/` HTML files entirely and silently drops routes like the homepage.
+  // `trailingSlash` — otherwise sitemap URLs disagree with the site's own canonical tags.
+  output: 'export',
+  trailingSlash: true,
   exclude: ['/404*', '/500*'],
   transform: async (config, path) => {
     return {

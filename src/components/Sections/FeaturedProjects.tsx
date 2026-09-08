@@ -1,4 +1,5 @@
-import {ArrowTopRightOnSquareIcon} from '@heroicons/react/24/outline';
+import {ArrowTopRightOnSquareIcon, SparklesIcon} from '@heroicons/react/24/outline';
+import classNames from 'classnames';
 import Link from 'next/link';
 import {FC, memo} from 'react';
 
@@ -21,7 +22,12 @@ const FeaturedProjects: FC = memo(() => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredProjects.map(project => (
             <div
-              className="group flex flex-col overflow-hidden rounded-lg border border-neutral-700 bg-neutral-800/60 shadow-lg shadow-black/30 transition-colors hover:border-orange-400"
+              className={classNames(
+                'group flex flex-col overflow-hidden rounded-lg border bg-neutral-800/60 shadow-lg shadow-black/30 transition-colors',
+                project.flagship
+                  ? 'border-orange-500/60 ring-1 ring-orange-500/20 hover:border-orange-400'
+                  : 'border-neutral-700 hover:border-orange-400',
+              )}
               key={project.slug}>
               <div className="relative aspect-video w-full overflow-hidden bg-neutral-900">
                 <YouTubePreview id={project.youtubeId} title={project.title} />
@@ -30,6 +36,17 @@ const FeaturedProjects: FC = memo(() => {
               </div>
               <Link className="flex flex-1 flex-col gap-y-4 p-5" href={project.url}>
                 <div className="flex flex-col gap-y-2">
+                  {project.flagship && (
+                    <span className="inline-flex w-fit items-center gap-x-1 rounded-full bg-orange-500/15 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-orange-400">
+                      <SparklesIcon className="h-3.5 w-3.5" />
+                      Flagship Research Project
+                    </span>
+                  )}
+                  {project.subtitle && (
+                    <span className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                      {project.subtitle}
+                    </span>
+                  )}
                   <h3 className="text-lg font-bold text-white">{project.title}</h3>
                   <p className="text-sm text-neutral-300">{project.tagline}</p>
                 </div>

@@ -37,7 +37,7 @@ const Contact: FC = memo(() => {
             <ContactForm />
           </div>
           <div className="order-1 col-span-1 flex flex-col gap-y-4 md:order-2">
-            <p className="prose leading-6 text-neutral-300">{description}</p>
+            <div className="prose flex flex-col gap-y-2 leading-6 text-neutral-300">{description}</div>
             <dl className="flex flex-col space-y-4 text-base text-neutral-500 sm:space-y-2">
               {items.map(({type, text, href}) => {
                 const {Icon, srLabel} = ContactValueMap[type];

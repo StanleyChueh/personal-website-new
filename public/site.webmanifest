@@ -1,11 +1,11 @@
 {
-  "name": "react-resume-template",
-  "short_name": "react-resume-template",
+  "name": "Stanley Chueh 闕楷宸 | Robotics & Embodied AI",
+  "short_name": "Stanley Chueh",
   "icons": [
     {"src": "/icon-192.png", "type": "image/png", "sizes": "192x192"},
     {"src": "/icon-512.png", "type": "image/png", "sizes": "512x512"}
   ],
-  "theme_color": "#515455",
-  "background_color": "#515455",
+  "theme_color": "#171717",
+  "background_color": "#171717",
   "display": "standalone"
 }

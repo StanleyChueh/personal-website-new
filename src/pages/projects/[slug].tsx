@@ -24,7 +24,7 @@ const frankaContribution = {
 
 const openArmContribution = {
   mine: [
-    'Leading the OpenArm VLA project at City Science Lab (see Experience)',
+    'Co-leading the OpenArm VLA project at City Science Lab',
     'Built and maintain the OpenArm Isaac Lab simulation environment for teleoperation and Isaac Lab Mimic data generation',
     'Built and maintain the VR teleoperation data-collection pipeline (Meta Quest 3 Pro → Isaac Sim)',
     'Built and maintain the real-world OpenArm deployment code (SmolVLA policy → LeRobot → real robot)',
@@ -49,6 +49,7 @@ const projects: Record<
   {
     title: string;
     description: string;
+    image?: string;
     videos?: {src: string; caption: string}[];
     images?: {src: string; caption: string}[];
     youtubeIds?: {id: string; caption: string}[];
@@ -115,30 +116,21 @@ const projects: Record<
 
             <h3 className="text-lg font-semibold text-white mt-6">Dataset Format</h3>
             <p>
-              We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files containing{' '}
-              <strong> observation(following robot joint states) </strong>, and{' '}
-              <strong> action(leading arm's joint states) </strong> and mp4 for top and front camera observation.
+              We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files. Since the
+              leader and follower arms share the same joint names, <strong>observation</strong> and{' '}
+              <strong>action</strong> use the identical joint-name schema below, plus mp4 for top and front camera
+              observation.
             </p>
 
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
-              <p className="text-green-400 mb-2"># Robot Joint States (16-DOF)</p>
+              <p className="text-green-400 mb-2"># Robot Joint States (6-DOF, shared by observation &amp; action)</p>
               <ul className="text-gray-300 space-y-1 ml-4">
-                <li>"LJ1.pos"</li>
-                <li>"LJ2.pos"</li>
-                <li>"LJ3.pos"</li>
-                <li>"LJ4.pos"</li>
-                <li>"LJ5.pos"</li>
-                <li>"LJ6.pos"</li>
-                <li>"LJ7.pos"</li>
-                <li>"LJ8.pos"</li>
-                <li>"RJ1.pos"</li>
-                <li>"RJ2.pos"</li>
-                <li>"RJ3.pos"</li>
-                <li>"RJ4.pos"</li>
-                <li>"RJ5.pos"</li>
-                <li>"RJ6.pos"</li>
-                <li>"RJ7.pos"</li>
-                <li>"RJ8.pos"</li>
+                <li>"shoulder_pan.pos"</li>
+                <li>"shoulder_lift.pos"</li>
+                <li>"elbow_flex.pos"</li>
+                <li>"wrist_flex.pos"</li>
+                <li>"wrist_roll.pos"</li>
+                <li>"gripper.pos"</li>
               </ul>
               <p className="text-green-400 mb-2 mt-4"># Camera Observations</p>
               <ul className="text-gray-300 space-y-1 ml-4">
@@ -161,7 +153,7 @@ const projects: Record<
                 allowFullScreen
                 className="rounded-lg shadow-lg"
                 height="100%"
-                src="https://www.youtube.com/embed/PNdkYEWuSUE?si=&autoplay=1&loop=1&playlist=PNdkYEWuSUE&mute=1"
+                src="https://www.youtube.com/embed/vhVHY2LlWpg?si=&autoplay=1&loop=1&playlist=vhVHY2LlWpg&mute=1"
                 style={{border: 'none'}}
                 title="YouTube video player"
                 width="100%"
@@ -295,6 +287,7 @@ const projects: Record<
     description: `
       How to transfer the imitation learning techniques to a more complex robotic arm like Franka Emika Panda.
     `.trim(),
+    image: 'https://stanleychueh.com/images/portfolio/Franka_open_drawer.png',
     videos: [{src: '/videos/franka_open_drawer.mp4', caption: 'Robot opening drawer demo'}],
     images: [
       {src: '/images/portfolio/franka-1.png', caption: 'System setup'},
@@ -574,6 +567,7 @@ const projects: Record<
       {label: 'Franka ROS', url: 'https://github.com/frankaemika/franka_ros'},
       {label: 'GELLO', url: 'https://arxiv.org/abs/2309.13037'},
       {label: 'XR Teleoperate', url: 'https://github.com/unitreerobotics/xr_teleoperate.git'},
+      {label: 'Related: ACT on Koch (earlier work)', url: '/projects/koch-imitation-learning'},
     ],
   },
 
@@ -625,30 +619,21 @@ const projects: Record<
 
             <h3 className="text-lg font-semibold text-white mt-6">Dataset Format</h3>
             <p>
-              We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files containing{' '}
-              <strong> observation(following robot joint states) </strong>, and{' '}
-              <strong> action(leading arm's joint states) </strong> and mp4 for top and front camera observation.
+              We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files. Since the
+              leader and follower arms share the same joint names, <strong>observation</strong> and{' '}
+              <strong>action</strong> use the identical joint-name schema below, plus mp4 for top and front camera
+              observation.
             </p>
 
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
-              <p className="text-green-400 mb-2"># Robot Joint States (16-DOF)</p>
+              <p className="text-green-400 mb-2"># Robot Joint States (6-DOF, shared by observation &amp; action)</p>
               <ul className="text-gray-300 space-y-1 ml-4">
-                <li>"LJ1.pos"</li>
-                <li>"LJ2.pos"</li>
-                <li>"LJ3.pos"</li>
-                <li>"LJ4.pos"</li>
-                <li>"LJ5.pos"</li>
-                <li>"LJ6.pos"</li>
-                <li>"LJ7.pos"</li>
-                <li>"LJ8.pos"</li>
-                <li>"RJ1.pos"</li>
-                <li>"RJ2.pos"</li>
-                <li>"RJ3.pos"</li>
-                <li>"RJ4.pos"</li>
-                <li>"RJ5.pos"</li>
-                <li>"RJ6.pos"</li>
-                <li>"RJ7.pos"</li>
-                <li>"RJ8.pos"</li>
+                <li>"shoulder_pan.pos"</li>
+                <li>"shoulder_lift.pos"</li>
+                <li>"elbow_flex.pos"</li>
+                <li>"wrist_flex.pos"</li>
+                <li>"wrist_roll.pos"</li>
+                <li>"gripper.pos"</li>
               </ul>
               <p className="text-green-400 mb-2 mt-4"># Camera Observations</p>
               <ul className="text-gray-300 space-y-1 ml-4">
@@ -671,7 +656,7 @@ const projects: Record<
                 allowFullScreen
                 className="rounded-lg shadow-lg"
                 height="100%"
-                src="https://www.youtube.com/embed/PNdkYEWuSUE?si=&autoplay=1&loop=1&playlist=PNdkYEWuSUE&mute=1"
+                src="https://www.youtube.com/embed/vhVHY2LlWpg?si=&autoplay=1&loop=1&playlist=vhVHY2LlWpg&mute=1"
                 style={{border: 'none'}}
                 title="YouTube video player"
                 width="100%"
@@ -757,7 +742,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
-                    src="https://www.youtube.com/embed/Xi3LRSgJ_ro?si=&autoplay=1&loop=1&playlist=Xi3LRSgJ_ro&mute=1"
+                    src="https://www.youtube.com/embed/cOOaiJX_r3U?si=&autoplay=1&loop=1&playlist=cOOaiJX_r3U&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
                     width="100%"
@@ -818,6 +803,7 @@ const projects: Record<
     description: `
       Can we train VLAs on fully simulated bimanual robotic arms and transfer to real-world tasks?
     `.trim(),
+    image: 'https://stanleychueh.com/images/portfolio/Real2Sim2Real_pipeline.png',
     videos: [{src: '/videos/koch_open_drawer.mp4', caption: 'Robot opening drawer demo'}],
     images: [
       {src: '/images/portfolio/koch-1.png', caption: 'System setup'},
@@ -852,7 +838,7 @@ const projects: Record<
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <ProjectMetric label="Generated demos" value="10 → ~400" />
             <ProjectMetric label="Sim success" value="80% / 100 rollouts" />
-            <ProjectMetric label="Real success" value="40% / 10 rollouts" />
+            <ProjectMetric label="Initial real-world eval" value="40% / 10 rollouts" />
             <ProjectMetric label="Control rate" value="~30 Hz" />
           </div>
         ),
@@ -1236,6 +1222,7 @@ const projects: Record<
       {label: 'OpenArm IsaacLab', url: 'https://github.com/StanleyChueh/IsaacLab.git'},
       {label: 'OpenArm VR', url: 'https://github.com/StanleyChueh/dora-openarm-data-collection.git'},
       {label: 'OpenArm Real world deployment', url: 'https://github.com/StanleyChueh/lerobot_openarm.git'},
+      {label: 'Related: Imitation Learning on Franka Panda', url: '/projects/franka-imitation-learning'},
     ],
   },
 
@@ -1518,6 +1505,7 @@ const projects: Record<
     description: `
       Developing a visual navigation system for autonomous navigation of a Triceratops robot in indoor environments.
     `.trim(),
+    image: 'https://stanleychueh.com/images/portfolio/triceratops.png',
     videos: [{src: '/videos/triceratops_visual_nav.mp4', caption: 'Visual navigation demo'}],
     images: [
       {src: '/images/portfolio/triceratops-1.png', caption: 'System setup'},
@@ -1666,6 +1654,7 @@ const projects: Record<
         label: 'VSLAM',
         url: 'https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam/tree/release-4.3/isaac_ros_visual_slam',
       },
+      {label: 'Related: Multi-map Navigation (TurtleBot3)', url: '/projects/turtlebot-multi-map-nav'},
     ],
   },
 
@@ -1801,7 +1790,11 @@ const ProjectPage: FC<{slug: string}> = memo(({slug}) => {
   }
 
   return (
-    <Page description={project.description} title={`${project.title} | Stanley Chueh`}>
+    <Page
+      description={project.description}
+      image={project.image}
+      ogType="article"
+      title={`${project.title} | Stanley Chueh 闕楷宸`}>
       <div className="min-h-screen bg-neutral-900 text-white">
         <div className="max-w-4xl mx-auto px-4 py-12">
           {/* Back Link */}
@@ -1828,16 +1821,25 @@ const ProjectPage: FC<{slug: string}> = memo(({slug}) => {
             <section className="mb-12">
               <h2 className="text-2xl font-bold mb-4 border-b border-gray-700 pb-2">Links</h2>
               <div className="flex flex-wrap gap-4">
-                {project.links.map((link, index) => (
-                  <a
-                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition"
-                    href={link.url}
-                    key={index}
-                    rel="noopener noreferrer"
-                    target="_blank">
-                    {link.label}
-                  </a>
-                ))}
+                {project.links.map((link, index) =>
+                  link.url.startsWith('/') ? (
+                    <Link
+                      className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition"
+                      href={link.url}
+                      key={index}>
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition"
+                      href={link.url}
+                      key={index}
+                      rel="noopener noreferrer"
+                      target="_blank">
+                      {link.label}
+                    </a>
+                  ),
+                )}
               </div>
             </section>
           )}

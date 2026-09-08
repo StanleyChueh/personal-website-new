@@ -20,9 +20,11 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Stanley Chueh | Robotics & Embodied AI',
+  title: 'Stanley Chueh 闕楷宸 | Robotics & Embodied AI',
   description:
-    'Stanley Chueh (闕楷宸) is a robotics researcher working on Vision-Language-Action models, imitation learning, sim-to-real robotic manipulation, and autonomous robot navigation.',
+    'Stanley Chueh (闕楷宸) is a Robotics & Embodied AI researcher and Research Assistant at Taipei Tech’s City Science Lab, working on Vision-Language-Action models, robot learning, sim-to-real manipulation, and autonomous robotic systems.',
+  image: 'https://stanleychueh.com/images/og/stanleychueh-og-default.jpg',
+  ogType: 'website',
 };
 
 /**
@@ -77,7 +79,7 @@ export const heroData: Hero = {
   actions: [
     {
       href: `#${SectionId.Featured}`,
-      text: 'Featured Research',
+      text: 'View Featured Research',
       primary: true,
     },
     {
@@ -96,9 +98,11 @@ export const featuredProjects: FeaturedProject[] = [
   {
     slug: 'OpenArm-vla',
     url: '/projects/OpenArm-vla',
-    title: 'Vision-Language-Action Models on a Bimanual Robot (OpenArm)',
+    title: 'Sim-to-Real Vision-Language-Action Models for Bimanual Manipulation',
+    subtitle: 'OpenArm',
+    flagship: true,
     tagline:
-      'Training a VLA policy entirely in simulation and transferring it to a real bimanual OpenArm arm for a pick-and-handover task.',
+      'Investigating whether VLA policies trained on generated simulation demonstrations can transfer to real-world bimanual manipulation.',
     pipeline: [
       'VR teleoperation (Isaac Sim)',
       '10 source demos',
@@ -110,7 +114,7 @@ export const featuredProjects: FeaturedProject[] = [
     metrics: [
       {label: 'Generated demos', value: '10 → ~400'},
       {label: 'Sim success', value: '80% / 100 rollouts'},
-      {label: 'Real success', value: '40% / 10 rollouts'},
+      {label: 'Initial real-world eval', value: '40% / 10 rollouts'},
       {label: 'Control rate', value: '~30 Hz'},
     ],
     tags: ['VLA', 'SmolVLA', 'Isaac Sim', 'Isaac Lab Mimic', 'Bimanual', 'Sim-to-Real', 'OpenArm'],
@@ -120,6 +124,7 @@ export const featuredProjects: FeaturedProject[] = [
     slug: 'franka-imitation-learning',
     url: '/projects/franka-imitation-learning',
     title: 'Imitation Learning on Franka Emika Panda',
+    subtitle: 'Franka Emika Panda',
     tagline:
       'Built a leader-follower teleoperation, dataset-collection, and ACT training pipeline to teach a Franka Panda arm manipulation tasks from human demonstrations.',
     pipeline: [
@@ -141,6 +146,7 @@ export const featuredProjects: FeaturedProject[] = [
     slug: 'triceratops-nav',
     url: '/projects/triceratops-nav',
     title: 'Visual Navigation for the Triceratops Quadruped',
+    subtitle: 'Triceratops Quadruped',
     tagline:
       'Designed and integrated a visual-SLAM and AprilTag localization stack for indoor autonomous navigation on a quadruped robot.',
     pipeline: ['RGB-D visual SLAM', 'AprilTag-assisted localization', 'Real-robot deployment'],
@@ -170,7 +176,7 @@ export const portfolioGroups: PortfolioGroup[] = [
         youtubeId: 'Szx_Pt8DylI',
       },
       {
-        title: 'Visual Language Action Models (VLAs) on Koch',
+        title: 'Vision-Language-Action Models (VLA) on Koch',
         description: 'Training VLA models with collected data.',
         url: '/projects/koch-vla',
         // video: '/videos/three_task_cut_4x_speed.mp4',
@@ -210,17 +216,23 @@ export const education: TimelineItem[] = [
   {
     date: 'Sep 2025 - Present',
     location: 'Taipei Tech',
-    title: 'Masters in Electrical Engineering',
-    content: <p>Study interests mainly on VLAs merchanistic interpretability and application (Overall GPA: 4.0)</p>,
+    title: 'M.S. in Electrical Engineering',
+    content: (
+      <p>
+        Research interests include Vision-Language-Action (VLA) models and mechanistic interpretability — studying the
+        internal representations associated with successful and failed robot behaviors, and how they might be used to
+        better understand or steer learned policies (Overall GPA: 4.0).
+      </p>
+    ),
   },
   {
     date: 'Sep 2021 - June 2025',
     location: 'Taipei Tech',
-    title: 'Bachelor in Electrical Engineering',
+    title: 'B.S. in Electrical Engineering',
     content: (
       <p>
-        Study interests include Image Processing, data augmentation in computer vision, and robot navigation(Overall
-        GPA: 3.72)
+        Study interests included image processing, data augmentation in computer vision, and robot navigation (Overall
+        GPA: 3.72).
       </p>
     ),
   },
@@ -239,8 +251,8 @@ export const experience: TimelineItem[] = [
     title: 'Research assistant',
     content: (
       <p>
-        Assisting in developing an autonomous image recognition system through data augmentation and model training,
-        deploy a custom image recognition model on edge devices.
+        Assisted in developing an autonomous image recognition system, using data augmentation and model training to
+        deploy custom image recognition models on edge devices.
       </p>
     ),
   },
@@ -252,8 +264,15 @@ export const experience: TimelineItem[] = [
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description:
-    'Feel free to reach out to me via email or connect with me on social media. I am always open to discussing new projects, collaborations, or opportunities in the field of robotics and AI.',
+  description: (
+    <>
+      <p>
+        Feel free to reach out via email or connect on social media — I'm always open to discussing new projects,
+        collaborations, or opportunities in robotics and AI.
+      </p>
+      <p className="text-sm text-neutral-400">闕楷宸｜機器人學習、視覺語言動作模型與具身人工智慧研究</p>
+    </>
+  ),
   items: [
     {
       type: ContactType.Email,

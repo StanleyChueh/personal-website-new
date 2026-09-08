@@ -7,7 +7,9 @@ const ContributionSection: FC<{
 }> = memo(({mine, collaborators, external}) => (
   <div className="space-y-4 rounded-lg border-l-4 border-orange-400 bg-gray-800/60 p-5">
     <div>
-      <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-orange-400">My Contribution</h3>
+      <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-orange-400">
+        My Contribution — Stanley Chueh 闕楷宸
+      </h3>
       <ul className="list-disc space-y-1 pl-5 text-gray-200">
         {mine.map(item => (
           <li key={item}>{item}</li>
