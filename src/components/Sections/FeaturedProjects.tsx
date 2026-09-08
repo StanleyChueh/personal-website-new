@@ -6,6 +6,7 @@ import {featuredProjects, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
 import ProjectMetric from '../Project/ProjectMetric';
 import TechTag from '../Project/TechTag';
+import YouTubePreview from '../Project/YouTubePreview';
 
 const FeaturedProjects: FC = memo(() => {
   return (
@@ -19,19 +20,15 @@ const FeaturedProjects: FC = memo(() => {
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredProjects.map(project => (
-            <Link
+            <div
               className="group flex flex-col overflow-hidden rounded-lg border border-neutral-700 bg-neutral-800/60 shadow-lg shadow-black/30 transition-colors hover:border-orange-400"
-              href={project.url}
               key={project.slug}>
               <div className="relative aspect-video w-full overflow-hidden bg-neutral-900">
-                <img
-                  alt={`${project.title} demo thumbnail`}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                  src={`https://img.youtube.com/vi/${project.youtubeId}/hqdefault.jpg`}
-                />
+                <YouTubePreview id={project.youtubeId} title={project.title} />
+                {/* Overlay link: sits above the YouTube iframe so the whole thumbnail is clickable */}
+                <Link aria-label={project.title} className="absolute inset-0" href={project.url} />
               </div>
-              <div className="flex flex-1 flex-col gap-y-4 p-5">
+              <Link className="flex flex-1 flex-col gap-y-4 p-5" href={project.url}>
                 <div className="flex flex-col gap-y-2">
                   <h3 className="text-lg font-bold text-white">{project.title}</h3>
                   <p className="text-sm text-neutral-300">{project.tagline}</p>
@@ -50,8 +47,8 @@ const FeaturedProjects: FC = memo(() => {
                   View Project
                   <ArrowTopRightOnSquareIcon className="h-4 w-4" />
                 </span>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
         </div>
       </div>

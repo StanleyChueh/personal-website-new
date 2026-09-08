@@ -211,12 +211,7 @@ export const education: TimelineItem[] = [
     date: 'Sep 2025 - Present',
     location: 'Taipei Tech',
     title: 'Masters in Electrical Engineering',
-    content: (
-      <p>
-        Study interests include Robotic Arms, Image Processing, and Vision-based and LiDAR-based Robot
-        Navigation(Overall GPA: 4.0)
-      </p>
-    ),
+    content: <p>Study interests mainly on VLAs merchanistic interpretability and application (Overall GPA: 4.0)</p>,
   },
   {
     date: 'Sep 2021 - June 2025',
@@ -236,12 +231,7 @@ export const experience: TimelineItem[] = [
     date: 'Sep 2023 - Present',
     location: 'City Science Lab@Taipei Tech',
     title: 'Research assistant',
-    content: (
-      <p>
-        Assisting in developing an autonomous map-switching system for robot navigation, vision-based robot navigation
-        systems for indoor environments, and co-leading the VLA project for robotic arms.
-      </p>
-    ),
+    content: <p>Assisting in developing the VLA project for robotic arms, visual navigation systems on quadrupeds.</p>,
   },
   {
     date: 'Aug 2023 - Nov 2024',
@@ -249,9 +239,8 @@ export const experience: TimelineItem[] = [
     title: 'Research assistant',
     content: (
       <p>
-        Assisted in developing an autonomous image recognition system for edge devices, which is an end-to-end system
-        allowing users to capture a small amount of data and, through data augmentation and model training, deploy a
-        custom image recognition model on edge devices.
+        Assisted in developing an autonomous image recognition system through data augmentation and model training,
+        deploy a custom image recognition model on edge devices.
       </p>
     ),
   },

@@ -57,13 +57,20 @@ const Hero: FC = memo(() => {
 
     incoming?.play().catch(() => {});
     setActiveSlot(other);
+    outgoing?.pause();
 
-    if (outgoing) {
-      outgoing.pause();
-      outgoing.src = videoSrcs[nextClipRef.current];
-      outgoing.load();
-      nextClipRef.current = (nextClipRef.current + 1) % videoSrcs.length;
-    }
+    // Only swap the now-hidden slot's src to preload the next clip once the
+    // crossfade has fully finished — doing it immediately reused the outgoing
+    // element mid-fade, so its content changed (to the *next* clip) while it
+    // was still partially visible, making the wrong clip bleed into the
+    // transition itself.
+    window.setTimeout(() => {
+      if (outgoing && videoSrcs) {
+        outgoing.src = videoSrcs[nextClipRef.current];
+        outgoing.load();
+        nextClipRef.current = (nextClipRef.current + 1) % videoSrcs.length;
+      }
+    }, CROSSFADE_MS);
   };
 
   return (
