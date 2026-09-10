@@ -1298,7 +1298,10 @@ const projects: Record<
         ),
       },
     ],
-    links: [],
+    links: [
+      {label: 'GitHub', url: 'https://github.com/StanleyChueh/Robot_navigation_study.git'},
+      {label: 'Related: Multi-map Switching System for TurtleBot Navigation', url: '/projects/turtlebot-multi-map-nav'},
+    ],
   },
 
   // Project 6(Autonomous Navigation System Development for spot)
@@ -1497,6 +1500,7 @@ const projects: Record<
       {label: 'GitHub', url: 'https://github.com/StanleyChueh/Multi_map_navigation.git'},
       {label: 'ROS2', url: 'https://docs.ros.org/en/humble/index.html'},
       {label: 'Nav2', url: 'https://docs.nav2.org/'},
+      {label: 'Related: Hybrid A* Algorithm for TurtleBot Navigation', url: '/projects/turtlebot-nav'},
     ],
   },
 
