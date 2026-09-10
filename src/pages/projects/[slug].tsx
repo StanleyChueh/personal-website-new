@@ -1223,6 +1223,7 @@ const projects: Record<
       {label: 'OpenArm VR', url: 'https://github.com/StanleyChueh/dora-openarm-data-collection.git'},
       {label: 'OpenArm Real world deployment', url: 'https://github.com/StanleyChueh/lerobot_openarm.git'},
       {label: 'Related: Imitation Learning on Franka Panda', url: '/projects/franka-imitation-learning'},
+      {label: 'Related: Visual Language Action (VLA) Models on Koch', url: '/projects/koch-vla'},
     ],
   },
 
@@ -1648,69 +1649,6 @@ const projects: Record<
         ),
       },
       {
-        title: 'Real-world Deployment',
-        content: (
-          <div className="space-y-4">
-            <p>
-              With Visual SLAM and AprilTag-assisted localization integrated, the full visual navigation system is
-              deployed on the real Triceratops robot for autonomous indoor navigation.
-            </p>
-            <div className="flex justify-center">
-              <div className="max-w-2xl w-full">
-                <div className="aspect-video">
-                  <iframe
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="rounded-lg shadow-lg"
-                    height="100%"
-                    src="https://www.youtube.com/embed/X7kAB2d0PGs?si=quBEeKW-fXh_IHqo&autoplay=1&loop=1&playlist=X7kAB2d0PGs&mute=1"
-                    style={{border: 'none'}}
-                    title="YouTube video player"
-                    width="100%"
-                  />
-                </div>
-                <p className="text-sm text-gray-400 text-center mt-2">
-                  Real-world deployment of the visual navigation system on the Triceratops robot
-                </p>
-              </div>
-            </div>
-          </div>
-        ),
-      },
-    ],
-    links: [
-      {label: 'GitHub', url: 'https://github.com/csl-taipeitech/quadruped_robot_4_DOF.git'},
-      {
-        label: 'VSLAM',
-        url: 'https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam/tree/release-4.3/isaac_ros_visual_slam',
-      },
-      {label: 'Related: Multi-map Navigation (TurtleBot3)', url: '/projects/turtlebot-multi-map-nav'},
-    ],
-  },
-
-  // Project 8(Autonomous Visual Navigation (local planner) for triceratops)
-  'triceratops-local-planner': {
-    title: 'Local Planner for Triceratops Visual Navigation System',
-    description: `
-      Developing a local planner for autonomous navigation of a Triceratops robot in indoor environments.
-    `.trim(),
-    videos: [{src: '/videos/triceratops_visual_nav.mp4', caption: 'Visual navigation demo'}],
-    images: [
-      {src: '/images/portfolio/triceratops-1.png', caption: 'System setup'},
-      {src: '/images/portfolio/triceratops-2.png', caption: 'Training process'},
-    ],
-    youtubeIds: [{id: '8RHWoJiWaVc', caption: 'Full demonstration video'}],
-    sections: [
-      {
-        title: 'Overview',
-        content: (
-          <p>
-            In our previous work, we developed a visual navigation system for the Triceratops robot. How can we improve
-            local planning performance for more robust navigation in complex indoor environments?
-          </p>
-        ),
-      },
-      {
         title: 'Local Planner Development',
         content: (
           <div className="space-y-4">
@@ -1767,10 +1705,45 @@ const projects: Record<
           </div>
         ),
       },
+      {
+        title: 'Real-world Deployment',
+        content: (
+          <div className="space-y-4">
+            <p>
+              With Visual SLAM and AprilTag-assisted localization integrated, the full visual navigation system is
+              deployed on the real Triceratops robot for autonomous indoor navigation.
+            </p>
+            <div className="flex justify-center">
+              <div className="max-w-2xl w-full">
+                <div className="aspect-video">
+                  <iframe
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="rounded-lg shadow-lg"
+                    height="100%"
+                    src="https://www.youtube.com/embed/X7kAB2d0PGs?si=quBEeKW-fXh_IHqo&autoplay=1&loop=1&playlist=X7kAB2d0PGs&mute=1"
+                    style={{border: 'none'}}
+                    title="YouTube video player"
+                    width="100%"
+                  />
+                </div>
+                <p className="text-sm text-gray-400 text-center mt-2">
+                  Real-world deployment of the visual navigation system on the Triceratops robot
+                </p>
+              </div>
+            </div>
+          </div>
+        ),
+      },
     ],
     links: [
+      {label: 'GitHub', url: 'https://github.com/csl-taipeitech/quadruped_robot_4_DOF.git'},
+      {
+        label: 'VSLAM',
+        url: 'https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam/tree/release-4.3/isaac_ros_visual_slam',
+      },
       {label: 'Depth to Laserscan', url: 'https://wiki.ros.org/depthimage_to_laserscan'},
-      {label: 'Github', url: 'https://github.com/csl-taipeitech/quadruped_robot_4_DOF.git'},
+      {label: 'Related: Multi-map Navigation (TurtleBot3)', url: '/projects/turtlebot-multi-map-nav'},
     ],
   },
 };

@@ -102,7 +102,7 @@ export const featuredProjects: FeaturedProject[] = [
     subtitle: 'OpenArm',
     flagship: true,
     tagline:
-      'Investigating whether VLA policies trained on generated simulation demonstrations can transfer to real-world bimanual manipulation.',
+      'Investigating whether VLA policies trained on fully generated simulation demonstrations can transfer to real-world bimanual manipulation.',
     pipeline: [
       'VR teleoperation (Isaac Sim)',
       '10 source demos',
@@ -198,12 +198,6 @@ export const portfolioGroups: PortfolioGroup[] = [
         description: 'Multi-map switching system for TurtleBot navigation.',
         url: '/projects/turtlebot-multi-map-nav',
         youtubeId: 'cTmAIjYQQr8',
-      },
-      {
-        title: 'Local planner development for visual navigation system',
-        description: 'Developing a local planner for the visual navigation system.',
-        url: '/projects/triceratops-local-planner',
-        youtubeId: 'knTCpoTfLF4',
       },
     ],
   },
