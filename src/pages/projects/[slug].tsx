@@ -1587,7 +1587,7 @@ const projects: Record<
         content: (
           <div className="space-y-4">
             <p>
-              The visual slam we are using is from{' '}
+              The visual SLAM we are using is from{' '}
               <a
                 className="text-blue-400 hover:underline"
                 href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam/tree/release-4.3/isaac_ros_visual_slam"
@@ -1642,6 +1642,36 @@ const projects: Record<
                   <source src="/videos/apriltag_visual_nav.mp4" type="video/mp4" />
                 </video>
                 <p className="text-sm text-gray-400 text-center mt-2">AprilTag-assisted localization demo</p>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'Real-world Deployment',
+        content: (
+          <div className="space-y-4">
+            <p>
+              With Visual SLAM and AprilTag-assisted localization integrated, the full visual navigation system is
+              deployed on the real Triceratops robot for autonomous indoor navigation.
+            </p>
+            <div className="flex justify-center">
+              <div className="max-w-2xl w-full">
+                <div className="aspect-video">
+                  <iframe
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="rounded-lg shadow-lg"
+                    height="100%"
+                    src="https://www.youtube.com/embed/X7kAB2d0PGs?si=quBEeKW-fXh_IHqo&autoplay=1&loop=1&playlist=X7kAB2d0PGs&mute=1"
+                    style={{border: 'none'}}
+                    title="YouTube video player"
+                    width="100%"
+                  />
+                </div>
+                <p className="text-sm text-gray-400 text-center mt-2">
+                  Real-world deployment of the visual navigation system on the Triceratops robot
+                </p>
               </div>
             </div>
           </div>
