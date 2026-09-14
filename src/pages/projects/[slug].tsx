@@ -336,7 +336,7 @@ const projects: Record<
             </p>
 
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
-              <p className="text-green-400 mb-2"># Robot Joint States (7-DOF)</p>
+              <p className="text-green-400 mb-2"># End-Effector Pose and Gripper State</p>
               <ul className="text-gray-300 space-y-1 ml-4">
                 <li>"eef_x"</li>
                 <li>"eef_y"</li>
@@ -355,7 +355,7 @@ const projects: Record<
               </ul>
             </div>
             <p className="text-sm text-gray-400 text-center mt-2">
-              LeRobot dataset structure with end effector positions, quaternions and camera observations
+              LeRobot dataset structure with end-effector position, orientation, gripper state, and camera observations.
             </p>
 
             <h3 className="text-lg font-semibold text-white mt-6">Control Method</h3>
@@ -896,7 +896,7 @@ const projects: Record<
 
             <h3 className="text-lg font-semibold text-white mt-6">Control Method</h3>
             <p>
-              Demonstrations are collected via <strong>teleoperation</strong> using Meta Quest3 Pro in Isaac Sim.
+              Demonstrations are collected via <strong>teleoperation</strong> using Meta Quest 3 Pro in Isaac Sim.
             </p>
             <div className="aspect-video mt-4">
               <iframe
@@ -1272,8 +1272,7 @@ const projects: Record<
         content: (
           <div className="space-y-4">
             <p>
-              We implement a hybrid A* algorithm that combines grid-based A* and sampling-based RRT for efficient path
-              planning in dynamic environments. The algorithm is tested in simulation and real-world scenarios.
+              We implement Hybrid A, which extends grid-based A by searching over continuous robot states while incorporating kinematic constraints, enabling smoother and more feasible paths than conventional grid-based A*
             </p>
             <div className="my-4 flex justify-center">
               <div className="max-w-2xl w-full">

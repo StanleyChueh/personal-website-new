@@ -102,7 +102,7 @@ export const featuredProjects: FeaturedProject[] = [
     subtitle: 'OpenArm',
     flagship: true,
     tagline:
-      'Investigating whether VLA policies trained on fully generated simulation demonstrations can transfer to real-world bimanual manipulation.',
+      'Investigating whether VLA policies trained entirely on simulation-generated demonstrations can transfer to real-world bimanual manipulation.',
     pipeline: [
       'VR teleoperation (Isaac Sim)',
       '10 source demos',
@@ -126,7 +126,7 @@ export const featuredProjects: FeaturedProject[] = [
     title: 'Imitation Learning on Franka Emika Panda',
     subtitle: 'Franka Emika Panda',
     tagline:
-      'Built a leader-follower teleoperation, dataset-collection, and ACT training pipeline to teach a Franka Panda arm manipulation tasks from human demonstrations.',
+      'Built a leader-follower teleoperation, data-collection, and ACT training pipeline to teach a Franka Panda to perform manipulation tasks from human demonstrations.',
     pipeline: [
       'Leader-follower teleoperation (GELLO, Franka ROS)',
       '~100 demos / task',
@@ -148,7 +148,7 @@ export const featuredProjects: FeaturedProject[] = [
     title: 'Visual Navigation for the Triceratops Quadruped',
     subtitle: 'Triceratops Quadruped',
     tagline:
-      'Designed and integrated a visual-SLAM and AprilTag localization stack for indoor autonomous navigation on a quadruped robot.',
+      'Designed and integrated a visual SLAM and AprilTag localization stack for indoor autonomous navigation on a quadruped robot.',
     pipeline: ['RGB-D visual SLAM', 'AprilTag-assisted localization', 'Real-robot deployment'],
     metrics: [
       {label: 'Localization', value: 'Visual SLAM + AprilTag'},
@@ -170,14 +170,14 @@ export const portfolioGroups: PortfolioGroup[] = [
     items: [
       {
         title: 'Action Chunking Transformer (ACT) on Koch Study',
-        description: 'Collecting training data with teleoperation.',
+        description: 'Collecting demonstration data through teleoperation.',
         url: '/projects/koch-imitation-learning',
         // video: '/videos/koch_open_drawer.mp4',
         youtubeId: 'Szx_Pt8DylI',
       },
       {
         title: 'Vision-Language-Action Models (VLA) on Koch',
-        description: 'Training VLA models with collected data.',
+        description: 'Training VLA policies on teleoperated demonstration data.',
         url: '/projects/koch-vla',
         // video: '/videos/three_task_cut_4x_speed.mp4',
         youtubeId: 'cOOaiJX_r3U',
@@ -189,7 +189,7 @@ export const portfolioGroups: PortfolioGroup[] = [
     items: [
       {
         title: 'Hybrid A* algorithm for robot navigation',
-        description: 'Control system final project for path planning.',
+        description: 'Control-systems course project on robot path planning.',
         url: '/projects/turtlebot-nav',
         youtubeId: 'WlBBGpIwAvg',
       },
@@ -237,7 +237,7 @@ export const experience: TimelineItem[] = [
     date: 'Sep 2023 - Present',
     location: 'City Science Lab@Taipei Tech',
     title: 'Research assistant',
-    content: <p>Assisting in developing the VLA project for robotic arms, visual navigation systems on quadrupeds.</p>,
+    content: <p>Leading development of the OpenArm VLA project and contributing to robot-learning and visual-navigation systems at City Science Lab.</p>,
   },
   {
     date: 'Aug 2023 - Nov 2024',
