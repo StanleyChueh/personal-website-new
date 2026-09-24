@@ -1006,7 +1006,7 @@ const projects: Record<
               After annotating the source dataset, we can use Isaac Lab Mimic to generate a large-scale dataset by
               randomizing pringles positions, size, textures, lighting and background.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-4">
+            <div className="mt-4">
               <video
                 autoPlay
                 className="w-full aspect-video object-cover rounded-lg shadow-lg"
@@ -1014,43 +1014,7 @@ const projects: Record<
                 loop
                 muted
                 playsInline
-                src="/videos/isaaclab_mimic_1.mp4"
-              />
-              <video
-                autoPlay
-                className="w-full aspect-video object-cover rounded-lg shadow-lg"
-                controls
-                loop
-                muted
-                playsInline
-                src="/videos/isaaclab_mimic_2.mp4"
-              />
-              <video
-                autoPlay
-                className="w-full aspect-video object-cover rounded-lg shadow-lg"
-                controls
-                loop
-                muted
-                playsInline
-                src="/videos/isaaclab_mimic_3.mp4"
-              />
-              <video
-                autoPlay
-                className="w-full aspect-video object-cover rounded-lg shadow-lg"
-                controls
-                loop
-                muted
-                playsInline
-                src="/videos/isaaclab_mimic_4.mp4"
-              />
-              <video
-                autoPlay
-                className="w-full aspect-video object-cover rounded-lg shadow-lg"
-                controls
-                loop
-                muted
-                playsInline
-                src="/videos/isaaclab_mimic_5.mp4"
+                src="/videos/isaaclab_mimic_grid_lossless.mp4"
               />
             </div>
             <p className="text-sm text-gray-400 text-center mt-2">
