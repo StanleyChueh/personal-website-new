@@ -14,7 +14,7 @@ const Portfolio: FC = memo(() => {
       <div className="flex flex-col gap-y-10">
         <div className="flex flex-col items-center gap-y-1 text-center">
           <h2 className="text-xl font-bold text-white">Earlier Robotics Projects</h2>
-          <p className="text-sm text-neutral-400">More work from earlier in the robotics research trajectory above.</p>
+          <p className="text-sm text-neutral-400">Earlier projects in imitation learning and autonomous navigation.</p>
         </div>
 
         {/* Grouped Projects, vertical list */}

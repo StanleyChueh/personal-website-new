@@ -12,8 +12,7 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og/stanleychueh-og-default.jpg`;
 
 // Structured data: ties the English and Chinese names + all verified profiles to one canonical
 // Person entity (stable @id) so search engines resolve "Stanley Chueh" and "闕楷宸" as the same
-// person. Instagram is intentionally excluded from sameAs — it isn't treated as a professional
-// profile on this site.
+// person.
 export const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -29,7 +28,7 @@ export const personJsonLd = {
     '@type': 'CollegeOrUniversity',
     name: 'Taipei Tech',
   },
-  sameAs: socialLinks.filter(({label}) => label !== 'Instagram').map(({href}) => href),
+  sameAs: socialLinks.map(({href}) => href),
 };
 
 const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(

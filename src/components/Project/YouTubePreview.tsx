@@ -34,8 +34,12 @@ const YouTubePreview: FC<{id: string; title: string}> = memo(({id, title}) => {
 
   useEffect(() => {
     let player: YTPlayerInstance | undefined;
+    let cancelled = false;
 
     const createPlayer = () => {
+      if (cancelled) {
+        return;
+      }
       const YT = window.YT;
       if (!YT?.Player || !containerRef.current) {
         return;
@@ -61,27 +65,48 @@ const YouTubePreview: FC<{id: string; title: string}> = memo(({id, title}) => {
       });
     };
 
-    if (window.YT?.Player) {
-      createPlayer();
-      return () => player?.destroy?.();
-    }
+    const loadPlayer = () => {
+      if (window.YT?.Player) {
+        createPlayer();
+        return;
+      }
 
-    const existingScript = document.querySelector<HTMLScriptElement>(
-      'script[src="https://www.youtube.com/iframe_api"]',
-    );
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://www.youtube.com/iframe_api';
-      document.body.appendChild(script);
-    }
+      const existingScript = document.querySelector<HTMLScriptElement>(
+        'script[src="https://www.youtube.com/iframe_api"]',
+      );
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.src = 'https://www.youtube.com/iframe_api';
+        document.body.appendChild(script);
+      }
 
-    const previousReady = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      previousReady?.();
-      createPlayer();
+      const previousReady = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => {
+        previousReady?.();
+        createPlayer();
+      };
     };
 
-    return () => player?.destroy?.();
+    // Defer the YouTube player (and its ~1 MB of scripts/video) until the preview is about to
+    // scroll into view, so slow connections spend their bandwidth on what's on screen first.
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          observer.disconnect();
+          loadPlayer();
+        }
+      },
+      {rootMargin: '200px'},
+    );
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+      player?.destroy?.();
+    };
   }, [id]);
 
   return <div aria-label={title} className="h-full w-full" ref={containerRef} />;

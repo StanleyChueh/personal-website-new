@@ -1,5 +1,12 @@
 import {FC, memo, useCallback, useMemo, useState} from 'react';
 
+import {contact} from '../../../data/data';
+import {ContactType} from '../../../data/dataDef';
+
+// The site is a static export with no backend, so the form hands the message to the visitor's
+// email client via a pre-filled mailto: link instead of posting it anywhere.
+const recipientHref = contact.items.find(({type}) => type === ContactType.Email)?.href ?? '';
+
 interface FormData {
   name: string;
   email: string;
@@ -17,6 +24,7 @@ const ContactForm: FC = memo(() => {
   );
 
   const [data, setData] = useState<FormData>(defaultData);
+  const [submitted, setSubmitted] = useState(false);
 
   const onChange = useCallback(
     <T extends HTMLInputElement | HTMLTextAreaElement>(event: React.ChangeEvent<T>): void => {
@@ -32,10 +40,10 @@ const ContactForm: FC = memo(() => {
   const handleSendMessage = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      /**
-       * This is a good starting point to wire up your form submission logic
-       * */
-      console.log('Data to send: ', data);
+      const subject = `Message from ${data.name} via stanleychueh.com`;
+      const body = `${data.message}\n\n— ${data.name} (${data.email})`;
+      window.location.href = `${recipientHref}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setSubmitted(true);
     },
     [data],
   );
@@ -70,6 +78,15 @@ const ContactForm: FC = memo(() => {
         type="submit">
         Send Message
       </button>
+      {submitted && (
+        <p className="text-sm text-neutral-400">
+          Your email app should open with this message ready to send. If it didn't, please email me directly at{' '}
+          <a className="text-orange-400 hover:underline" href={recipientHref}>
+            {recipientHref.replace('mailto:', '')}
+          </a>
+          .
+        </p>
+      )}
     </form>
   );
 });

@@ -1,10 +1,9 @@
 import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
-import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import YoutubeIcon from '../components/Icon/YoutubeIcon';
-import heroImage from '../images/hero-poster.png';
+import heroImage from '../images/hero-poster.jpg';
 import {
   ContactSection,
   ContactType,
@@ -169,7 +168,7 @@ export const portfolioGroups: PortfolioGroup[] = [
     title: 'Imitation Learning & VLA Development',
     items: [
       {
-        title: 'Action Chunking Transformer (ACT) on Koch Study',
+        title: 'Imitation Learning (ACT) on the Koch Arm',
         description: 'Collecting demonstration data through teleoperation.',
         url: '/projects/koch-imitation-learning',
         // video: '/videos/koch_open_drawer.mp4',
@@ -188,13 +187,13 @@ export const portfolioGroups: PortfolioGroup[] = [
     title: 'Autonomous Navigation System Development',
     items: [
       {
-        title: 'Hybrid A* algorithm for robot navigation',
+        title: 'Hybrid A* Path Planning for Robot Navigation',
         description: 'Control-systems course project on robot path planning.',
         url: '/projects/turtlebot-nav',
         youtubeId: 'WlBBGpIwAvg',
       },
       {
-        title: 'Multi-map switching system for robot navigation',
+        title: 'Multi-Map Switching System for Robot Navigation',
         description: 'Multi-map switching system for TurtleBot navigation.',
         url: '/projects/turtlebot-multi-map-nav',
         youtubeId: 'cTmAIjYQQr8',
@@ -220,13 +219,12 @@ export const education: TimelineItem[] = [
     ),
   },
   {
-    date: 'Sep 2021 - June 2025',
+    date: 'Sep 2021 - Jun 2025',
     location: 'Taipei Tech',
     title: 'B.S. in Electrical Engineering',
     content: (
       <p>
-        Study interests included image processing, data augmentation in computer vision, and robot navigation (Overall
-        GPA: 3.72).
+        Focus: image processing, data augmentation for computer vision, and robot navigation (Overall GPA: 3.72).
       </p>
     ),
   },
@@ -235,14 +233,19 @@ export const education: TimelineItem[] = [
 export const experience: TimelineItem[] = [
   {
     date: 'Sep 2023 - Present',
-    location: 'City Science Lab@Taipei Tech',
-    title: 'Research assistant',
-    content: <p>Leading development of the OpenArm VLA project and contributing to robot-learning and visual-navigation systems at City Science Lab.</p>,
+    location: 'City Science Lab @ Taipei Tech',
+    title: 'Research Assistant',
+    content: (
+      <p>
+        Co-leading development of the OpenArm VLA project and contributing to robot-learning and visual-navigation
+        systems at City Science Lab.
+      </p>
+    ),
   },
   {
     date: 'Aug 2023 - Nov 2024',
     location: 'InstAI, remote',
-    title: 'Research assistant',
+    title: 'Research Assistant',
     content: (
       <p>
         Assisted in developing an autonomous image recognition system, using data augmentation and model training to
@@ -279,11 +282,6 @@ export const contact: ContactSection = {
       href: 'https://www.google.ca/maps/place/Taipei,+Taiwan/@25.033022,121.565418,12z/data=!3m1!4b1!4m5!3m4!1s0x3442abfa7a9b8e75:0x1cbbdff8c490e0f!8m2!3d25.033964!4d121.564468',
     },
     {
-      type: ContactType.Instagram,
-      text: 'stanley_chueh',
-      href: 'https://www.instagram.com/stanley_chueh/',
-    },
-    {
       type: ContactType.Github,
       text: 'StanleyChueh',
       href: 'https://github.com/StanleyChueh',
@@ -298,5 +296,4 @@ export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/StanleyChueh'},
   {label: 'Youtube', Icon: YoutubeIcon, href: 'https://www.youtube.com/@Stanley_Chueh'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/stanley-chueh'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/stanley_chueh/'},
 ];

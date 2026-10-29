@@ -5,6 +5,7 @@ import {FC, memo} from 'react';
 import Page from '../../components/Layout/Page';
 import ContributionSection from '../../components/Project/ContributionSection';
 import ProjectMetric from '../../components/Project/ProjectMetric';
+import {featuredProjects, SectionId} from '../../data/data';
 
 // Hoisted "My Contribution" data (kept out of the JSX below so array props aren't
 // recreated as inline literals at each ContributionSection callsite).
@@ -26,7 +27,7 @@ const openArmContribution = {
   mine: [
     'Co-leading the OpenArm VLA project at City Science Lab',
     'Built and maintain the OpenArm Isaac Lab simulation environment for teleoperation and Isaac Lab Mimic data generation',
-    'Built and maintain the VR teleoperation data-collection pipeline (Meta Quest 3 Pro → Isaac Sim)',
+    'Built and maintain the VR teleoperation data-collection pipeline (Meta Quest Pro → Isaac Sim)',
     'Built and maintain the real-world OpenArm deployment code (SmolVLA policy → LeRobot → real robot)',
   ],
   collaborators: 'City Science Lab VLA project team',
@@ -39,7 +40,7 @@ const triceratopsContribution = {
     'Integrated the visual navigation system with the physical Triceratops robot for autonomous indoor navigation',
   ],
   collaborators:
-    'City Science Lab robotic team built the Triceratops robot and its low-level gait control — not developed by me',
+    'City Science Lab robotics team (built the Triceratops robot and its low-level gait controller; not developed by me)',
   external: ['NVIDIA Isaac ROS Visual SLAM', 'AprilTag'],
 };
 
@@ -59,11 +60,8 @@ const projects: Record<
 > = {
   // Project 1(Imitation Learning & VLA Development)
   'koch-imitation-learning': {
-    title: 'Imitation Learning with low-cost robotic arm',
-    description: `
-      Imagine a robotic arm that can learn to perform tasks 
-      just by watching human demonstrations! 
-    `.trim(),
+    title: 'Imitation Learning on a Low-Cost Robotic Arm (Koch)',
+    description: 'Teaching a low-cost robotic arm manipulation skills from teleoperated human demonstrations.',
     videos: [{src: '/videos/koch_open_drawer.mp4', caption: 'Robot opening drawer demo'}],
     images: [{src: '/images/portfolio/Franka_open_drawer.png', caption: 'Training process'}],
     youtubeIds: [{id: '8RHWoJiWaVc', caption: 'Full demonstration video'}],
@@ -85,7 +83,7 @@ const projects: Record<
                 </a>
                 )
               </strong>{' '}
-              can learn from human demonstrations using <strong>imitation learning by</strong>{' '}
+              can learn from human demonstrations through <strong>imitation learning</strong> with the{' '}
               <strong>
                 <a
                   className="text-blue-400 hover:underline"
@@ -118,8 +116,8 @@ const projects: Record<
             <p>
               We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files. Since the
               leader and follower arms share the same joint names, <strong>observation</strong> and{' '}
-              <strong>action</strong> use the identical joint-name schema below, plus mp4 for top and front camera
-              observation.
+              <strong>action</strong> use the identical joint-name schema below, plus MP4 videos from the top and front
+              cameras.
             </p>
 
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
@@ -153,6 +151,7 @@ const projects: Record<
                 allowFullScreen
                 className="rounded-lg shadow-lg"
                 height="100%"
+                loading="lazy"
                 src="https://www.youtube.com/embed/vhVHY2LlWpg?si=&autoplay=1&loop=1&playlist=vhVHY2LlWpg&mute=1"
                 style={{border: 'none'}}
                 title="YouTube video player"
@@ -177,7 +176,7 @@ const projects: Record<
               <h3 className="text-xl font-bold text-blue-400 mb-3">ACT (Action Chunking Transformer)</h3>
               <p className="mb-3">
                 A <strong>pure imitation learning</strong> approach that predicts{' '}
-                <strong>action sequences("chunks") rather than single actions </strong> . It uses a transformer
+                <strong>action sequences ("chunks") rather than single actions</strong>. It uses a transformer
                 encoder-decoder architecture with a CVAE (Conditional Variational Autoencoder) for modeling action
                 distributions.
               </p>
@@ -242,6 +241,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/Szx_Pt8DylI?si=&autoplay=1&loop=1&playlist=Szx_Pt8DylI&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -249,7 +249,7 @@ const projects: Record<
                   />
                 </div>
                 <p className="text-sm text-gray-400 text-center mt-2">
-                  Autonomous task execution after 50 episodes training
+                  Autonomous task execution after training on 50 episodes
                 </p>
               </div>
 
@@ -260,6 +260,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/vlrDY3Pzqec?si=&autoplay=1&loop=1&playlist=vlrDY3Pzqec&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -283,10 +284,8 @@ const projects: Record<
 
   // Project 2(Imitation Learning & VLA Development)
   'franka-imitation-learning': {
-    title: 'Imitation Learning with Franka Emika Panda',
-    description: `
-      How to transfer the imitation learning techniques to a more complex robotic arm like Franka Emika Panda.
-    `.trim(),
+    title: 'Imitation Learning on Franka Emika Panda',
+    description: 'Transferring our imitation learning pipeline from a low-cost arm to the 7-DoF Franka Emika Panda.',
     image: 'https://stanleychueh.com/images/portfolio/Franka_open_drawer.png',
     videos: [{src: '/videos/franka_open_drawer.mp4', caption: 'Robot opening drawer demo'}],
     images: [
@@ -299,12 +298,9 @@ const projects: Record<
         title: 'Overview',
         content: (
           <p>
-            In our previous work, we demonstrated how robotic arms can learn from human demonstrations through{' '}
-            <strong>
-              Action Chunking Transformer (ACT). In this project, we demonstrate how we transfer that approach to the
-              Franka Emika Panda
-            </strong>
-            .
+            In our previous work, we showed that a low-cost robotic arm can learn from human demonstrations with the{' '}
+            <strong>Action Chunking Transformer (ACT)</strong>. In this project, we transfer that approach to the{' '}
+            <strong>Franka Emika Panda</strong>.
           </p>
         ),
       },
@@ -331,8 +327,8 @@ const projects: Record<
 
             <h3 className="text-lg font-semibold text-white mt-6">Dataset Format</h3>
             <p>
-              We use the <strong> same LeRobot dataset format</strong>, which stores episodes as Parquet files and mp4
-              for front and wrist camera observation.
+              We use the <strong>same LeRobot dataset format</strong>, which stores episodes as Parquet files, plus MP4
+              videos from the front and wrist cameras.
             </p>
 
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
@@ -390,6 +386,7 @@ const projects: Record<
                 allowFullScreen
                 className="rounded-lg shadow-lg"
                 height="100%"
+                loading="lazy"
                 src="https://www.youtube.com/embed/OhipjlzHnjo?autoplay=1&loop=1&playlist=OhipjlzHnjo&mute=1"
                 style={{border: 'none'}}
                 title="YouTube video player"
@@ -401,7 +398,7 @@ const projects: Record<
             <h4 className="text-lg font-semibold text-white mt-6">Previous Control Method</h4>
             <p>
               Previously, we employed <strong>Vision Pro</strong> to control the Franka Emika Panda. Vision Pro tracks
-              the operator's hand and maps its relative movement to relative movement of the robot's end effector.
+              the operator's hand and maps its relative motion to the relative motion of the robot's end effector.
             </p>
             <p>
               However, we found that Vision Pro control was not intuitive for this Franka Emika Panda setup; it may be
@@ -425,13 +422,14 @@ const projects: Record<
                 allowFullScreen
                 className="rounded-lg shadow-lg"
                 height="100%"
+                loading="lazy"
                 src="https://www.youtube.com/embed/KvCzDGHlaKs?si=&autoplay=1&loop=1&playlist=KvCzDGHlaKs&mute=1"
                 style={{border: 'none'}}
                 title="YouTube video player"
                 width="100%"
               />
             </div>
-            <p className="text-sm text-gray-400 text-center mt-2">Vision Pro controlled pick-and-place demonstration</p>
+            <p className="text-sm text-gray-400 text-center mt-2">Vision Pro-controlled pick-and-place demonstration</p>
           </div>
         ),
       },
@@ -449,7 +447,7 @@ const projects: Record<
               <h3 className="text-xl font-bold text-blue-400 mb-3">ACT (Action Chunking Transformer)</h3>
               <p className="mb-3">
                 A <strong>pure imitation learning</strong> approach that predicts{' '}
-                <strong>action sequences("chunks") rather than single actions </strong> . It uses a transformer
+                <strong>action sequences ("chunks") rather than single actions</strong>. It uses a transformer
                 encoder-decoder architecture with a CVAE (Conditional Variational Autoencoder) for modeling action
                 distributions.
               </p>
@@ -514,6 +512,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/zfraKg9_tjE?si=&autoplay=1&loop=1&playlist=zfraKg9_tjE&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -521,7 +520,7 @@ const projects: Record<
                   />
                 </div>
                 <p className="text-sm text-gray-400 text-center mt-2">
-                  Autonomous task execution after 100 episodes training{' '}
+                  Autonomous task execution after training on 100 episodes{' '}
                   <a
                     className="text-blue-400 hover:underline"
                     href="https://huggingface.co/datasets/ethanCSL/open_drawer"
@@ -539,6 +538,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/mgxuhl4MoaA?autoplay=1&loop=1&playlist=mgxuhl4MoaA&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -546,7 +546,7 @@ const projects: Record<
                   />
                 </div>
                 <p className="text-sm text-gray-400 text-center mt-2">
-                  Autonomous pick-and-place task execution after 100 episodes training (robustness testing){' '}
+                  Autonomous pick-and-place after training on 100 episodes (robustness test){' '}
                   <a
                     className="text-blue-400 hover:underline"
                     href="https://huggingface.co/datasets/ethanCSL/pick_n_place_100"
@@ -573,11 +573,8 @@ const projects: Record<
 
   // Project 3(Imitation Learning & VLA Development)
   'koch-vla': {
-    title: 'VLAs with low-cost robotic arm',
-    description: `
-      Imagine a robotic arm that can learn to perform tasks 
-      just by watching human demonstrations and reading instruction!
-    `.trim(),
+    title: 'Vision-Language-Action Models on a Low-Cost Robotic Arm (Koch)',
+    description: 'Teaching a low-cost robotic arm multiple tasks from teleoperated demonstrations and natural-language instructions.',
     videos: [{src: '/videos/koch_open_drawer.mp4', caption: 'Robot opening drawer demo'}],
     images: [
       {src: '/images/portfolio/koch-1.png', caption: 'System setup'},
@@ -590,12 +587,12 @@ const projects: Record<
         content: (
           <div>
             <p>
-              In our previous work, we demonstrated how Action Chunking Transformer (ACT) enables robotic arms to learn
-              from human demonstrations, but language could not be directly incorporated.
+              In our previous work, we demonstrated how the Action Chunking Transformer (ACT) enables robotic arms to
+              learn from human demonstrations, but ACT cannot take language instructions as input.
             </p>
             <p>
-              This project demonstrates how robotic arms can learn using <strong>Visual Language Action (VLA)</strong>{' '}
-              models like{' '}
+              This project shows how robotic arms can learn with <strong>Vision-Language-Action (VLA)</strong> models
+              such as{' '}
               <a
                 className="text-blue-400 hover:underline"
                 href="https://arxiv.org/abs/2506.01844"
@@ -603,7 +600,7 @@ const projects: Record<
                 target="_blank">
                 SmolVLA
               </a>
-              , that we can use language instructions with.
+              , which condition their actions on natural-language instructions.
             </p>
           </div>
         ),
@@ -621,8 +618,8 @@ const projects: Record<
             <p>
               We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files. Since the
               leader and follower arms share the same joint names, <strong>observation</strong> and{' '}
-              <strong>action</strong> use the identical joint-name schema below, plus mp4 for top and front camera
-              observation.
+              <strong>action</strong> use the identical joint-name schema below, plus MP4 videos from the top and front
+              cameras.
             </p>
 
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
@@ -656,6 +653,7 @@ const projects: Record<
                 allowFullScreen
                 className="rounded-lg shadow-lg"
                 height="100%"
+                loading="lazy"
                 src="https://www.youtube.com/embed/vhVHY2LlWpg?si=&autoplay=1&loop=1&playlist=vhVHY2LlWpg&mute=1"
                 style={{border: 'none'}}
                 title="YouTube video player"
@@ -671,20 +669,20 @@ const projects: Record<
         content: (
           <div className="space-y-6">
             <p>
-              After collecting demonstration data, we train VLA model(SmolVLA) to predict robot actions from visual
+              After collecting demonstration data, we train a VLA model (SmolVLA) to predict robot actions from visual
               observations and language instructions.
             </p>
 
             {/* SmolVLA Section */}
             <div className="bg-gray-800/50 rounded-lg p-5 border border-gray-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-3">SmolVLA (Small Vision-Language Action Model)</h3>
+              <h3 className="text-xl font-bold text-blue-400 mb-3">SmolVLA (Small Vision-Language-Action Model)</h3>
               <p className="mb-3">
                 Unlike common VLA models that use large vision-language backbones, SmolVLA is a lightweight model
                 designed for fast training and inference on robotic arms.
               </p>
               <div className="my-4">
                 <img
-                  alt="SmolVLA Architecture - Small Vision-Language Action Model from the original paper"
+                  alt="SmolVLA Architecture - Small Vision-Language-Action Model from the original paper"
                   className="w-full rounded-lg shadow-lg"
                   src="/images/portfolio/smolvla-paper.png"
                 />
@@ -704,9 +702,9 @@ const projects: Record<
                 <div>
                   <h4 className="text-sm font-semibold text-green-400 mb-2">✅ Strengths</h4>
                   <ul className="text-sm space-y-1 text-gray-300">
-                    <li>• Fast training (Lightweight architecture)</li>
+                    <li>• Fast training (lightweight architecture)</li>
                     <li>• Resource-efficient (lightweight inference)</li>
-                    <li>• Smooth trajectory generation(SA interleaves CA)</li>
+                    <li>• Smooth action generation (interleaved self- and cross-attention)</li>
                   </ul>
                 </div>
                 <div>
@@ -714,7 +712,6 @@ const projects: Record<
                   <ul className="text-sm space-y-1 text-gray-300">
                     <li>• Poor zero-shot generalization</li>
                     <li>• Not optimized for cross-embodiment transfer</li>
-                    <li>• Limited generalization</li>
                   </ul>
                 </div>
               </div>
@@ -730,8 +727,8 @@ const projects: Record<
             {/* Task Setup Video */}
             <h3 className="text-lg font-semibold text-white mt-6">Real-time Inference</h3>
             <p>
-              The model runs at <strong>~30Hz</strong>, predicting actions that are executed by the robot controller in
-              real-time.
+              The model runs at <strong>~30 Hz</strong>, predicting actions that the robot controller executes in real
+              time.
             </p>
             {/* YouTube Video */}
             <div className="mt-4 flex justify-center">
@@ -742,6 +739,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/cOOaiJX_r3U?si=&autoplay=1&loop=1&playlist=cOOaiJX_r3U&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -749,7 +747,7 @@ const projects: Record<
                   />
                 </div>
                 <p className="text-sm text-gray-400 text-center mt-2">
-                  Autonomous real-time task switching execution after 100 episodes for each task after training{' '}
+                  Real-time task switching from language commands, trained on 100 episodes per task{' '}
                   <a
                     className="text-blue-400 hover:underline"
                     href="https://huggingface.co/datasets/ethanCSL/svla_koch_sorting_n_stacking_screw_nut"
@@ -769,6 +767,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/zdFU9ku4Wcg?si=bJjzFVhdc2FZIbdA&autoplay=1&loop=1&playlist=zdFU9ku4Wcg&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -776,7 +775,7 @@ const projects: Record<
                   />
                 </div>
                 <p className="text-sm text-gray-400 text-center mt-2">
-                  Autonomous real-time task switching execution after 60 episodes for each task after training{' '}
+                  Real-time task switching from language commands, trained on 60 episodes per task{' '}
                   <a
                     className="text-blue-400 hover:underline"
                     href="https://huggingface.co/datasets/ethanCSL/color_test_green"
@@ -799,10 +798,8 @@ const projects: Record<
 
   // Project 4(Imitation Learning & VLA Development)
   'OpenArm-vla': {
-    title: 'VLAs with bimanual robotic arm(OpenArm)',
-    description: `
-      Can we train VLAs on fully simulated bimanual robotic arms and transfer to real-world tasks?
-    `.trim(),
+    title: 'Sim-to-Real Vision-Language-Action Models for Bimanual Manipulation',
+    description: 'Can VLA policies trained entirely on simulated demonstrations transfer to real-world bimanual manipulation?',
     image: 'https://stanleychueh.com/images/portfolio/Real2Sim2Real_pipeline.png',
     videos: [{src: '/videos/koch_open_drawer.mp4', caption: 'Robot opening drawer demo'}],
     images: [
@@ -817,9 +814,9 @@ const projects: Record<
           <div className="space-y-4">
             <p>
               In our previous work, we demonstrated how Action Chunking Transformer (ACT) and SmolVLA enable robotic
-              arms to learn from human demonstrations and language instructions, but we only used low-cost, single-arm
-              robots, and all models are trained on real-world data. In this project, we explore how to train VLAs on
-              fully simulated bimanual robotic arms and transfer to real-world tasks.
+              arms to learn from human demonstrations and language instructions, but those projects used low-cost,
+              single-arm robots, and all models were trained on real-world data. In this project, we explore training
+              VLAs entirely in simulation on a bimanual robot (OpenArm) and transferring them to the real world.
             </p>
             <img
               alt="Real2Sim2Real pipeline"
@@ -852,15 +849,15 @@ const projects: Record<
         content: (
           <div className="space-y-4">
             <p>
-              In data collection, we use the same setup as the previous projects, but we also collect language
-              instructions along with the demonstrations.
+              For data collection, we use the same LeRobot dataset format as the previous projects and record a
+              language instruction with each demonstration.
             </p>
 
             <h3 className="text-lg font-semibold text-white mt-6">Dataset Format</h3>
             <p>
               We use the <strong>LeRobot dataset format</strong>, which stores episodes as Parquet files containing{' '}
-              <strong> observation(Robot joint states) </strong>, and <strong> action(Joint states commands) </strong>{' '}
-              and mp4 for body camera and two wrist cameras observation.
+              <strong>observations (robot joint states)</strong> and <strong>actions (joint-position commands)</strong>,
+              plus MP4 videos from the body camera and both wrist cameras.
             </p>
 
             <div className="bg-gray-800 rounded-lg p-4 mt-4 font-mono text-sm">
@@ -896,7 +893,7 @@ const projects: Record<
 
             <h3 className="text-lg font-semibold text-white mt-6">Control Method</h3>
             <p>
-              Demonstrations are collected via <strong>teleoperation</strong> using Meta Quest 3 Pro in Isaac Sim.
+              Demonstrations are collected via <strong>teleoperation</strong> using Meta Quest Pro in Isaac Sim.
             </p>
             <div className="aspect-video mt-4">
               <iframe
@@ -904,6 +901,7 @@ const projects: Record<
                 allowFullScreen
                 className="rounded-lg shadow-lg"
                 height="100%"
+                loading="lazy"
                 src="https://www.youtube.com/embed/PNdkYEWuSUE?si=&autoplay=1&loop=1&playlist=PNdkYEWuSUE&mute=1"
                 style={{border: 'none'}}
                 title="YouTube video player"
@@ -911,13 +909,13 @@ const projects: Record<
               />
             </div>
             <p className="text-sm text-gray-400 text-center">
-              Leader-follower teleoperation for data collection, reference:{' '}
+              VR teleoperation with Meta Quest Pro for data collection, reference:{' '}
               <a
                 className="text-blue-400 hover:underline"
                 href="https://github.com/enactic/dora-openarm-data-collection.git"
                 rel="noopener noreferrer"
                 target="_blank">
-                [Github]
+                [GitHub]
               </a>
             </p>
 
@@ -938,24 +936,25 @@ const projects: Record<
               className="w-full rounded-lg shadow-lg mt-4"
               src="/images/portfolio/pringles_handover_visualizer.png"
             />
-            <p className="text-sm text-gray-400 text-center">10 source demos by human demos</p>
+            <p className="text-sm text-gray-400 text-center">10 human-teleoperated source demonstrations</p>
           </div>
         ),
       },
       {
-        title: '2. Dataset generation - Isaac Sim',
+        title: '2. Dataset Generation - Isaac Sim',
         content: (
           <div className="space-y-4">
             <p>
-              After collecting small amount of demonstration data(ex: 10 demos), we generate a large-scale dataset(~400
-              demos) in Isaac Sim by randomizing pringles positions, size, textures, lighting and background.
+              After collecting a small set of demonstrations (10 episodes), we generate a large-scale dataset (~400
+              demos) in Isaac Sim by randomizing the Pringles can's position, size, and texture, as well as the lighting
+              and background.
             </p>
 
             <h3 className="text-lg font-semibold text-white mt-6">Dataset Annotation</h3>
-            <p>For dataset generation(Isaac Lab Mimic), we have to annotate each episode into several subtasks.</p>
+            <p>For dataset generation with Isaac Lab Mimic, each source episode must first be annotated into subtasks.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
               <div className="space-y-4 md:col-span-2">
-                <h4 className="text-base font-semibold text-white">right arm</h4>
+                <h4 className="text-base font-semibold text-white">Right arm</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col items-center">
                     <video
@@ -984,7 +983,7 @@ const projects: Record<
                 </div>
               </div>
               <div className="space-y-4 md:col-span-1">
-                <h4 className="text-base font-semibold text-white">left arm</h4>
+                <h4 className="text-base font-semibold text-white">Left arm</h4>
                 <div className="flex flex-col items-center">
                   <video
                     autoPlay
@@ -1003,8 +1002,8 @@ const projects: Record<
             <h3 className="text-lg font-semibold text-white mt-6">Dataset Generation</h3>
 
             <p>
-              After annotating the source dataset, we can use Isaac Lab Mimic to generate a large-scale dataset by
-              randomizing pringles positions, size, textures, lighting and background.
+              After annotating the source dataset, we use Isaac Lab Mimic to generate a large-scale dataset by
+              randomizing the Pringles can's position, size, and texture, as well as the lighting and background.
             </p>
             <div className="mt-4">
               <video
@@ -1032,24 +1031,24 @@ const projects: Record<
         ),
       },
       {
-        title: '2. Model Training',
+        title: '3. Model Training',
         content: (
           <div className="space-y-6">
             <p>
-              After generating enough diverse data, we train VLA model(SmolVLA) to predict robot actions from visual
+              After generating enough diverse data, we train a VLA model (SmolVLA) to predict robot actions from visual
               observations and language instructions.
             </p>
 
             {/* SmolVLA Section */}
             <div className="bg-gray-800/50 rounded-lg p-5 border border-gray-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-3">SmolVLA (Small Vision-Language Action Model)</h3>
+              <h3 className="text-xl font-bold text-blue-400 mb-3">SmolVLA (Small Vision-Language-Action Model)</h3>
               <p className="mb-3">
                 Unlike common VLA models that use large vision-language backbones, SmolVLA is a lightweight model
                 designed for fast training and inference on robotic arms.
               </p>
               <div className="my-4">
                 <img
-                  alt="SmolVLA Architecture - Small Vision-Language Action Model from the original paper"
+                  alt="SmolVLA Architecture - Small Vision-Language-Action Model from the original paper"
                   className="w-full rounded-lg shadow-lg"
                   src="/images/portfolio/smolvla-paper.png"
                 />
@@ -1069,9 +1068,9 @@ const projects: Record<
                 <div>
                   <h4 className="text-sm font-semibold text-green-400 mb-2">✅ Strengths</h4>
                   <ul className="text-sm space-y-1 text-gray-300">
-                    <li>• Fast training (Lightweight architecture)</li>
+                    <li>• Fast training (lightweight architecture)</li>
                     <li>• Resource-efficient (lightweight inference)</li>
-                    <li>• Smooth trajectory generation(SA interleaves CA)</li>
+                    <li>• Smooth action generation (interleaved self- and cross-attention)</li>
                   </ul>
                 </div>
                 <div>
@@ -1079,7 +1078,6 @@ const projects: Record<
                   <ul className="text-sm space-y-1 text-gray-300">
                     <li>• Poor zero-shot generalization</li>
                     <li>• Not optimized for cross-embodiment transfer</li>
-                    <li>• Limited generalization</li>
                   </ul>
                 </div>
               </div>
@@ -1088,18 +1086,18 @@ const projects: Record<
         ),
       },
       {
-        title: '3. Deployment',
+        title: '4. Deployment',
         content: (
           <div className="space-y-4">
             <p>
-              We deploy model on simulated OpenArm and real-world OpenArm for real-time inference and autonomous task
-              execution.
+              We deploy the model on both the simulated and the real OpenArm for real-time inference and autonomous
+              task execution.
             </p>
             {/* Task Setup Video */}
             <h3 className="text-lg font-semibold text-white mt-6">Deployment in Isaac Sim</h3>
             <p>
-              The success rate in Isaac Sim is 80% for 100 rollouts, and the model runs at <strong>~30Hz</strong>,
-              predicting actions that are executed by the robot controller in real-time.
+              In Isaac Sim, the policy reaches an 80% success rate over 100 rollouts and runs at{' '}
+              <strong>~30 Hz</strong>, predicting actions that the robot controller executes in real time.
             </p>
             {/* YouTube Video */}
             <div className="mt-4 flex justify-center">
@@ -1110,6 +1108,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/Xi3LRSgJ_ro?si=5ilrH2fEY7J_S4fR&autoplay=1&loop=1&playlist=Xi3LRSgJ_ro&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -1120,7 +1119,7 @@ const projects: Record<
                   Autonomous execution after training{' '}
                   <a
                     className="text-blue-400 hover:underline"
-                    href="https://huggingface.co/datasets/ethanCSL/svla_koch_sorting_n_stacking_screw_nut"
+                    href="https://huggingface.co/datasets/ethanCSL/openarm_visuomotor_VR_pringles_V14_background_30hz"
                     rel="noopener noreferrer"
                     target="_blank">
                     Dataset
@@ -1129,10 +1128,10 @@ const projects: Record<
               </div>
             </div>
 
-            <h3 className="text-lg font-semibold text-white mt-6">Deployment in Real-world</h3>
+            <h3 className="text-lg font-semibold text-white mt-6">Real-World Deployment</h3>
             <p>
-              The success rate in real-world is around 40% for 10 rollouts, and the model runs at <strong>~30Hz</strong>
-              , predicting actions that are executed by the robot controller in real-time.
+              On the real robot, the policy reaches around 40% success over 10 rollouts, also running at{' '}
+              <strong>~30 Hz</strong>.
             </p>
             {/* YouTube Video */}
             <div className="mt-4 flex justify-center">
@@ -1143,6 +1142,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/4DKriauQ05g?si=caoTgI-4_Zse6fU6&autoplay=1&loop=1&playlist=4DKriauQ05g&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -1150,13 +1150,13 @@ const projects: Record<
                   />
                 </div>
                 <p className="text-sm text-gray-400 text-center mt-2">
-                  Autonomous execution in real-world scenarios{' '}
+                  Autonomous execution on the real robot{' '}
                   <a
                     className="text-blue-400 hover:underline"
                     href="https://huggingface.co/ethanCSL/openarm_visuomotor_VR_pringles_V14_background_30hz"
                     rel="noopener noreferrer"
                     target="_blank">
-                    model
+                    Model
                   </a>
                 </p>
               </div>
@@ -1165,29 +1165,29 @@ const projects: Record<
         ),
       },
       {
-        title: '4. Limitations and Future Work',
+        title: '5. Limitations and Future Work',
         content: (
           <div className="space-y-4">
             <p>
-              While the model performs well in simulation, there are still challenges in transferring to real-world
-              scenarios. Future work will focus on improving the model's robustness and generalization capabilities.
+              While the policy performs well in simulation, transferring it to the real world remains challenging.
+              Future work will focus on improving the policy's robustness and generalization.
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li> Fixing simulation-to-real-world domain gaps</li>
-              <li> Switch to another VLAs as GR00T N1.7, PI0.7...</li>
-              <li> Fixing jerky trajectories in real-world deployment</li>
+              <li>Closing the sim-to-real domain gap</li>
+              <li>Evaluating stronger VLA models, such as GR00T N1.7 and π0.7</li>
+              <li>Smoothing jerky trajectories during real-world deployment</li>
             </ul>
           </div>
         ),
       },
     ],
     links: [
-      {label: 'lerobot', url: 'https://github.com/huggingface/lerobot.git'},
+      {label: 'LeRobot', url: 'https://github.com/huggingface/lerobot.git'},
       {label: 'OpenArm IsaacLab', url: 'https://github.com/StanleyChueh/IsaacLab.git'},
       {label: 'OpenArm VR', url: 'https://github.com/StanleyChueh/dora-openarm-data-collection.git'},
-      {label: 'OpenArm Real world deployment', url: 'https://github.com/StanleyChueh/lerobot_openarm.git'},
+      {label: 'OpenArm Real-World Deployment', url: 'https://github.com/StanleyChueh/lerobot_openarm.git'},
       {label: 'Related: Imitation Learning on Franka Panda', url: '/projects/franka-imitation-learning'},
-      {label: 'Related: Visual Language Action (VLA) Models on Koch', url: '/projects/koch-vla'},
+      {label: 'Related: Vision-Language-Action (VLA) Models on Koch', url: '/projects/koch-vla'},
     ],
   },
 
@@ -1195,10 +1195,8 @@ const projects: Record<
 
   // Project 5(Autonomous Navigation System Development for turtlebot)
   'turtlebot-nav': {
-    title: 'Hybrid A* algorithm for robot navigation',
-    description: `
-      Developing a hybrid A* algorithm for autonomous navigation of a TurtleBot in dynamic environments.
-    `.trim(),
+    title: 'Hybrid A* Path Planning for Robot Navigation',
+    description: 'Implementing Hybrid A* path planning for autonomous TurtleBot3 navigation in dynamic environments.',
     videos: [{src: '/videos/turtlebot_multi_map.mp4', caption: 'Multi-map switching demo'}],
     images: [
       {src: '/images/portfolio/turtlebot-1.png', caption: 'System setup'},
@@ -1210,8 +1208,8 @@ const projects: Record<
         title: 'Overview',
         content: (
           <p>
-            This project demonstrates how to use Turtlebot3 for autonomous navigation in dynamic environments using a
-            hybrid A* algorithm from simulation to real-world deployment.
+            This project uses the Hybrid A* algorithm for autonomous TurtleBot3 navigation in dynamic environments,
+            from simulation to real-world deployment.
           </p>
         ),
       },
@@ -1232,11 +1230,13 @@ const projects: Record<
         ),
       },
       {
-        title: 'Hybrid A* Algorithm(Sim2Real)',
+        title: 'Hybrid A* Algorithm (Sim-to-Real)',
         content: (
           <div className="space-y-4">
             <p>
-              We implement Hybrid A, which extends grid-based A by searching over continuous robot states while incorporating kinematic constraints, enabling smoother and more feasible paths than conventional grid-based A*
+              We implement Hybrid A*, which extends grid-based A* by searching over continuous robot states while
+              incorporating kinematic constraints, producing smoother and more feasible paths than conventional
+              grid-based A*.
             </p>
             <div className="my-4 flex justify-center">
               <div className="max-w-2xl w-full">
@@ -1246,14 +1246,15 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
-                    src="https://www.youtube.com/embed/WlBBGpIwAvg?si=1b6nyTCwvE3p-iRs&autoplay=1&loop=1&playlist=WlBBGpIwAvg"
+                    loading="lazy"
+                    src="https://www.youtube.com/embed/WlBBGpIwAvg?si=1b6nyTCwvE3p-iRs&autoplay=1&loop=1&playlist=WlBBGpIwAvg&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
                     width="100%"
                   />
                 </div>
                 <p className="text-sm text-gray-400 text-center mt-2">
-                  Hybrid A* Algorithm visualization(Gazebo to Real-world)
+                  Hybrid A* planning visualization (Gazebo to real world)
                 </p>
               </div>
             </div>
@@ -1263,13 +1264,13 @@ const projects: Record<
     ],
     links: [
       {label: 'GitHub', url: 'https://github.com/StanleyChueh/Robot_navigation_study.git'},
-      {label: 'Related: Multi-map Switching System for TurtleBot Navigation', url: '/projects/turtlebot-multi-map-nav'},
+      {label: 'Related: Multi-Map Switching System for TurtleBot Navigation', url: '/projects/turtlebot-multi-map-nav'},
     ],
   },
 
   // Project 6(Autonomous Navigation System Development for spot)
   'turtlebot-multi-map-nav': {
-    title: 'Multi-map Switching System for TurtleBot Navigation',
+    title: 'Multi-Map Switching System for TurtleBot Navigation',
     description: `
       Developing a multi-map switching system for autonomous navigation of a TurtleBot in dynamic environments.
     `.trim(),
@@ -1334,8 +1335,8 @@ const projects: Record<
         content: (
           <div className="space-y-4">
             <p>
-              The Nav2 framework provides robust navigation services. Below demonstrates how the system loads different
-              maps and performs navigation tasks.
+              The Nav2 framework provides robust navigation services. The videos below show how the system loads
+              different maps and performs navigation tasks.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
               <div>
@@ -1407,6 +1408,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/cTmAIjYQQr8?si=h4pOivM19Kn8645d&autoplay=1&loop=1&playlist=cTmAIjYQQr8&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -1422,12 +1424,12 @@ const projects: Record<
         ),
       },
       {
-        title: 'AprilTag Localization and map switching',
+        title: 'AprilTag Localization and Map Switching',
         content: (
           <div className="space-y-4">
             <p>
-              The system utilizes <strong>AprilTag</strong> markers for calibration between several waypoints, and help
-              to switch between different maps.
+              The system uses <strong>AprilTag</strong> markers for calibration at several waypoints and to trigger
+              switching between maps.
             </p>
             <p>
               The AprilTag markers are placed at key locations in the environment, and the robot uses them for accurate
@@ -1469,10 +1471,8 @@ const projects: Record<
 
   // Project 7(Autonomous Visual Navigation System Development for triceratops)
   'triceratops-nav': {
-    title: 'Visual Navigation System for Triceratops Robot',
-    description: `
-      Developing a visual navigation system for autonomous navigation of a Triceratops robot in indoor environments.
-    `.trim(),
+    title: 'Visual Navigation for the Triceratops Quadruped',
+    description: 'A visual SLAM and AprilTag-based navigation system for autonomous indoor navigation on the Triceratops quadruped.',
     image: 'https://stanleychueh.com/images/portfolio/triceratops.png',
     videos: [{src: '/videos/triceratops_visual_nav.mp4', caption: 'Visual navigation demo'}],
     images: [
@@ -1509,22 +1509,21 @@ const projects: Record<
         title: 'Robot Setup',
         content: (
           <div className="space-y-4">
-            <p>We use the Triceratops robot platform equipped with a RGB-D camera for visual navigation.</p>
+            <p>We use the Triceratops robot platform equipped with an RGB-D camera for visual navigation.</p>
             <p>
-              The robot is built by{' '}
+              The robot and its low-level gait controller were built by the{' '}
               <a
                 className="text-blue-400 hover:underline"
                 href="https://www.csltaipeitech.com/en/project/intellisaurus-the-bionic-triceratops-robot"
                 rel="noopener noreferrer"
                 target="_blank">
-                City Science Lab@Taipei Tech Robotic team
+                City Science Lab @ Taipei Tech robotics team
               </a>
-              , and the low-level control(gait control) is not developed by me, but I developed the visual navigation
-              system and integrated it with the robot for autonomous navigation.
+              . I developed the visual navigation system and integrated it with the robot for autonomous navigation.
             </p>
             <div className="flex justify-center">
               <img
-                alt="Triceratops robot platform equipped with a RGB-D camera for visual navigation"
+                alt="Triceratops robot platform equipped with an RGB-D camera for visual navigation"
                 className="w-3/4 rounded-lg shadow-lg"
                 src="/images/portfolio/triceratops.png"
               />
@@ -1555,16 +1554,16 @@ const projects: Record<
         content: (
           <div className="space-y-4">
             <p>
-              The visual SLAM we are using is from{' '}
+              We use{' '}
               <a
                 className="text-blue-400 hover:underline"
                 href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam/tree/release-4.3/isaac_ros_visual_slam"
                 rel="noopener noreferrer"
                 target="_blank">
-                NVIDIA Isaac ROS VSLAM
-              </a>
-              , and I take visual odometry into account when integrating the visual navigation system with the
-              triceratops robot for autonomous navigation in indoor environments.
+                NVIDIA Isaac ROS Visual SLAM
+              </a>{' '}
+              for mapping and localization, and incorporate its visual odometry into the navigation system for
+              autonomous indoor navigation on the Triceratops robot.
             </p>
             <div className="my-4 flex justify-center">
               <div className="max-w-2xl w-full">
@@ -1574,6 +1573,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/p4SCeYuSRyI?si=96NhJyfjlEAXaZ7R&autoplay=1&loop=1&playlist=p4SCeYuSRyI&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -1593,8 +1593,8 @@ const projects: Record<
         content: (
           <div className="space-y-4">
             <p>
-              As the pure visual navigation system can be noisy and not robust in complex environments, we utilize
-              AprilTag markers for accurate localization during indoor navigation.
+              Because purely visual localization can be noisy and unreliable in complex environments, we use AprilTag
+              markers for accurate localization during indoor navigation.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
               <div>
@@ -1620,20 +1620,20 @@ const projects: Record<
         content: (
           <div className="space-y-4">
             <p>
-              As the visual navigation system cannot act like LiDAR-based navigation and use a costmap for local
-              planning, we develop a local planner that can take the laserscan data from depth information by using{' '}
+              Without a LiDAR, the visual navigation system has no laser scan from which to build a local costmap. We
+              therefore convert depth images into laser scans with the{' '}
               <a
                 className="text-blue-400 hover:underline"
                 href="https://wiki.ros.org/depthimage_to_laserscan"
                 rel="noopener noreferrer"
                 target="_blank">
-                depth_to_laserscan
+                depthimage_to_laserscan
               </a>{' '}
-              package.
+              package and feed them to our local planner.
             </p>
             <p>
-              The local planner is integrated with the existing visual navigation system, allowing for seamless
-              navigation in dynamic obstacle.
+              The local planner is integrated with the existing visual navigation system, enabling navigation around
+              dynamic obstacles.
             </p>
             <div className="my-4 flex justify-center">
               <div className="max-w-2xl w-full">
@@ -1643,13 +1643,14 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/Ryz1dCmaGSo?si=&autoplay=1&loop=1&playlist=Ryz1dCmaGSo&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
                     width="100%"
                   />
                 </div>
-                <p className="text-sm text-gray-400 text-center mt-2">Depth to Laserscan Conversion</p>
+                <p className="text-sm text-gray-400 text-center mt-2">Depth-to-laser-scan conversion</p>
               </div>
             </div>
             <div className="my-4 flex justify-center">
@@ -1660,13 +1661,14 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/g0pCNqtRL8U?si=&autoplay=1&loop=1&playlist=g0pCNqtRL8U&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
                     width="100%"
                   />
                 </div>
-                <p className="text-sm text-gray-400 text-center mt-2">Obstacle Avoidance with Depth to Laserscan</p>
+                <p className="text-sm text-gray-400 text-center mt-2">Obstacle avoidance using depth-derived laser scans</p>
               </div>
             </div>
           </div>
@@ -1688,6 +1690,7 @@ const projects: Record<
                     allowFullScreen
                     className="rounded-lg shadow-lg"
                     height="100%"
+                    loading="lazy"
                     src="https://www.youtube.com/embed/X7kAB2d0PGs?si=quBEeKW-fXh_IHqo&autoplay=1&loop=1&playlist=X7kAB2d0PGs&mute=1"
                     style={{border: 'none'}}
                     title="YouTube video player"
@@ -1752,8 +1755,8 @@ const ProjectPage: FC<{slug: string}> = memo(({slug}) => {
     return (
       <div className="min-h-screen bg-neutral-900 text-white flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-        <Link className="text-blue-400 hover:underline" href="/#portfolio">
-          ← Back to Portfolio
+        <Link className="text-blue-400 hover:underline" href="/">
+          ← Back to Home
         </Link>
       </div>
     );
@@ -1767,10 +1770,16 @@ const ProjectPage: FC<{slug: string}> = memo(({slug}) => {
       title={`${project.title} | Stanley Chueh 闕楷宸`}>
       <div className="min-h-screen bg-neutral-900 text-white">
         <div className="max-w-4xl mx-auto px-4 py-12">
-          {/* Back Link */}
-          <Link className="text-blue-400 hover:underline mb-8 inline-block" href="/#portfolio">
-            ← Back to Portfolio
-          </Link>
+          {/* Back Link: return to whichever homepage section this project is listed in */}
+          {featuredProjects.some(featured => featured.slug === slug) ? (
+            <Link className="text-blue-400 hover:underline mb-8 inline-block" href={`/#${SectionId.Featured}`}>
+              ← Back to Featured Research
+            </Link>
+          ) : (
+            <Link className="text-blue-400 hover:underline mb-8 inline-block" href={`/#${SectionId.Portfolio}`}>
+              ← Back to Earlier Projects
+            </Link>
+          )}
 
           {/* Title */}
           <section className="mb-12">
